@@ -4,11 +4,13 @@ import TopNav from './top-nav';
 
 import './header.css';
 
-export default function Header(props) {
-    return (
+export default class Header extends React.Component {
+    render() {
+        return (
         <header>
             <TopNav />
             <h1>Deal Hacker</h1>
         </header>
-    );
+        );
+    }
 }

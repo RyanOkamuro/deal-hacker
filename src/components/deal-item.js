@@ -11,38 +11,38 @@ export default class DealItem extends React.Component {
             <section>
                 <div className="row">
                     <div className="col-2">
-                        <div class="box orange">
-                            <DealName image={this.props.image} singleDeal={this.props.singleDeal} price={this.props.price} />
+                        <div class="box">
+                            <DealName image={this.props.image} singleDeal={this.props.singleDeal} price={this.props.price} imageClass={this.props.imageClass} seller={this.props.seller} />
                             <ViewDetails details={this.props.details} />
                         </div>
                     </div>
                     <div className="col-2">
-                        <div className="box blue">
-                            <DealName image={this.props.image} singleDeal={this.props.singleDeal} price={this.props.price} />
+                        <div className="box">
+                            <DealName image={this.props.image} singleDeal={this.props.singleDeal} price={this.props.price} imageClass={this.props.imageClass} seller={this.props.seller} />
                             <ViewDetails details={this.props.details} />
                         </div>
                     </div>
                     <div className="col-2">
-                        <div className="box green">
-                            <DealName image={this.props.image} singleDeal={this.props.singleDeal} price={this.props.price} />
+                        <div className="box">
+                            <DealName image={this.props.image} singleDeal={this.props.singleDeal} price={this.props.price} imageClass={this.props.imageClass} seller={this.props.seller} />
                             <ViewDetails details={this.props.details} />
                         </div>
                     </div>
                     <div className="col-2">
-                        <div className="box black">
-                            <DealName image={this.props.image} singleDeal={this.props.singleDeal} price={this.props.price} />
+                        <div className="box">
+                            <DealName image={this.props.image} singleDeal={this.props.singleDeal} price={this.props.price} imageClass={this.props.imageClass} seller={this.props.seller} />
                             <ViewDetails details={this.props.details} />
                         </div>
                     </div>
                     <div className="col-2">
-                        <div className="box green">
-                            <DealName image={this.props.image} singleDeal={this.props.singleDeal} price={this.props.price} />
+                        <div className="box">
+                            <DealName image={this.props.image} singleDeal={this.props.singleDeal} price={this.props.price} imageClass={this.props.imageClass} seller={this.props.seller} />
                             <ViewDetails details={this.props.details} />
                         </div>
                     </div>
                     <div className="col-2">
-                        <div className="box green">
-                            <DealName image={this.props.image} singleDeal={this.props.singleDeal} price={this.props.price} />
+                        <div className="box">
+                            <DealName image={this.props.image} singleDeal={this.props.singleDeal} price={this.props.price} imageClass={this.props.imageClass} seller={this.props.seller} />
                             <ViewDetails details={this.props.details} />
                         </div>
                     </div>

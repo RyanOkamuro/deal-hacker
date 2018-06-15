@@ -7,13 +7,15 @@ import './deal-board.css';
 
 export default class DealBoard extends React.Component {
     render() {
-        const singleDeal = "Product Description";
-        const price = "Price";
+        const singleDeal = "Amazon Fire Stick";
+        const price = "$15";
         const details = "Details";
         const image = "https://images-na.ssl-images-amazon.com/images/I/51D8NXwQfvL._SY355_.jpg";
+        const imageClass = "fireStick";
+        const seller = "Walmart";
         return (
             <div>
-                <DealItem details={details} singleDeal={singleDeal} price={price} image={image} />
+                <DealItem details={details} singleDeal={singleDeal} price={price} image={image} imageClass={imageClass} seller={seller} />
             </div>
         );
     }
