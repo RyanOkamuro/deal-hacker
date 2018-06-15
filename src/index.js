@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
+import Sales from './components/sales';
+
 import './reset.css';
 import './index.css';
 
-import Sales from './components/sales';
-
 ReactDOM.render(
-  <Sales />,
+    <Sales />,
   document.getElementById('root')
 );
