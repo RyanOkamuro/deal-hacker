@@ -1,0 +1,45 @@
+
+  .box {
+    height: 250px;
+    text-align: center;
+    padding-top: 30px;
+    border: solid grey;
+    border-radius: 10px;
+  }
+  
+  .row {
+    max-width: 1800px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+  }
+  
+  /* Clearfix */
+  .row::before,
+  .row::after {
+    display: table;
+    content: '';
+  }
+  
+  .row::after {
+    clear: both;
+  }
+  
+  .col-2 {
+    float: left;
+    padding-left: 1.04166666%;
+    padding-right: 1.04166666%;
+  }
+  
+  /* Mobile defaults */
+  .col-2 {
+    width: 100%;
+  }
+  
+  
+  /* Non-mobile, grid */
+  @media only screen and (min-width: 640px) {
+    .col-2 {
+      width: 250px;
+    }
+  }

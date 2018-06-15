@@ -10,7 +10,7 @@ export default function TopNav(props) {
                 <li><a href="#Stores" className="stores">Stores</a></li>
                 <li><a href="#Categories" className="categories">Categories</a></li>
             </ul>
-            <form class="sale-search-form">
+            <form className="sale-search-form">
                 <fieldset name="search-for-sale">
                     <legend>Search for sale</legend>
                     <label for="js-sale-item" className="sale-item">Search for sale item</label>
