@@ -11,7 +11,7 @@ export default class DealItem extends React.Component {
             <section>
                 <div className="row">
                     <div className="col-2">
-                        <div class="box">
+                        <div className="box">
                             <DealName image={this.props.image} singleDeal={this.props.singleDeal} price={this.props.price} imageClass={this.props.imageClass} seller={this.props.seller} favorite={this.props.favorite} favoriteClass={this.props.favoriteClass} />
                             <ViewDetails details={this.props.details} />
                         </div>
