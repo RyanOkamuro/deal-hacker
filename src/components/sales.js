@@ -4,6 +4,7 @@ import Header from './header';
 import {BrowserRouter as Router, Route, Redirect, Switch} from 'react-router-dom';
 import DealBoard from './deal-board';
 import DetailInformation from './detail-information';
+import Error from './error';
 
 export default function Sales() {
   return (
@@ -13,7 +14,8 @@ export default function Sales() {
           <main>
             <Switch>
               <Route exact path="/" component={DealBoard} /> 
-              <Route exact path="/detail-information/:detail-information" component={DetailInformation} />
+              <Route path="/detail-information" component={DetailInformation} />
+              <Route component={Error} />
             </Switch>
           </main>
       </div>
