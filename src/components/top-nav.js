@@ -1,5 +1,5 @@
 import React from 'react';
-import {BrowserRouter as Link} from 'react-router-dom';
+import {Link} from "react-router-dom";
 
 import './top-nav.css';
 
@@ -8,7 +8,7 @@ export default class TopNav extends React.Component {
         return (
             <nav> 
                 <ul className="navigation">
-                    <li><a href="#Home" className="home">Home</a></li>
+                    <li><Link to={"/"} className="home">Home</Link></li>
                     <li><a href="#Stores" className="stores">Stores</a></li>
                     <li><a href="#Categories" className="categories">Categories</a></li>
                     <li>
@@ -21,8 +21,8 @@ export default class TopNav extends React.Component {
                             </fieldset>
                         </form>
                     </li>
-                    <li><a href="#Login" className="login">Login</a></li>
-                    <li><a href="#Sign up" className="signUp">Sign up</a></li>
+                    <li><Link to={"/pages/login"} className="login">Login</Link></li>
+                    <li><Link to={"/pages/signup"} className="signup">Sign up</Link></li>    
                 </ul>
             </nav>
         );
