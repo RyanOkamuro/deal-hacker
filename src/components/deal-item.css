@@ -17,7 +17,7 @@
   }
   
   /* Clearfix */
-  .row::before,
+  /* .row::before,
   .row::after {
     display: table;
     content: '';
@@ -25,7 +25,7 @@
   
   .row::after {
     clear: both;
-  }
+  } */
   
   .col-2 {
     float: left;

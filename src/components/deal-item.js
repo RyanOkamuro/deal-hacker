@@ -7,45 +7,18 @@ import './deal-item.css';
 
 export default class DealItem extends React.Component {
     render() {
+        const saleItems = this.props.saleItems.map((saleItem, index) => (
+            <div className="col-2" key={index}>
+                <div className="box">
+                    <DealName saleItem={saleItem} />
+                    <ViewDetails saleItem={saleItem} />
+                </div>
+            </div>
+        ));
         return (
             <section>
                 <div className="row">
-                    <div className="col-2">
-                        <div className="box">
-                            <DealName image={this.props.image} singleDeal={this.props.singleDeal} price={this.props.price} imageClass={this.props.imageClass} seller={this.props.seller} favorite={this.props.favorite} favoriteClass={this.props.favoriteClass} />
-                            <ViewDetails details={this.props.details} />
-                        </div>
-                    </div>
-                    <div className="col-2">
-                        <div className="box">
-                            <DealName image={this.props.image} singleDeal={this.props.singleDeal} price={this.props.price} imageClass={this.props.imageClass} seller={this.props.seller} favorite={this.props.favorite} favoriteClass={this.props.favoriteClass} />
-                            <ViewDetails details={this.props.details} />
-                        </div>
-                    </div>
-                    <div className="col-2">
-                        <div className="box">
-                            <DealName image={this.props.image} singleDeal={this.props.singleDeal} price={this.props.price} imageClass={this.props.imageClass} seller={this.props.seller} favorite={this.props.favorite} favoriteClass={this.props.favoriteClass} />
-                            <ViewDetails details={this.props.details} />
-                        </div>
-                    </div>
-                    <div className="col-2">
-                        <div className="box">
-                            <DealName image={this.props.image} singleDeal={this.props.singleDeal} price={this.props.price} imageClass={this.props.imageClass} seller={this.props.seller} favorite={this.props.favorite} favoriteClass={this.props.favoriteClass} />
-                            <ViewDetails details={this.props.details} />
-                        </div>
-                    </div>
-                    <div className="col-2">
-                        <div className="box">
-                            <DealName image={this.props.image} singleDeal={this.props.singleDeal} price={this.props.price} imageClass={this.props.imageClass} seller={this.props.seller} favorite={this.props.favorite} favoriteClass={this.props.favoriteClass} />
-                            <ViewDetails details={this.props.details} />
-                        </div>
-                    </div>
-                    <div className="col-2">
-                        <div className="box">
-                            <DealName image={this.props.image} singleDeal={this.props.singleDeal} price={this.props.price} imageClass={this.props.imageClass} seller={this.props.seller} favorite={this.props.favorite} favoriteClass={this.props.favoriteClass} />
-                            <ViewDetails details={this.props.details} />
-                        </div>
-                    </div>
+                    {saleItems}
                 </div>
             </section>
         )

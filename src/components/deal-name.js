@@ -5,13 +5,15 @@ import './deal-name.css';
 export default class DealName extends React.Component {
     render() {
         return (
-            <figure>
-                <img src={this.props.favorite} className={this.props.favoriteClass} alt=""></img>
-                <img src={this.props.image} className={this.props.imageClass} alt=""></img>
-                <figcaption>{this.props.singleDeal}</figcaption>
-                <figcaption>{this.props.seller}</figcaption>
-                <figcaption>{this.props.price}</figcaption>
-            </figure>
+            <div>
+                <figure>
+                    <img src={this.props.saleItem.favorite} className={this.props.saleItem.favoriteClass} alt="favorite"></img>
+                    <img src={this.props.saleItem.image} className={this.props.saleItem.imageClass} alt="sale item"></img>
+                    <figcaption>{this.props.saleItem.dealName}</figcaption>
+                    <figcaption>{this.props.saleItem.seller}</figcaption>
+                    <figcaption>{this.props.saleItem.price}</figcaption>
+                </figure>
+            </div>
         )
     }
 }
