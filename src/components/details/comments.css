@@ -1,0 +1,23 @@
+
+  legend {
+    text-align: center;
+  }
+
+  .user-comments-form label {
+    display: block;
+    margin-bottom: 5px;
+    margin-top: 5px; 
+  }
+
+  .user-comments-form textarea {
+    resize: none;
+    width: 100%;
+  }  
+
+  .user-comments-form button {
+    display: block;
+    width: 100%;
+    padding: 6px;
+    border-radius: 3px;
+    margin-bottom: 3px;
+  }

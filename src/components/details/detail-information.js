@@ -1,17 +1,24 @@
 import React from 'react';
 
-// import Comments from './comments';
+import Comments from './comments';
+import ProductImage from './product-image';
+import ProductDescription from './product-description';
+import CommentsListing from './comments-listing';
+
+import './detail-information.css';
 
 export default class DetailInformation extends React.Component {
     render() {
-        console.log(this.props);
-        const { match } = this.props;
-        const { params } = match;
-        const { product } = params;
         return (
-            <div className="product-information">
-                <h2> hi </h2>
-                {/* <Comments /> */}
+            <div className="row-wrapper">
+                <div className="row2">
+                    <ProductImage allSalesItems= {this.props.history.location.allSalesItems} />
+                    <ProductDescription allSalesItems= {this.props.history.location.allSalesItems} />
+                </div>
+                <div className="row3">
+                    <Comments />
+                    <CommentsListing />
+                </div>
             </div>
         );
     }
