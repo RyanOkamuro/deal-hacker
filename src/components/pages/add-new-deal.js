@@ -1,28 +1,136 @@
 import React from "react";
+import {reduxForm, Field, SubmissionError, focus} from "redux-form";
+import Input from './input';
+import {required, nonEmpty} from '../../validators';
 
 import "./add-new-deal.css";
 
-export default class AddNewDeal extends React.Component {
+export class AddNewDealForm extends React.Component {
+    onSubmit(values) {
+        return fetch('/api/messages', {
+            method: 'POST',
+            body: JSON.stringify(values),
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+            .then(res => {
+                if (!res.ok) {
+                    if (
+                        res.headers.has('content-type') &&
+                        res.headers
+                            .get('content-type')
+                            .startsWith('application/json')
+                    ) {
+                        //Detailed JSON error response
+                        return res.json().then(err => Promise.reject(err));
+                    }
+                    // Less informative error returned by express
+                    return Promise.reject({
+                        code: res.status,
+                        message: res.statusText
+                    });
+                }
+                return;
+            })
+            .then(() => console.log('Submitted with values', values))
+            .catch(err => {
+                const {reason, message, location} = err;
+                if (reason === 'ValidationError') {
+                    // Convert ValidationErrors into SubmissionErrors for Redux Form
+                    return Promise.reject(
+                        new SubmissionError({
+                            [location]: message
+                        })
+                    );
+                }
+                return Promise.reject(
+                    new SubmissionError({
+                        _error: 'Error submitting message'
+                    })
+                );
+            });
+    }
+
     render() {
+        let successMessage;
+        if (this.props.submitSucceeded) {
+            successMessage = (
+                <div className="message message-success">
+                    Message submitted successfully
+                </div>
+            );
+        }
+
+        let errorMessage;
+        if (this.props.error) {
+            errorMessage = (
+                <div className="message message-error">{this.props.error}</div>
+            );
+        }
+
         return (
-            <form className="new-deal-form">
-                <fieldset name="add-new-deal">
-                    <legend>Add New Deal</legend>
-                        <label htmlFor="js-deal-name" className="new-deal-name">Item Name</label>
-                        <input placeholder="Playstation 4" type="text" name="js-deal-name" id="js-deal-name" required/>
-                        <label htmlFor="js-deal-price" className="new-deal-price">Price</label>
-                        <input placeholder="$200" type="text" name="js-deal-price" id="js-deal-price" required/>
-                        <label htmlFor="js-deal-image" className="new-deal-image">Image URL</label>
-                        <input placeholder="https://www.image.com" type="text" name="js-deal-image" id="js-deal-image" required/>
-                        <label htmlFor="js-deal-seller" className="new-deal-seller">Seller</label>
-                        <input placeholder="Walmart" type="text" name="js-deal-seller" id="js-deal-seller" required/>
-                        <label htmlFor="js-deal-product-description" className="new-deal-product-description">Product Description</label>
-                        <textarea name="js-deal-product-description" rows="15" required/>
-                        <label htmlFor="js-deal-link" className="new-deal-link">Deal URL</label>
-                        <input placeholder="https://www.walmart.com" type="text" name="js-deal-link" id="js-deal-link" required/>
-                        <button type="submit" className="js-add-new-deal">Submit</button>
-                </fieldset>
+            <form className="new-deal-form"
+                onSubmit={this.props.handleSubmit(values =>
+                    this.onSubmit(values)
+                )}>
+                <Field          
+                    name="deal-name"  
+                    type="text" 
+                    component={Input}
+                    label="Item Name"
+                    validate={[required, nonEmpty]} 
+                />
+                <Field          
+                    name="deal-price"  
+                    type="text" 
+                    component={Input}
+                    label="Price"
+                    validate={[required, nonEmpty]} 
+                />
+                <Field          
+                    name="deal-image"  
+                    type="text" 
+                    component={Input}
+                    label="Image URL"
+                    validate={[required, nonEmpty]} 
+                />
+                <Field          
+                    name="deal-seller"  
+                    type="text" 
+                    component={Input}
+                    label="Seller"
+                    validate={[required, nonEmpty]} 
+                />
+                <Field          
+                    name="deal-product-description"  
+                    element="textarea"
+                    rows="15" 
+                    component={Input}
+                    label="Product Description"
+                    validate={[required, nonEmpty]} 
+                />
+                <Field          
+                    name="deal-link"  
+                    type="text"
+                    component={Input}
+                    label="Deal URL"
+                    validate={[required, nonEmpty]} 
+                />
+                <button 
+                    type="submit"
+                    //Here we disable the button if it is pristine (i.e. if the user hasn't entered anything into the field) or it is submitting.
+                    disabled={this.props.pristine || this.props.submitting}>
+                    Submit
+                </button>
             </form>
         );
     }
 }
+
+export default reduxForm({
+    form: 'new-deal-form',
+    //Automatically focus on first incomplete field when the user submits incorrect value for a field
+    onSubmitFail: (errors, dispatch) =>
+        dispatch(focus('contact', Object.keys(errors)[0]))
+})(AddNewDealForm);

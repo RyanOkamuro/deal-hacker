@@ -21,6 +21,8 @@ export default class TopNav extends React.Component {
                             </fieldset>
                         </form>
                     </li>
+                    <li><Link to={"/pages/add-deal"} className="addDeal">Add Deal</Link></li>
+                    <li><Link to={"/pages/login"} className="editDeal">Edit Deal</Link></li>
                     <li><Link to={"/pages/login"} className="login">Login</Link></li>
                     <li><Link to={"/pages/signup"} className="signup">Sign up</Link></li>    
                 </ul>
