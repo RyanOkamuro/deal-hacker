@@ -1,0 +1,28 @@
+
+  .signup-form {
+    width: 400px;
+    padding: 40px;
+    margin: 0 auto;
+  }
+
+  .signup-form {
+    display: block;
+    margin-bottom: 5px;
+    margin-top: 5px;
+  }
+
+  .signup-form input {
+    width: 100%;
+    padding: 6px;
+    border-radius: 3px;
+    margin-bottom: 3px; 
+  } 
+
+  .signup-form button {
+    width: 100%;
+    padding: 6px;
+    border-radius: 3px;
+    margin-bottom: 3px;
+  }
+
+  

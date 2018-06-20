@@ -1,24 +1,28 @@
 
-  .login-form {
+  .edit-form {
     width: 400px;
     padding: 40px;
     margin: 0 auto;
   }
 
-  .login-form {
+  .edit-form {
     display: block;
     margin-bottom: 5px;
     margin-top: 5px;
   }
 
-  .login-form input {
+  .edit-form input, .edit-form textarea {
     width: 100%;
     padding: 6px;
     border-radius: 3px;
     margin-bottom: 3px; 
   } 
 
-  .login-form button {
+  .edit-form textarea {
+    resize: none;
+  }
+
+  .edit-form button {
     width: 100%;
     padding: 6px;
     border-radius: 3px;
