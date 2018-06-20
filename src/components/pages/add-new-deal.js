@@ -1,5 +1,5 @@
-import React from "react";
-import {reduxForm, Field, SubmissionError, focus} from "redux-form";
+import React from 'react';
+import {reduxForm, Field, SubmissionError, focus} from 'redux-form';
 import Input from './input';
 import {required, nonEmpty} from '../../validators';
 
@@ -75,35 +75,35 @@ export class AddNewDealForm extends React.Component {
                     this.onSubmit(values)
                 )}>
                 <Field          
-                    name="deal-name"  
+                    name="dealName"  
                     type="text" 
                     component={Input}
                     label="Item Name"
                     validate={[required, nonEmpty]} 
                 />
                 <Field          
-                    name="deal-price"  
+                    name="price"  
                     type="text" 
                     component={Input}
                     label="Price"
                     validate={[required, nonEmpty]} 
                 />
                 <Field          
-                    name="deal-image"  
+                    name="image"  
                     type="text" 
                     component={Input}
                     label="Image URL"
                     validate={[required, nonEmpty]} 
                 />
                 <Field          
-                    name="deal-seller"  
+                    name="seller"  
                     type="text" 
                     component={Input}
                     label="Seller"
                     validate={[required, nonEmpty]} 
                 />
                 <Field          
-                    name="deal-product-description"  
+                    name="productDescription"  
                     element="textarea"
                     rows="15" 
                     component={Input}
@@ -111,7 +111,7 @@ export class AddNewDealForm extends React.Component {
                     validate={[required, nonEmpty]} 
                 />
                 <Field          
-                    name="deal-link"  
+                    name="dealLink"  
                     type="text"
                     component={Input}
                     label="Deal URL"
