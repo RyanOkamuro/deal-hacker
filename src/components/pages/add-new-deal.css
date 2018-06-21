@@ -11,12 +11,16 @@
     margin-top: 5px;
   }
 
-  .new-deal-form input, .new-deal-form textarea {
+  .new-deal-form input, .new-deal-form select, .new-deal-form textarea {
     width: 100%;
     padding: 6px;
     border-radius: 3px;
     margin-bottom: 3px; 
   } 
+
+  .new-deal-form textarea {
+    height: 15em;
+  }
 
   .new-deal-form textarea {
     resize: none;

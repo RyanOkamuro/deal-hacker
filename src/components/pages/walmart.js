@@ -5,10 +5,10 @@ import StoresProductDescription from './stores-description';
 
 import './stores-layout.css';
 
-export default class Macys extends React.Component {
+export default class Walmart extends React.Component {
     render() {
         let storeMatch= this.props.saleItems.filter(function(saleItem) {
-            return saleItem.seller === "Macys";
+            return saleItem.seller === "Walmart";
         });
 
         let dealItems= storeMatch.map((dealItem, index) => (

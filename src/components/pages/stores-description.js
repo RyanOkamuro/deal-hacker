@@ -4,12 +4,9 @@ export default class StoresProductDescription extends React.Component {
     render() {
         const storeProductDetails = (
             <div className="store-box">
-                <p></p>
-                <a></a>
-                <p></p>
-                {/* <p>{this.props.allSalesItems.price}</p>
-                <a href={this.props.allSalesItems.dealLink}>{this.props.allSalesItems.dealName}</a>
-                <p>{this.props.allSalesItems.productDescription}</p> */}
+                <p>{this.props.dealItem.price}</p>
+                <a href={this.props.dealItem.dealLink}>{this.props.dealItem.dealName}</a>
+                <p>{this.props.dealItem.productDescription}</p>
             </div>
         );   
         return (

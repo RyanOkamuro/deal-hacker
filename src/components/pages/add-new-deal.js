@@ -82,6 +82,14 @@ export class AddNewDealForm extends React.Component {
                     validate={[required, nonEmpty]} 
                 />
                 <Field          
+                    name="productCategory"  
+                    component="select"
+                    label="Product Category" >
+                    <option value="Electronics">Electronics</option>
+                    <option value="Home Needs">Home Needs</option>
+                    <option value="Jewlery">Jewlery</option>
+                </ Field>
+                <Field          
                     name="price"  
                     type="text" 
                     component={Input}
@@ -105,7 +113,6 @@ export class AddNewDealForm extends React.Component {
                 <Field          
                     name="productDescription"  
                     element="textarea"
-                    rows="15" 
                     component={Input}
                     label="Product Description"
                     validate={[required, nonEmpty]} 

@@ -5,17 +5,22 @@ import StoresProductDescription from './stores-description';
 
 import './stores-layout.css';
 
-export default class StoresDetailInformation extends React.Component {
+export default class Dell extends React.Component {
     render() {
-        console.log(this.props);
+        let storeMatch= this.props.saleItems.filter(function(saleItem) {
+            return saleItem.seller === "Dell";
+        });
+
+        let dealItems= storeMatch.map((dealItem, index) => (
+            <div className="row-store" key={index}>
+                <StoresProductImage dealItem={dealItem} />
+                <StoresProductDescription dealItem={dealItem} />
+            </div>        
+        ));
+
         return (
             <div className="store-row-wrapper">
-                <div className="row-store">
-                    {/* <StoresProductImage allSalesItems= {this.props.history.location.allSalesItems} />
-                    <StoresProductDescription allSalesItems= {this.props.history.location.allSalesItems} /> */}
-                    <StoresProductImage allSalesItems= {this.props.history.location.allSalesItems} />
-                    <StoresProductDescription allSalesItems= {this.props.history.location.allSalesItems} />
-                </div>
+                {dealItems}
             </div>
         );
     }
