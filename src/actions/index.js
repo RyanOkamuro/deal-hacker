@@ -1,2 +1,5 @@
-// export const VIEW_ITEM_DETAILS = 'VIEW_ITEM_DETAILS';
-// export const viewItemDetails = 
+export const ADD_FAVORITE = 'ADD_FAVORITE';
+export const addFavorite = deal => ({
+    type: ADD_FAVORITE,
+    deal
+}); 

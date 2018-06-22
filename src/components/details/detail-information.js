@@ -9,6 +9,7 @@ import './detail-information.css';
 
 export default class DetailInformation extends React.Component {
     render() {
+        console.log(this.props);
         return (
             <div className="row-wrapper">
                 <div className="row2">

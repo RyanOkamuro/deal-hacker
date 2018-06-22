@@ -1,14 +1,15 @@
 import React from 'react';
-import {reduxForm, Field, SubmissionError, focus} from 'redux-form';
-import Input from '../pages/input';
-import {required, nonEmpty} from '../../validators';
+import {reduxForm, Field, SubmissionError, focus} from "redux-form";
+import Input from './pages/input';
+import {required, nonEmpty} from '../validators';
 
-import './comments.css';
+import "./search-bar.css";
 
-export class Comments extends React.Component {
+export class SearchBar extends React.Component {
     onSubmit(values) {
         return fetch('/api/messages', {
-            method: 'POST',
+//NEED TO UPDATE ORIGINALLY POST
+            method: 'GET',
             body: JSON.stringify(values),
             headers: {
                 'Content-Type': 'application/json'
@@ -51,7 +52,7 @@ export class Comments extends React.Component {
                 );
             });
     }
-    
+
     render() {
         let successMessage;
         if (this.props.submitSucceeded) {
@@ -68,41 +69,34 @@ export class Comments extends React.Component {
                 <div className="message message-error">{this.props.error}</div>
             );
         }
-
-        const userDealComments = (
-            <div className="box3">
-                <form className="user-comments-form"
-                    onSubmit={this.props.handleSubmit(values =>
-                        this.onSubmit(values)
-                    )}>
-                    <Field          
-                        name="user-comment-thread" 
-                        element="textarea"
-                        rows="15" 
-                        component={Input}
-                        label="Leave a comment"
-                        validate={[required, nonEmpty]} 
-                    />
-                    <button 
-                        type="submit"
-                        //Here we disable the button if it is pristine (i.e. if the user hasn't entered anything into the field) or it is submitting.
-                        disabled={this.props.pristine || this.props.submitting}>
-                        Submit
-                    </button>
-                </form>
-            </div>
-        );
         return (
-            <div className="col-12">
-                {userDealComments}
-            </div>
-        )
+            <form className="sale-search-form"
+                onSubmit={this.props.handleSubmit(values =>
+                    this.onSubmit(values)
+                )}>
+                <div className="sale-search-form input">
+                <Field          
+                    name="sale-query"  
+                    type="text" 
+                    component={Input}
+                    // label="Search for deal"
+                    validate={[required, nonEmpty]} 
+                />
+                </div>
+                <button 
+                    type="submit"
+                    //Here we disable the button if it is pristine (i.e. if the user hasn't entered anything into the field) or it is submitting.
+                    disabled={this.props.pristine || this.props.submitting}>
+                    Search
+                </button>
+            </form>
+        );
     }
 }
 
 export default reduxForm({
-    form: 'user-comments-form',
+    form: 'new-deal-form',
     //Automatically focus on first incomplete field when the user submits incorrect value for a field
     onSubmitFail: (errors, dispatch) =>
         dispatch(focus('contact', Object.keys(errors)[0]))
-})(Comments);
+})(SearchBar);

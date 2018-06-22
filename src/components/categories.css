@@ -1,0 +1,13 @@
+* {
+    box-sizing: border-box;
+  }
+
+   .nav_categories_submenu {
+    display: block;
+    position: absolute;
+  }
+
+  .nav_categories_submenu-item {
+    display: block;
+    position: relative;
+  }

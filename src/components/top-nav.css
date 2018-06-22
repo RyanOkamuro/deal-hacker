@@ -30,23 +30,4 @@
     background-color: #111;
   }
 
-  .sale-search-form {
-    display: block;
-    text-align: center;
-    margin-bottom: 50px;
-  }
-
-  .sale-search-form input {
-    width: 300px;
-    padding: 10px;
-    border-radius: 3px;
-    margin-bottom: 3px;
-  }
-
-  .sale-search-form button {
-    padding: 10px;
-    border-radius: 3px;
-    margin-bottom: 3px;
-  }
-
   
