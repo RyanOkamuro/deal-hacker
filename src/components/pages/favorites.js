@@ -1,20 +1,26 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import FavoriteStar from '../favorite-star';
-// import StoresProductImage from './stores-image';
-// import StoresProductDescription from './stores-description';
+// import FavoriteStar from '../favorite-star';
+import FavoriteProductImage from './favorites-image';
+import FavoriteProductDescription from './favorites-description';
 
 import './stores-layout.css';
 
 class Favorites extends React.Component {
+    constructor(props) {
+        super(props);
+    } 
     render() {
+        console.log(this.props.favorite.dealItems);
+        const favoriteItemDetails = this.props.favorite.dealItems.map((favoriteItemDetail, index) => (
+            <div className="row-store" key={index}>
+                <FavoriteProductImage favoriteItemDetail={favoriteItemDetail} />
+                <FavoriteProductDescription favoriteItemDetail={favoriteItemDetail} />
+            </div>
+        ));
         return (
             <div className="store-row-wrapper">
-                <div className="row-store">
-                    {/* {myfavorite} */}
-                    {/* <StoresProductImage saleItems={this.props.saleItems} />
-                    <StoresProductDescription saleItems={this.props.saleItems} /> */}
-                </div>
+                {favoriteItemDetails}
             </div>
         );
     }
@@ -22,7 +28,8 @@ class Favorites extends React.Component {
 
 const mapStateToProps = state => {
     console.log(state);
-    return {myFavorite: state.myFavorite}
+    return {favorite: state.favorite}
 };
 
 export default connect(mapStateToProps)(Favorites);
+
