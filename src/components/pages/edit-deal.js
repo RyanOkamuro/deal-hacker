@@ -82,6 +82,14 @@ export class EditDeal extends React.Component {
                     label="Item Name"
                     validate={[required, nonEmpty]} 
                 />
+                <label>Product Category</label>
+                <Field          
+                    name="productCategory"  
+                    component="select">
+                    <option value="Electronics">Electronics</option>
+                    <option value="Home Needs">Home Needs</option>
+                    <option value="Jewlery">Jewlery</option>
+                </ Field>
                 <Field          
                     name="price"  
                     type="text" 

@@ -5,7 +5,6 @@ import './deal-name.css';
 
 export default class DealName extends React.Component {
     render() {
-        console.log(this.props.saleItem);
         return (
             <div>
                 <figure>

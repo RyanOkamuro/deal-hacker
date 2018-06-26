@@ -49,7 +49,7 @@ export default class TopNav extends React.Component {
                     <li><Link to={"/add-deal"} className="addDeal">Add Deal</Link></li>
                     <li><Link to={"/edit-deal"} className="editDeal">Edit Deal</Link></li>
                     <li><Link to={"/login"} className="login">Login</Link></li>
-                    <li><Link to={"/signup"} className="signup">Sign up</Link></li>    
+                    <li><Link to={"/registration"} className="registration">Sign up</Link></li>    
                 </ul>
             </nav>
         );

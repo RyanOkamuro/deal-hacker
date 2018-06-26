@@ -3,7 +3,6 @@ import {connect} from 'react-redux';
 
 import {addFavorite} from '../actions';
 
-
 class FavoriteStar extends React.Component {
     constructor(props){
         super(props);
@@ -15,7 +14,7 @@ class FavoriteStar extends React.Component {
     }
     render() {
         return (
-            <img src={this.props.favoriteItem.favorite} onClick={() => this.addFavorite(this.props.favoriteItem.id)} className={this.props.favoriteItem.favoriteClass} alt="favorite"></img>
+            <img src={this.props.favoriteItem.favorite} onClick={() => this.addFavorite(this.props.favoriteItem)} className={this.props.favoriteItem.favoriteClass} alt="favorite"></img>
         )
     }
 }

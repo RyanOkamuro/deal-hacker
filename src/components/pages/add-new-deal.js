@@ -2,12 +2,14 @@ import React from 'react';
 import {reduxForm, Field, SubmissionError, focus} from 'redux-form';
 import Input from './input';
 import {required, nonEmpty} from '../../validators';
+import {API_BASE_URL} from '../../config';
 
 import "./add-new-deal.css";
 
 export class AddNewDealForm extends React.Component {
     onSubmit(values) {
-        return fetch('/api/messages', {
+        console.log(values);
+        return fetch(`${API_BASE_URL}/deal`, {
             method: 'POST',
             body: JSON.stringify(values),
             headers: {
@@ -81,10 +83,11 @@ export class AddNewDealForm extends React.Component {
                     label="Item Name"
                     validate={[required, nonEmpty]} 
                 />
+                <label>Product Category</label>
                 <Field          
                     name="productCategory"  
-                    component="select"
-                    label="Product Category" >
+                    component="select">
+                    <option></option>
                     <option value="Electronics">Electronics</option>
                     <option value="Home Needs">Home Needs</option>
                     <option value="Jewlery">Jewlery</option>
@@ -136,8 +139,8 @@ export class AddNewDealForm extends React.Component {
 }
 
 export default reduxForm({
-    form: 'new-deal-form',
+    form: 'new-deal',
     //Automatically focus on first incomplete field when the user submits incorrect value for a field
     onSubmitFail: (errors, dispatch) =>
-        dispatch(focus('contact', Object.keys(errors)[0]))
+        dispatch(focus('new-deal', Object.keys(errors)[0]))
 })(AddNewDealForm);

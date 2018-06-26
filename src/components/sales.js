@@ -15,8 +15,8 @@ import HomeNeeds from './pages/homeneeds';
 import Jewlery from './pages/jewlery';
 import AddNewDealForm from './pages/add-new-deal';
 import EditDeal from './pages/edit-deal';
-import Login from './pages/login';
-import Signup from './pages/signup';
+import LoginForm from './pages/login-form';
+import RegistrationPage from './pages/registration-page';
 import Error from './error';
 
 export default function Sales() {
@@ -92,7 +92,32 @@ export default function Sales() {
     favoriteClass: "favorite",
     productDescription: "Black multifunction dial with gold-tone stick indices, three hands, three subdials and logo Quartz movement /n Water resistant to 30 meters /n Three-year limited warranty",
     dealLink: "https://www.macys.com/shop/product/bulova-mens-two-tone-stainless-steel-bracelet-watch-43mm-98c120?ID=1619494&CategoryID=26215#fn=GENDER%3DMen%26SIZE%3D%26sp%3D1%26spc%3D233%26ruleId%3D64%7CBOOST%20SAVED%20SET%7CBOOST%20ATTRIBUTE%26searchPass%3DmatchNone%26slotId%3D1"
+  }, {
+    id: "7",
+    dealName: "Ecovacs Deebot N79 WiFi Robotic Vacuum Cleaner",
+    productCategory: "Electronics",
+    price: "$160",
+    details: "Details",
+    image: "https://static-us.ecovacs.com/upload/YWRtaW/goods_image/2017/06/goods_image_1498217041ECOVACS-Robot-Vacuum-DEEBOT-N79-2.jpg",
+    seller: "Amazon",
+    favorite: "https://i.stack.imgur.com/LQk8v.png",
+    favoriteClass: "favorite",
+    productDescription: "ECOVACS DEEBOT N79 Robot Vacuum Cleaner, Strong Suction, for Low-pile Carpet, Hard floor, Wi-Fi Connected /n 1 Year Warranty, plus Accessories: Includes (1) remote control, (4) side brushes, (1) power adapter, (1) docking station",
+    dealLink: "https://www.amazon.com/gp/product/B07CXRM6NN/ref=ox_sc_act_title_1?tag=slicinc-20&ascsubtag=3cb59a18763c11e892419ee15ae9a4c50INT&smid=AZEM36FNFTIUR&psc=1"
+  }, {
+    id: "8",
+    dealName: "Logitech G Pro Wired Optical Gaming Mouse w/ RGB Lighting",
+    productCategory: "Electronics",
+    price: "$30",
+    details: "Details",
+    image: "https://webobjects2.cdw.com/is/image/CDW/4894391?$product-main$",
+    seller: "Best Buy",
+    favorite: "https://i.stack.imgur.com/LQk8v.png",
+    favoriteClass: "favorite",
+    productDescription: "Logitech G Pro Wired Optical Gaming Mouse w/ RGB Lighting on sale for $29.99. Select free in-store pickup to save on shipping, otherwise free shipping on orders $35 or more",
+    dealLink: "https://www.ebay.com/itm/Logitech-G-Pro-Wired-Optical-Gaming-Mouse-with-RGB-Lighting-Black/202124812591?afepn=5337259887&siteId=0&AdChoicePreference=true&rmvSB=true"
   }]
+
   return (
     <Router>
       <div className="homePage">
@@ -109,12 +134,11 @@ export default function Sales() {
               <Route path="/electronics" name="electronic-deal" component={ ()=> <Electronics saleItems={saleItems} /> } />
               <Route path="/homeneeds" name="homeneeds-deal" component={ ()=> <HomeNeeds saleItems={saleItems} /> } />
               <Route path="/jewlery" name="jewlery-deal" component={ ()=> <Jewlery saleItems={saleItems} /> } />
-              {/* <Route path="/favorites" name="favorite-deals" component={StoresDetailInformation} /> */}
               <Route path="/favorites" component={ ()=> <Favorites saleItems={saleItems} /> } /> 
               <Route path="/add-deal" name="add-deal" component={AddNewDealForm} />
               <Route path="/edit-deal" name="edit-deal" component={EditDeal} />
-              <Route path="/login" name="login" component={Login} />
-              <Route path="/signup" name="signup" component={Signup} />
+              <Route path="/login" name="login" component={LoginForm} />
+              <Route path="/registration" name="registration" component={RegistrationPage} />
               <Route component={Error} />
             </Switch>
           </main>
