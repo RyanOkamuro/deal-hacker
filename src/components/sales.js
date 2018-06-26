@@ -15,7 +15,7 @@ import HomeNeeds from './pages/homeneeds';
 import Jewlery from './pages/jewlery';
 import AddNewDealForm from './pages/add-new-deal';
 import EditDeal from './pages/edit-deal';
-import LoginForm from './pages/login-form';
+import LoginPage from './pages/login-page';
 import RegistrationPage from './pages/registration-page';
 import Error from './error';
 
@@ -137,7 +137,7 @@ export default function Sales() {
               <Route path="/favorites" component={ ()=> <Favorites saleItems={saleItems} /> } /> 
               <Route path="/add-deal" name="add-deal" component={AddNewDealForm} />
               <Route path="/edit-deal" name="edit-deal" component={EditDeal} />
-              <Route path="/login" name="login" component={LoginForm} />
+              <Route path="/login" name="login" component={LoginPage} />
               <Route path="/registration" name="registration" component={RegistrationPage} />
               <Route component={Error} />
             </Switch>
