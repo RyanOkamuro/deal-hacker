@@ -1,6 +1,7 @@
 import {createStore, applyMiddleware, combineReducers} from 'redux';
 import {reducer as formReducer} from 'redux-form';
 import {favoriteReducer} from './reducers';
+import {getDealReducer} from './reducers/getDeal';
 import thunk from 'redux-thunk';
 import {loadAuthToken} from './local-storage';
 import authReducer from './reducers/auth';
@@ -11,6 +12,7 @@ const store = createStore(
     combineReducers({
         form: formReducer,
         favorite: favoriteReducer,
+        getDeal: getDealReducer,
         auth: authReducer,
         protectedData: protectedDataReducer
     }),

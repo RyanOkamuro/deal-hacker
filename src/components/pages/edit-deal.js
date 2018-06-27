@@ -86,6 +86,7 @@ export class EditDeal extends React.Component {
                 <Field          
                     name="productCategory"  
                     component="select">
+                    <option></option>
                     <option value="Electronics">Electronics</option>
                     <option value="Home Needs">Home Needs</option>
                     <option value="Jewlery">Jewlery</option>

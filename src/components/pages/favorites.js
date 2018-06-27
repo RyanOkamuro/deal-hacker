@@ -7,9 +7,6 @@ import FavoriteProductDescription from './favorites-description';
 import './stores-layout.css';
 
 class Favorites extends React.Component {
-    constructor(props) {
-        super(props);
-    } 
     render() {
         console.log(this.props.favorite.dealItems);
         const favoriteItemDetails = this.props.favorite.dealItems.map((favoriteItemDetail, index) => (

@@ -1,7 +1,6 @@
 import React from 'react';
 import {reduxForm, Field, SubmissionError, focus} from 'redux-form';
 import Input from './input';
-// import {addNewDeal} from '../../actions/addDeal';
 import {required, nonEmpty} from '../../validators';
 import {API_BASE_URL} from '../../config';
 
@@ -10,9 +9,6 @@ import "./add-new-deal.css";
 export class AddNewDealForm extends React.Component {
     onSubmit(values) {
         console.log(values);
-        // return this.props
-        //     .dispatch(addNewDeal(values))
-        //     .then(res => {
         return fetch(`${API_BASE_URL}/deal`, {
             method: 'POST',
             body: JSON.stringify(values),
