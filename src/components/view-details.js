@@ -11,7 +11,7 @@ export default class ViewDetails extends React.Component {
         };
         return (
             <div>
-                <Link to={salesItem}><button className="btn">{this.props.saleItem.details}</button></Link>
+                <Link to={salesItem}><button className="btn">Details</button></Link>
             </div>
         )
     }

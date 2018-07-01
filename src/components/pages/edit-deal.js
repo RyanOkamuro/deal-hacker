@@ -1,14 +1,12 @@
 import React from 'react';
 import {reduxForm, Field, SubmissionError, focus} from 'redux-form';
 import Input from './input';
-import {required, nonEmpty} from '../../validators';
+import {API_BASE_URL} from '../../config';
 
 import "./edit-deal.css";
-        
 export class EditDeal extends React.Component {
-    onSubmit(values) {
-        return fetch('/api/messages', {
-//NEED TO UPDATE ORIGINAL METHOD: POST
+    onSubmit(values, productID) {
+        return fetch(`${API_BASE_URL}/deal/${productID}`, {
             method: 'PUT',
             body: JSON.stringify(values),
             headers: {
@@ -54,6 +52,8 @@ export class EditDeal extends React.Component {
     }
 
     render() {
+        console.log(this.props.history.location.id);
+        const productID = this.props.history.location.id;
         let successMessage;
         if (this.props.submitSucceeded) {
             successMessage = (
@@ -73,14 +73,13 @@ export class EditDeal extends React.Component {
         return (
             <form className="edit-form"
                 onSubmit={this.props.handleSubmit(values =>
-                    this.onSubmit(values)
+                    this.onSubmit(values, productID)
                 )}>
                 <Field          
                     name="dealName"  
                     type="text" 
                     component={Input}
                     label="Item Name"
-                    validate={[required, nonEmpty]} 
                 />
                 <label>Product Category</label>
                 <Field          
@@ -96,21 +95,18 @@ export class EditDeal extends React.Component {
                     type="text" 
                     component={Input}
                     label="Price"
-                    validate={[required, nonEmpty]} 
                 />
                 <Field          
                     name="image"  
                     type="text" 
                     component={Input}
                     label="Image URL"
-                    validate={[required, nonEmpty]} 
                 />
                 <Field          
                     name="seller"  
                     type="text" 
                     component={Input}
                     label="Seller"
-                    validate={[required, nonEmpty]} 
                 />
                 <Field          
                     name="productDescription"  
@@ -118,14 +114,12 @@ export class EditDeal extends React.Component {
                     rows="15" 
                     component={Input}
                     label="Product Description"
-                    validate={[required, nonEmpty]} 
                 />
                 <Field          
                     name="dealLink"  
                     type="text" 
                     component={Input}
                     label="Deal Link"
-                    validate={[required, nonEmpty]} 
                 />
                 <button 
                     type="submit"
