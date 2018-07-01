@@ -9,7 +9,7 @@ export const addFavorite = deal => ({
 export const addNewFavorite = deal => (dispatch, getState) => {
     const authToken = getState().auth.authToken;
     const user = getState().auth.currentUser.username;
-    return fetch(`${API_BASE_URL}/api/users`, {
+    return fetch(`${API_BASE_URL}/api/users/favorites`, {
         method: 'POST',
         headers: {
             Authorization: `Bearer ${authToken}`,

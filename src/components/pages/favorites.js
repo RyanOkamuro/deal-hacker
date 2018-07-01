@@ -1,19 +1,20 @@
 import React from 'react';
 import {connect} from 'react-redux';
-// import requiresLogin from './requires-login';
-// import {fetchProtectedData} from '../actions/protected-data';
+import requiresLogin from './requires-login';
+import {getAllFavorites} from '../../actions/getFavorite';
+import {removeOneFavorite} from '../../actions/removeFavorite';
 import FavoriteProductImage from './favorites-image';
 import FavoriteProductDescription from './favorites-description';
 
 import './stores-layout.css';
 
 class Favorites extends React.Component {
-    // componentDidMount() {
-    //     this.props.dispatch(fetchProtectedData());
-    // }
+    componentDidMount() {
+        this.props.dispatch(getAllFavorites());
+        this.props.dispatch(removeOneFavorite());
+    }
     render() {
-        console.log(this.props.favorite.dealItems);
-        const favoriteItemDetails = this.props.favorite.dealItems.map((favoriteItemDetail, index) => (
+        const favoriteItemDetails = this.props.favorite.map((favoriteItemDetail, index) => (
             <div className="row-store" key={index}>
                 <FavoriteProductImage favoriteItemDetail={favoriteItemDetail} />
                 <FavoriteProductDescription favoriteItemDetail={favoriteItemDetail} />
@@ -28,16 +29,14 @@ class Favorites extends React.Component {
 }
 
 const mapStateToProps = state => {
-    // const {currentUser} = state.auth;
-    return {favorite: state.favorite}
-//     {
-//         username: state.auth.currentUser.username,
-//         name: `${currentUser.firstName} ${currentUser.lastName}`,
-//         protectedData: state.protectedData.data
-//     };
-// };
-
+    const {currentUser} = state.auth;
+    return {
+        favorite: state.getFavorite.dealItems,
+        username: state.auth.currentUser.username,
+        name: `${currentUser.firstName} ${currentUser.lastName}`,
+    };
 };
 
-export default connect(mapStateToProps)(Favorites);
-// export default requiresLogin()(connect(mapStateToProps)(Favorites));
+export default requiresLogin()(connect(mapStateToProps)(Favorites));
+
+

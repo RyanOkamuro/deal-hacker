@@ -7,7 +7,7 @@ import './comments.css';
 
 export class Comments extends React.Component {
     onSubmit(values) {
-        return fetch('/api/messages', {
+        return fetch('/deal', {
             method: 'POST',
             body: JSON.stringify(values),
             headers: {

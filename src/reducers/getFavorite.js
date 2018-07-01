@@ -5,9 +5,7 @@ const initialState = {
 };
 
 export const getFavoriteReducer = (state=initialState, action) => {
-    console.log(action);
     if (action.type === actions.GET_FAVORITE) {
-        console.log(action.deals);
         return Object.assign({}, state, {
         // Object.assign generates
         // a new state object by merging an object

@@ -4,7 +4,6 @@ import './stores-image.css';
 
 export default class FavoriteProductImage extends React.Component {
     render() {
-        console.log(this.props.favoriteItemDetail);
         const favoriteProductPhotos = (
             <div className="store-box">
                 {this.props.favoriteItemDetail.dealName}
