@@ -8,4 +8,6 @@
 
   .comment-list {
     background: none;
+    border: solid grey;
+    border-width: thin;
   }
