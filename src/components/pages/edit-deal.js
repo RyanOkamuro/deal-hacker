@@ -32,7 +32,7 @@ export class EditDeal extends React.Component {
                     });
                 }
                 if (res.ok) {
-                    return <Redirect to="/" />
+                    return res.json().then(data => this.props.dispatch({type: 'UPDATE_DEAL_SUCCESS', data}))
                 }
                 return;
             })
