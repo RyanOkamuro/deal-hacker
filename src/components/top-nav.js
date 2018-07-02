@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 import SearchBar from './search-bar';
 import StoresSubmenu from './stores';
 import CategoriesSubmenu from './categories';
+import LogOut from './logout';
 
 import './top-nav.css';
 
@@ -47,9 +48,9 @@ export default class TopNav extends React.Component {
                     </li>
                     <li><Link to={"/favorites"} className="addDeal">Favorites</Link></li>
                     <li><Link to={"/add-deal"} className="addDeal">Add Deal</Link></li>
-                    <li><Link to={"/edit-deal"} className="editDeal">Edit Deal</Link></li>
+                    <li><Link to={"/registration"} className="registration">Sign up</Link></li>  
                     <li><Link to={"/login"} className="login">Login</Link></li>
-                    <li><Link to={"/registration"} className="registration">Sign up</Link></li>    
+                    <li className="log-out"><LogOut /></li>  
                 </ul>
             </nav>
         );

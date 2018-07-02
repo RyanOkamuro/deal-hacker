@@ -26,7 +26,14 @@
     text-decoration: none;
   }
 
-  li a:hover {
+  .log-out {
+    color: white;
+    text-align: center;
+    padding: 7px 12px;
+    text-decoration: none;
+  }
+
+  li a:hover, .log-out:hover {
     background-color: #111;
   }
 

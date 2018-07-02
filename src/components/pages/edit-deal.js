@@ -1,6 +1,7 @@
 import React from 'react';
 import {reduxForm, Field, SubmissionError, focus} from 'redux-form';
 import Input from './input';
+import {Redirect} from 'react-router-dom';
 import {API_BASE_URL} from '../../config';
 
 import "./edit-deal.css";
@@ -29,6 +30,9 @@ export class EditDeal extends React.Component {
                         code: res.status,
                         message: res.statusText
                     });
+                }
+                if (res.ok) {
+                    return <Redirect to="/" />
                 }
                 return;
             })

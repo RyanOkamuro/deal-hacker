@@ -113,6 +113,11 @@ export class AddNewDealForm extends React.Component {
                     label="Seller"
                     validate={[required, nonEmpty]} 
                 />
+                {/* <Field          
+                    name="favorite"  
+                    type="text" 
+                    component={Input}
+                /> */}
                 <Field          
                     name="productDescription"  
                     element="textarea"
