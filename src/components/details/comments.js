@@ -1,13 +1,13 @@
 import React from 'react';
 import {reduxForm, Field, SubmissionError, focus} from 'redux-form';
 import Input from '../pages/input';
-import {required, nonEmpty} from '../../validators';
+import {API_BASE_URL} from '../../config';
 
 import './comments.css';
 
 export class Comments extends React.Component {
     onSubmit(values) {
-        return fetch('/deal', {
+        return fetch(`${API_BASE_URL}/comments`, {
             method: 'POST',
             body: JSON.stringify(values),
             headers: {
@@ -76,12 +76,11 @@ export class Comments extends React.Component {
                         this.onSubmit(values)
                     )}>
                     <Field          
-                        name="user-comment-thread" 
+                        name="userComment" 
                         element="textarea"
                         rows="15" 
                         component={Input}
                         label="Leave a comment"
-                        validate={[required, nonEmpty]} 
                     />
                     <button 
                         type="submit"

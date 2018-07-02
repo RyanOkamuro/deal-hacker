@@ -1,19 +1,35 @@
 import React from 'react';
+import {getAllComments} from '../../actions/getComments';
+import SingleComment from './single-comment';
+import {connect} from 'react-redux';
 
 import './comments-listing.css';
 
-export default class CommentsListing extends React.Component {
+export class CommentsListing extends React.Component {
+    componentDidMount() {
+        this.props.dispatch(getAllComments());
+    }
     render() {
-        const userDealCommentsListing = (
-            <li className="comment-list">
-                "hi"
-            </li>
-        );
-        return (
-            <ul className="comment-area">
-                {userDealCommentsListing}
+        console.log(this.props);
+        const userComments = this.props.commentList.map((comment, index) => (
+            <ul className="comment-list" key={index}>
+                <SingleComment comment={comment} />
             </ul>
-            
+        ))
+        return (
+            <div className="comment-area">
+                {userComments}
+            </div> 
         )
     }
 }
+
+CommentsListing.defaultProps = {
+    title: 'CommentsListing'
+};
+
+const mapStateToProps = state => ({
+    commentList: state.getComments.allComments
+});
+
+export default connect(mapStateToProps)(CommentsListing);
