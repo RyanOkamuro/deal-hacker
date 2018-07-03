@@ -7,12 +7,17 @@ import './comments.css';
 
 export class Comments extends React.Component {
     onSubmit(values) {
-        return fetch(`${API_BASE_URL}/comments`, {
+        const id = this.props.allSalesItems.id
+        // const authToken = getState().auth.authToken;
+        // const user = getState().auth.currentUser.username;
+        return fetch(`${API_BASE_URL}/comments/${id}`, {
             method: 'POST',
             body: JSON.stringify(values),
             headers: {
                 'Content-Type': 'application/json'
-            }
+            },
+            'dataType': 'json',
+            body: JSON.stringify(values)
         })
             .then(res => {
                 if (!res.ok) {
@@ -68,7 +73,7 @@ export class Comments extends React.Component {
                 <div className="message message-error">{this.props.error}</div>
             );
         }
-
+        
         const userDealComments = (
             <div className="box3">
                 <form className="user-comments-form"
