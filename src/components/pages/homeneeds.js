@@ -2,12 +2,18 @@ import React from 'react';
 
 import StoresProductImage from './stores-image';
 import StoresProductDescription from './stores-description';
+import {getAllDeals} from '../../actions/dealActions';
+import {connect} from 'react-redux';
 
 import './stores-layout.css';
 
-export default class HomeNeeds extends React.Component {
+export class HomeNeeds extends React.Component {
+    componentDidMount() {
+        this.props.dispatch(getAllDeals());
+    }
     render() {
-        let storeMatch= this.props.saleItems.filter(function(saleItem) {
+        console.log(this.props);
+        let storeMatch= this.props.lists.filter(function(saleItem) {
             return saleItem.productCategory === "Home Needs";
         });
 
@@ -26,3 +32,12 @@ export default class HomeNeeds extends React.Component {
     }
 }
 
+HomeNeeds.defaultProps = {
+    title: 'HomeNeeds'
+};
+
+const mapStateToProps = state => ({
+    lists: state.deal.allDeals
+});
+
+export default connect(mapStateToProps)(HomeNeeds);
