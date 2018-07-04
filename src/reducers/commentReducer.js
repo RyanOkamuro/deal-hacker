@@ -1,13 +1,11 @@
-import * as actions from '../actions/getComments';
-import * as UpdateCommentsAction from '../actions/getUpdatedComments';
+import * as actions from '../actions/commentActions';
+import * as UpdateCommentsAction from '../actions/commentActions';
 
 const initialState = {
     allComments: []
 };
 
-export const getCommentsReducer = (state=initialState, action) => {
-    console.log(action);
-    console.log(state);
+export const commentReducer = (state=initialState, action) => {
     if (action.type === actions.GET_COMMENTS) {
         return Object.assign({}, state, {
         // Object.assign generates
@@ -22,24 +20,8 @@ export const getCommentsReducer = (state=initialState, action) => {
         // allComents: { ...state.allComents, [action.id]: { ...state.allComents[action.id], actions.comments } }
         })
     }
-    // allComments: state.allComments.map(comment => {
-//     console.log(comment);
-//     console.log(action.comments)
-//     if (action.comment.productId === action.comments.comments.id) {
-//         return action.comments;
-        
-//     } else {
-//         return comment;
-//     }
-// })
-// })
-// }
-// return state;
-// }
 
-
-    if (action.type === UpdateCommentsAction.UPDATE_COMMENTS_SUCCESS) {
-        console.log(action);
+    if (action.type === UpdateCommentsAction.GET_UPDATED_COMMENTS_SUCCESS) {
         return Object.assign({}, state, {   
             allComments: action.comments
         })

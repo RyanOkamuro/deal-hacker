@@ -1,8 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import requiresLogin from './requires-login';
-import {getAllFavorites} from '../../actions/getFavorite';
-import {removeOneFavorite} from '../../actions/removeFavorite';
+import {getAllFavorites} from '../../actions/favoriteActions';
 import FavoriteProductImage from './favorites-image';
 import FavoriteProductDescription from './favorites-description';
 
@@ -11,7 +10,6 @@ import './stores-layout.css';
 class Favorites extends React.Component {
     componentDidMount() {
         this.props.dispatch(getAllFavorites());
-        // this.props.dispatch(removeOneFavorite());
     }
     render() {
         const favoriteItemDetails = this.props.favorite.map((favoriteItemDetail, index) => (
@@ -31,7 +29,7 @@ class Favorites extends React.Component {
 const mapStateToProps = state => {
     const {currentUser} = state.auth;
     return {
-        favorite: state.getFavorite.dealItems,
+        favorite: state.favorite.dealItems,
         username: state.auth.currentUser.username,
         name: `${currentUser.firstName} ${currentUser.lastName}`,
     };

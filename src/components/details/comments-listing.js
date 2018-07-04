@@ -1,5 +1,5 @@
 import React from 'react';
-import {getAllComments} from '../../actions/getComments';
+import {getAllComments} from '../../actions/commentActions';
 import SingleComment from './single-comment';
 import {connect} from 'react-redux';
 
@@ -29,7 +29,7 @@ CommentsListing.defaultProps = {
 };
 
 const mapStateToProps = state => ({
-    commentList: state.getComments.allComments
+    commentList: state.comment.allComments
 });
 
 export default connect(mapStateToProps)(CommentsListing);

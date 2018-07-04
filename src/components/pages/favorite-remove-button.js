@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-import {removeOneFavorite} from '../../actions/removeFavorite';
+import {removeOneFavorite} from '../../actions/favoriteActions';
 
 class FavoriteRemoveButton extends React.Component {
     constructor(props){

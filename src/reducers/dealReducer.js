@@ -1,11 +1,11 @@
-import * as actions from '../actions/getDeal';
-import * as UpdateActions from '../actions/getUpdatedDeal';
+import * as actions from '../actions/dealActions';
+import * as updateDealAction from '../actions/dealActions';
 
 const initialState = {
     allDeals: []
 };
 
-export const getDealReducer = (state=initialState, action) => {
+export const dealReducer = (state=initialState, action) => {
     if (action.type === actions.GET_DEALS) {
         console.log(action);
         return Object.assign({}, state, {
@@ -17,10 +17,10 @@ export const getDealReducer = (state=initialState, action) => {
         // that we're not mutating the original state object
         // ...state.dealsItems is the original state
         // action.deal is the new state     
-        allDeals: [...state.allDeals, ...action.deals.dealItem]
+        allDeals: action.deals.dealItem
         })
     }
-    if (action.type === UpdateActions.UPDATE_DEAL_SUCCESS) {
+    if (action.type === updateDealAction.GET_UPDATE_DEAL_SUCCESS) {
         console.log(action);
         return Object.assign({}, state, {   
         allDeals: state.allDeals.map(item => {

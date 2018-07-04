@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-import {addNewFavorite} from '../actions';
+import {addNewFavorite} from '../actions/favoriteActions';
 
 class FavoriteStar extends React.Component {
     constructor(props){

@@ -1,7 +1,7 @@
 import React from 'react';
 
 import DealItem from './deal-item';
-import {getAllDeals} from '../actions/getDeal';
+import {getAllDeals} from '../actions/dealActions';
 import {connect} from 'react-redux';
 
 import './deal-board.css';
@@ -24,7 +24,7 @@ DealBoard.defaultProps = {
 };
 
 const mapStateToProps = state => ({
-    lists: state.getDeal.allDeals
+    lists: state.deal.allDeals
 });
 
 export default connect(mapStateToProps)(DealBoard);

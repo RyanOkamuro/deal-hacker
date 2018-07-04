@@ -40,7 +40,7 @@ export class Comments extends React.Component {
                 if (res.ok) {
                     return res.json().then(comments => {
                         console.log(comments);
-                     this.props.dispatch({type: 'UPDATE_COMMENTS_SUCCESS', comments})
+                     this.props.dispatch({type: 'GET_UPDATED_COMMENTS_SUCCESS', comments})
                 })
                 }
                 return;
