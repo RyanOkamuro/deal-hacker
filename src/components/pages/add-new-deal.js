@@ -119,6 +119,7 @@ export class AddNewDealForm extends React.Component {
                 {/* <Field          
                     name="favorite"  
                     type="text" 
+                    https://i.stack.imgur.com/LQk8v.png
                     component={Input}
                 /> */}
                 <Field          

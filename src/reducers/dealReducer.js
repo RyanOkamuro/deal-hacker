@@ -14,9 +14,7 @@ export const dealReducer = (state=initialState, action) => {
         // representing the new state of the lists
         // to the existing state, and in turn, that resulting 
         // object into an empty object, which ensures
-        // that we're not mutating the original state object
-        // ...state.dealsItems is the original state
-        // action.deal is the new state     
+        // that we're not mutating the original state object  
         allDeals: action.deals.dealItem
         })
     }

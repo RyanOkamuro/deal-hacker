@@ -14,9 +14,7 @@ export const commentReducer = (state=initialState, action) => {
         // to the existing state, and in turn, that resulting 
         // object into an empty object, which ensures
         // that we're not mutating the original state object
-        // ...state.dealsItems is the original state
-        // action.deal is the new state     
-        allComments: [...state.allComments, ...action.comments.comments]
+        allComments: action.comments.comments
         // allComents: { ...state.allComents, [action.id]: { ...state.allComents[action.id], actions.comments } }
         })
     }
