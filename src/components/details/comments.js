@@ -2,19 +2,20 @@ import React from 'react';
 import {reduxForm, Field, SubmissionError, focus} from 'redux-form';
 import Input from '../pages/input';
 import {API_BASE_URL} from '../../config';
+import store from '../../store';
 
 import './comments.css';
 
 export class Comments extends React.Component {
     onSubmit(values) {
         const id = this.props.allSalesItems.id
-        // const authToken = getState().auth.authToken;
-        // const user = getState().auth.currentUser.username;
+        const authToken = store.getState().auth.authToken;
         return fetch(`${API_BASE_URL}/comments/${id}`, {
             method: 'POST',
             body: JSON.stringify(values),
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${authToken}`
             },
             'dataType': 'json',
             body: JSON.stringify(values)
@@ -36,6 +37,9 @@ export class Comments extends React.Component {
                         message: res.statusText
                     });
                 }
+                // if (res.ok) {
+                    // return res.json().then(data => this.props.dispatch({type: 'UPDATE_COMMENTS_SUCCESS', data}))
+                // }
                 return;
             })
             .then(() => console.log('Submitted with values', values))

@@ -33,6 +33,9 @@ export class AddNewDealForm extends React.Component {
                         message: res.statusText
                     });
                 }
+                if (res.ok) {
+                    return res.json().then(data => this.props.dispatch({type: 'UPDATE_DEAL_SUCCESS', data}))
+                }
                 return;
             })
             .then(() => console.log('Submitted with values', values))

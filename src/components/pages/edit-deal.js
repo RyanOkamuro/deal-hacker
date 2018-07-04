@@ -1,8 +1,8 @@
 import React from 'react';
 import {reduxForm, Field, SubmissionError, focus} from 'redux-form';
 import Input from './input';
-import {Redirect} from 'react-router-dom';
 import {API_BASE_URL} from '../../config';
+// import {Redirect} from 'react-router-dom';
 
 import "./edit-deal.css";
 export class EditDeal extends React.Component {
@@ -32,6 +32,7 @@ export class EditDeal extends React.Component {
                     });
                 }
                 if (res.ok) {
+                    // return <Redirect to="/" />
                     return res.json().then(data => this.props.dispatch({type: 'UPDATE_DEAL_SUCCESS', data}))
                 }
                 return;

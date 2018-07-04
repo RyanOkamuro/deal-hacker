@@ -7,11 +7,13 @@ import './comments-listing.css';
 
 export class CommentsListing extends React.Component {
     componentDidMount() {
-        this.props.dispatch(getAllComments());
+        const id = this.props.allSalesItems.id
+        this.props.dispatch(getAllComments(id));
     }
     render() {
         console.log(this.props);
-        const userComments = this.props.commentList.map((comment, index) => (
+        // const userComments = this.props.commentList.map((comment, index) => (
+        const userComments = this.props.commentList.filter(item => item._id === this.props.allSalesItems.id).map((comment, index) => (
             <ul className="comment-list" key={index}>
                 <SingleComment comment={comment} />
             </ul>

@@ -18,7 +18,7 @@ export default class DetailInformation extends React.Component {
                 </div>
                 <div className="row3">
                     <Comments allSalesItems= {this.props.history.location.allSalesItems} />
-                    <CommentsListing />
+                    <CommentsListing allSalesItems= {this.props.history.location.allSalesItems} />
                 </div>
             </div>
         );

@@ -5,6 +5,7 @@ const initialState = {
 };
 
 export const favoriteReducer = (state=initialState, action) => {
+    console.log(action);
     if (action.type === actions.ADD_FAVORITE) {
         return Object.assign({}, state, {
         // Object.assign generates

@@ -9,13 +9,15 @@ export const addFavorite = deal => ({
 export const addNewFavorite = deal => (dispatch, getState) => {
     const authToken = getState().auth.authToken;
     const user = getState().auth.currentUser.username;
-    return fetch(`${API_BASE_URL}/api/users/favorites`, {
+    return fetch(`${API_BASE_URL}/favorites`, {
         method: 'POST',
         headers: {
             Authorization: `Bearer ${authToken}`,
-            'content-type': 'application/json'
+            'Content-Type': 'application/json'
         },
-        body: JSON.stringify(deal)
+        'dataType': 'json',
+        
+        body: JSON.stringify({id: deal})
     })
     .then(res => {
 		if(!res.ok) {
@@ -24,6 +26,6 @@ export const addNewFavorite = deal => (dispatch, getState) => {
 		return res.json();
 	})
 	.then(deal => {
-		dispatch(addFavorite(user));
+        dispatch(addFavorite(deal));
 	});
 };

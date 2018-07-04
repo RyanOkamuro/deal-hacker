@@ -3,6 +3,7 @@ import {reducer as formReducer} from 'redux-form';
 import {favoriteReducer} from './reducers';
 import {getDealReducer} from './reducers/getDeal';
 import {getFavoriteReducer} from './reducers/getFavorite';
+import {getCommentsReducer} from './reducers/getComments';
 import thunk from 'redux-thunk';
 import {loadAuthToken} from './local-storage';
 import authReducer from './reducers/auth';
@@ -15,9 +16,11 @@ const store = createStore(
         favorite: favoriteReducer,
         getDeal: getDealReducer,
         getFavorite: getFavoriteReducer,
+        getComments: getCommentsReducer,
         auth: authReducer,
         protectedData: protectedDataReducer
     }),
+    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
     applyMiddleware(thunk)
 );
 

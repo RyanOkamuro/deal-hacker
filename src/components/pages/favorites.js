@@ -11,7 +11,7 @@ import './stores-layout.css';
 class Favorites extends React.Component {
     componentDidMount() {
         this.props.dispatch(getAllFavorites());
-        this.props.dispatch(removeOneFavorite());
+        // this.props.dispatch(removeOneFavorite());
     }
     render() {
         const favoriteItemDetails = this.props.favorite.map((favoriteItemDetail, index) => (

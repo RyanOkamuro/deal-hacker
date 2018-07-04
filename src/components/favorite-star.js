@@ -1,20 +1,20 @@
 import React from 'react';
 import {connect} from 'react-redux';
 
-import {addFavorite} from '../actions';
+import {addNewFavorite} from '../actions';
 
 class FavoriteStar extends React.Component {
     constructor(props){
         super(props);
-        this.addFavorite=this.addFavorite.bind(this)
+        this.addNewFavorite=this.addNewFavorite.bind(this)
     }
    
-    addFavorite(deal) {
-        this.props.dispatch(addFavorite(deal));
+    addNewFavorite(deal) {
+        this.props.dispatch(addNewFavorite(deal));
     }
     render() {
         return (
-            <img src={this.props.favoriteItem.favorite} onClick={() => this.addFavorite(this.props.favoriteItem)} className={this.props.favoriteItem.favoriteClass} alt="favorite"></img>
+            <img src={this.props.favoriteItem.favorite} onClick={() => this.addNewFavorite(this.props.favoriteItem.id)} className={this.props.favoriteItem.favoriteClass} alt="favorite"></img>
         )
     }
 }
