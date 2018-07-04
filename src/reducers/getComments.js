@@ -38,19 +38,19 @@ export const getCommentsReducer = (state=initialState, action) => {
 // }
 
 
-    // if (action.type === UpdateCommentsAction.UPDATE_COMMENTS_SUCCESS) {
-    //     console.log(action);
-    //     return Object.assign({}, state, {   
-    //     allComments: state.allComments.map(item => {
-    //         console.log(item);
-    //         if (item._id === action.data.id){
-    //             return action.data;
-    //         } else {
-    //             return item;
-    //         }
-    //     })
-    //     })
-    // }
+    if (action.type === UpdateCommentsAction.UPDATE_COMMENTS_SUCCESS) {
+        console.log(action);
+        return Object.assign({}, state, {   
+        allComments: state.allComments.map(item => {
+            console.log(item);
+            if (item._id === action.data.id){
+                return action.data;
+            } else {
+                return item;
+            }
+        })
+        })
+    }
     return state;
 }
 

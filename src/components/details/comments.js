@@ -37,9 +37,10 @@ export class Comments extends React.Component {
                         message: res.statusText
                     });
                 }
-                // if (res.ok) {
-                    // return res.json().then(data => this.props.dispatch({type: 'UPDATE_COMMENTS_SUCCESS', data}))
-                // }
+                if (res.ok) {
+                    console.log(values);
+                    return res.json().then(values => this.props.dispatch({type: 'UPDATE_COMMENTS_SUCCESS', values}))
+                }
                 return;
             })
             .then(() => console.log('Submitted with values', values))

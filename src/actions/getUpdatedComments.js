@@ -1,11 +1,11 @@
 import {API_BASE_URL} from '../config';
 
 export const UPDATE_COMMENTS_SUCCESS = 'UPDATE_COMMENTS_SUCCESS';
-export const getUpdateComments = (comments, id) => ({
+export const getUpdateComments = comments => ({
     type: UPDATE_COMMENTS_SUCCESS,
-    comments, 
-    id
+    comments
 });
+
 
 export const getAllUpdateComments = (id) => (dispatch, getState) => {
     const authToken = getState().auth.authToken;
@@ -24,7 +24,7 @@ export const getAllUpdateComments = (id) => (dispatch, getState) => {
 		return res.json();
 	})
 	.then(comments => {
-		dispatch(getUpdateComments(comments, id));
+		dispatch(getUpdateComments(comments));
 	});
 };
 
