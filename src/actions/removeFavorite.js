@@ -21,7 +21,7 @@ export const removeOneFavorite = (dealId) => (dispatch, getState) => {
 			return Promise.reject(res.statusText);
 		}
 	})
-	.then(dealId => {
+	.then(() => {
 		dispatch(removeFavorite(dealId));
 	});
 };

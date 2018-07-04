@@ -1,6 +1,7 @@
 import {API_BASE_URL} from '../config';
 
 export const GET_FAVORITE = 'GET_FAVORITE';
+export const REMOVE_FAVORITE = 'REMOVE_FAVORITE';
 export const getFavorite = deals => ({
     type: GET_FAVORITE,
     deals

@@ -38,8 +38,10 @@ export class Comments extends React.Component {
                     });
                 }
                 if (res.ok) {
-                    console.log(values);
-                    return res.json().then(values => this.props.dispatch({type: 'UPDATE_COMMENTS_SUCCESS', values}))
+                    return res.json().then(comments => {
+                        console.log(comments);
+                     this.props.dispatch({type: 'UPDATE_COMMENTS_SUCCESS', comments})
+                })
                 }
                 return;
             })
