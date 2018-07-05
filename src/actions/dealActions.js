@@ -23,7 +23,7 @@ export const getAllDeals = () => dispatch => {
 		dispatch(getDeals(deals));
 	});
 };
-
+/////////////////////////////////////////////////////////////////
 
 export const GET_UPDATE_DEAL_SUCCESS = 'GET_UPDATE_DEAL_SUCCESS';
 export const getUpdateDeal = deals => ({
@@ -48,7 +48,48 @@ export const getAllUpdateDeals = () => dispatch => {
 		dispatch(getUpdateDeal(deals));
 	});
 };
+/////////////////////////////////////////////////////////////////
 
+export const ADD_DEALS = 'ADD_DEALS';
+export const addDeals = deals => ({
+    type: ADD_DEALS,
+    deals
+});
+
+export const addDeal = (values) => dispatch => {
+    return fetch(`${API_BASE_URL}/deal`, {
+        method: 'POST',
+        body: JSON.stringify(values),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+        .then(res => {
+            if (!res.ok) {
+                if (
+                    res.headers.has('content-type') &&
+                    res.headers
+                        .get('content-type')
+                        .startsWith('application/json')
+                ) {
+                    //Detailed JSON error response
+                    return res.json().then(err => Promise.reject(err));
+                }
+                // Less informative error returned by express
+                return Promise.reject({
+                    code: res.status,
+                    message: res.statusText
+                });
+            }
+            if (res.ok) {
+                return res.json().then(data => {
+                    dispatch({type: 'UPDATE_DEAL_SUCCESS', data})
+                })
+            }
+            return;
+        })
+};
+/////////////////////////////////////////////////////////////////
 
 export const EDIT_DEALS = 'EDIT_DEALS';
 export const editDeal = deals => ({
@@ -56,34 +97,37 @@ export const editDeal = deals => ({
     deals
 });
 
-// export const getEditedDeal = (values, productID) => dispatch => {
-//     return fetch(`${API_BASE_URL}/deal/${productID}`, {
-//         method: 'PUT',
-//         body: JSON.stringify(values),
-//         headers: {
-//             'Content-Type': 'application/json'
-//         }
-//     })
-//         .then(res => {
-//             if (!res.ok) {
-//                 if (
-//                     res.headers.has('content-type') &&
-//                     res.headers
-//                         .get('content-type')
-//                         .startsWith('application/json')
-//                 ) {
-//                     //Detailed JSON error response
-//                     return res.json().then(err => Promise.reject(err));
-//                 }
-//                 // Less informative error returned by express
-//                 return Promise.reject({
-//                     code: res.status,
-//                     message: res.statusText
-//                 });
-//             }
-//             if (res.ok) {
-//                 return res.json().then(data => this.props.dispatch({type: GET_UPDATE_DEAL_SUCCESS, data}))
-//             }
-//             return;
-//         })
-// }
+export const getEditedDeal = (values, productID) => dispatch => {
+    console.log(values, productID);
+    return fetch(`${API_BASE_URL}/deal/${productID}`, {
+        method: 'PUT',
+        body: JSON.stringify(values),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+        .then(res => {
+            if (!res.ok) {
+                if (
+                    res.headers.has('content-type') &&
+                    res.headers
+                        .get('content-type')
+                        .startsWith('application/json')
+                ) {
+                    //Detailed JSON error response
+                    return res.json().then(err => Promise.reject(err));
+                }
+                // Less informative error returned by express
+                return Promise.reject({
+                    code: res.status,
+                    message: res.statusText
+                });
+            }
+            if (res.ok) {
+                return res.json().then(data => {
+                    dispatch({type: GET_UPDATE_DEAL_SUCCESS, data})
+                })
+            }
+            return;
+        })
+}

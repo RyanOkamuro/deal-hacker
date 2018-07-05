@@ -25,7 +25,7 @@ export const getAllFavorites = () => (dispatch, getState) => {
 		dispatch(getFavorite(deals));
 	});
 };
-
+/////////////////////////////////////////////////////////////////
 
 export const ADD_FAVORITE = 'ADD_FAVORITE';
 export const addFavorite = deal => ({
@@ -56,7 +56,7 @@ export const addNewFavorite = deal => (dispatch, getState) => {
         dispatch(addFavorite(deal));
 	});
 };
-
+/////////////////////////////////////////////////////////////////
 
 export const REMOVE_FAVORITE = 'REMOVE_FAVORITE';
 export const removeFavorite = dealId => ({

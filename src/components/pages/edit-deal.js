@@ -1,43 +1,17 @@
 import React from 'react';
 import {reduxForm, Field, SubmissionError, focus} from 'redux-form';
 import Input from './input';
-import {API_BASE_URL} from '../../config';
+import {getEditedDeal} from '../../actions/dealActions';
+import {connect} from 'react-redux';
 // import {Redirect} from 'react-router-dom';
 
 import "./edit-deal.css";
 export class EditDeal extends React.Component {
     onSubmit(values, productID) {
-        return fetch(`${API_BASE_URL}/deal/${productID}`, {
-            method: 'PUT',
-            body: JSON.stringify(values),
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        })
-            .then(res => {
-                if (!res.ok) {
-                    if (
-                        res.headers.has('content-type') &&
-                        res.headers
-                            .get('content-type')
-                            .startsWith('application/json')
-                    ) {
-                        //Detailed JSON error response
-                        return res.json().then(err => Promise.reject(err));
-                    }
-                    // Less informative error returned by express
-                    return Promise.reject({
-                        code: res.status,
-                        message: res.statusText
-                    });
-                }
-                if (res.ok) {
-                    return res.json().then(data => this.props.dispatch({type: 'GET_UPDATE_DEAL_SUCCESS', data}))
-                }
-                return;
-            })
+        this.props.dispatch(getEditedDeal(values, productID))
             .then(() => console.log('Submitted with values', values))
             .catch(err => {
+                console.log(err);
                 const {reason, message, location} = err;
                 if (reason === 'ValidationError') {
                     // Convert ValidationErrors into SubmissionErrors for Redux Form
@@ -136,9 +110,18 @@ export class EditDeal extends React.Component {
     }
 }
 
-export default reduxForm({
+EditDeal = reduxForm({
     form: 'edit-form',
     //Automatically focus on first incomplete field when the user submits incorrect value for a field
-    onSubmitFail: (errors, dispatch) =>
-        dispatch(focus('contact', Object.keys(errors)[0]))
-})(EditDeal);
+    onSubmitFail: (errors, dispatch) => {
+    if(errors !== undefined) {
+        dispatch(focus('edit-form', Object.keys(errors)[0]))
+    }
+}})(EditDeal);
+
+
+const mapStateToProps = state => ({
+    // dealList: state.deal.allDeals
+});
+
+export default connect(mapStateToProps)(EditDeal);

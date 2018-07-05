@@ -1,43 +1,16 @@
 import React from 'react';
 import {reduxForm, Field, SubmissionError, focus} from 'redux-form';
 import Input from './input';
+import {addDeal} from '../../actions/dealActions';
 import {required, nonEmpty} from '../../validators';
-import {API_BASE_URL} from '../../config';
+import {connect} from 'react-redux';
 
 import "./add-new-deal.css";
 
 export class AddNewDealForm extends React.Component {
     onSubmit(values) {
         console.log(values);
-        return fetch(`${API_BASE_URL}/deal`, {
-            method: 'POST',
-            body: JSON.stringify(values),
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        })
-            .then(res => {
-                if (!res.ok) {
-                    if (
-                        res.headers.has('content-type') &&
-                        res.headers
-                            .get('content-type')
-                            .startsWith('application/json')
-                    ) {
-                        //Detailed JSON error response
-                        return res.json().then(err => Promise.reject(err));
-                    }
-                    // Less informative error returned by express
-                    return Promise.reject({
-                        code: res.status,
-                        message: res.statusText
-                    });
-                }
-                if (res.ok) {
-                    return res.json().then(data => this.props.dispatch({type: 'UPDATE_DEAL_SUCCESS', data}))
-                }
-                return;
-            })
+        this.props.dispatch(addDeal(values))
             .then(() => console.log('Submitted with values', values))
             .catch(err => {
                 const {reason, message, location} = err;
@@ -116,11 +89,14 @@ export class AddNewDealForm extends React.Component {
                     label="Seller"
                     validate={[required, nonEmpty]} 
                 />
+                <input value="https://i.stack.imgur.com/LQk8v.png" disabled />
                 {/* <Field          
                     name="favorite"  
                     type="text" 
-                    https://i.stack.imgur.com/LQk8v.png
-                    component={Input}
+                    value="https://i.stack.imgur.com/LQk8v.png"
+                    disabled
+                    label="Favorite"
+                    component="input"
                 /> */}
                 <Field          
                     name="productDescription"  
@@ -147,9 +123,17 @@ export class AddNewDealForm extends React.Component {
     }
 }
 
-export default reduxForm({
+AddNewDealForm = reduxForm({
     form: 'new-deal',
     //Automatically focus on first incomplete field when the user submits incorrect value for a field
-    onSubmitFail: (errors, dispatch) =>
+    onSubmitFail: (errors, dispatch) => {
+    if(errors !== undefined) {
         dispatch(focus('new-deal', Object.keys(errors)[0]))
-})(AddNewDealForm);
+    }
+}})(AddNewDealForm);
+
+const mapStateToProps = state => ({
+    // dealList: state.deal.allDeals
+});
+
+export default connect(mapStateToProps)(AddNewDealForm);
