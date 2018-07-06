@@ -4,10 +4,16 @@ import Input from '../pages/input';
 import store from '../../store';
 import {addComment} from '../../actions/commentActions';
 import {connect} from 'react-redux';
+import {clearAuth} from '../../actions/auth';
+import {clearAuthToken} from '../../local-storage';
 
 import './comments.css';
 
 export class Comments extends React.Component {
+    logOut() {
+        this.props.dispatch(clearAuth());
+        clearAuthToken();
+    }
     onSubmit(values) {
         const id = this.props.allSalesItems.id
         const authToken = store.getState().auth.authToken;
@@ -48,7 +54,9 @@ export class Comments extends React.Component {
             );
         }
         
-        const userDealComments = (
+        let userDealComments;
+        if (this.props.loggedIn) {
+            userDealComments = (
             <div className="box3">
                 <form className="user-comments-form"
                     onSubmit={this.props.handleSubmit(values =>
@@ -70,6 +78,7 @@ export class Comments extends React.Component {
                 </form>
             </div>
         );
+        }
         return (
             <div className="col-12">
                 {userDealComments}
@@ -88,7 +97,8 @@ Comments = reduxForm({
 }})(Comments);
 
 const mapStateToProps = state => ({
-    // dealList: state.deal.allDeals
+    loggedIn: state.auth.currentUser !== null
 });
 
 export default connect(mapStateToProps)(Comments);
+
