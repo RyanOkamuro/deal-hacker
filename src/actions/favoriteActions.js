@@ -35,7 +35,6 @@ export const addFavorite = deal => ({
 
 export const addNewFavorite = deal => (dispatch, getState) => {
     const authToken = getState().auth.authToken;
-    const user = getState().auth.currentUser.username;
     return fetch(`${API_BASE_URL}/favorites`, {
         method: 'POST',
         headers: {
@@ -66,7 +65,6 @@ export const removeFavorite = dealId => ({
 
 export const removeOneFavorite = (dealId) => (dispatch, getState) => {
     const authToken = getState().auth.authToken;
-    const user = getState().auth.currentUser.username;
     return fetch(`${API_BASE_URL}/favorites/${dealId}`, {
         method: 'DELETE',
         headers: {

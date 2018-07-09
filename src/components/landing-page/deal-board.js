@@ -1,10 +1,8 @@
 import React from 'react';
 
 import DealItem from './deal-item';
-import {getAllDeals} from '../actions/dealActions';
+import {getAllDeals} from '../../actions/dealActions';
 import {connect} from 'react-redux';
-
-import './deal-board.css';
 
 export class DealBoard extends React.Component {
     componentDidMount() {

@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {clearAuth} from '../../actions/auth';
 import {clearAuthToken} from '../../local-storage';
+import Moment from 'react-moment';
 
 export class ProductDescription extends React.Component {
     logOut() {
@@ -24,6 +25,7 @@ export class ProductDescription extends React.Component {
         const productDetails = (
             <div className="box2">
                 <p>${this.props.allSalesItems.price}</p>
+                <p><Moment format="MMM-DD-YYYY HH:mm">{this.props.allSalesItems.createdAt}</Moment></p>
                 <a href={this.props.allSalesItems.dealLink}>{this.props.allSalesItems.dealName}</a>
                 <p>{this.props.allSalesItems.productDescription}</p>
                 {editButton}

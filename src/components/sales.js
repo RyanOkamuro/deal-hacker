@@ -1,8 +1,8 @@
 import React from 'react';
 
-import Header from './header';
+import Header from './landing-page/header';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
-import DealBoard from './deal-board';
+import DealBoard from './landing-page/deal-board';
 import DetailInformation from './details/detail-information';
 import Favorites from './pages/favorites';
 import Amazon from './pages/amazon';
@@ -17,7 +17,7 @@ import AddNewDealForm from './pages/add-new-deal';
 import EditDeal from './pages/edit-deal';
 import LoginPage from './pages/login-page';
 import RegistrationPage from './pages/registration-page';
-import Error from './error';
+import Error from './landing-page/error';
 
 export default function Sales() {
   const saleItems = [{

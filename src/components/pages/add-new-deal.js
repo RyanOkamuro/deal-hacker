@@ -89,15 +89,6 @@ export class AddNewDealForm extends React.Component {
                     label="Seller"
                     validate={[required, nonEmpty]} 
                 />
-                <input value="https://i.stack.imgur.com/LQk8v.png" disabled />
-                {/* <Field          
-                    name="favorite"  
-                    type="text" 
-                    value="https://i.stack.imgur.com/LQk8v.png"
-                    disabled
-                    label="Favorite"
-                    component="input"
-                /> */}
                 <Field          
                     name="productDescription"  
                     element="textarea"

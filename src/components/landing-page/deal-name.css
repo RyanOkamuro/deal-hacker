@@ -1,0 +1,31 @@
+  img {
+    height: 160px;
+    width: 160px;
+  }
+
+  .favorite {
+    height: 20px;
+    width: 20px;
+    float: right;
+  }
+
+  figcaption {
+    padding-bottom: 5px;
+  }
+
+  .store-name {
+    padding-top: 10px;
+    font-size: 12px;
+  }
+
+  .deal-name {
+    padding-top: 10px;
+    border-top: 1px solid black;
+  }
+
+  .deal-price {
+    font-weight: bold;
+  }
+
+
+

@@ -5,7 +5,7 @@ import ProductImage from './product-image';
 import ProductDescription from './product-description';
 import CommentsListing from './comments-listing';
 
-import './detail-information.css';
+import './detail-information.css'; 
 
 export default class DetailInformation extends React.Component {
     render() {

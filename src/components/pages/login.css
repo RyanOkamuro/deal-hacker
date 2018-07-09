@@ -1,4 +1,8 @@
 
+  h2 {
+    text-align: center;
+  }
+  
   .login-form {
     width: 400px;
     padding: 40px;

@@ -9,7 +9,6 @@ export const getComments = (comments, id) => ({
 
 export const getAllComments = (id) => (dispatch, getState) => {
     const authToken = getState().auth.authToken;
-    // const user = getState().auth.currentUser.username;
     return fetch(`${API_BASE_URL}/deal/${id}`, {
         method: 'GET',
         headers: {
@@ -38,7 +37,6 @@ export const getUpdateComments = comments => ({
 
 export const getAllUpdateComments = (id) => (dispatch, getState) => {
     const authToken = getState().auth.authToken;
-    const user = getState().auth.currentUser.username;
     return fetch(`${API_BASE_URL}/deal/${id}`, {
         method: 'GET',
         headers: {
@@ -73,7 +71,6 @@ export const addComment = (values, id, authToken) => (dispatch) => {
             'Authorization': `Bearer ${authToken}`
         },
         'dataType': 'json',
-        body: JSON.stringify(values)
     })
         .then(res => {
             if (!res.ok) {

@@ -1,12 +1,11 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-import SearchBar from './search-bar';
 import StoresSubmenu from './stores';
 import CategoriesSubmenu from './categories';
 import LogOut from './logout';
 import {connect} from 'react-redux';
-import {clearAuth} from '../actions/auth';
-import {clearAuthToken} from '../local-storage';
+import {clearAuth} from '../../actions/auth';
+import {clearAuthToken} from '../../local-storage';
 
 import './top-nav.css';
 
@@ -60,9 +59,6 @@ export class TopNav extends React.Component {
                     </li>
                     <li className="nav__menu-categories" onMouseLeave={this.handleLeave2}><a onMouseEnter={this.handleHover2}>Categories</a>
                         {this.state.showCategoriesMenu && <CategoriesSubmenu />}
-                    </li>
-                    <li>
-                        <SearchBar />
                     </li>
                     <li>{favoriteLink}</li>
                     <li>{addDealLink}</li>

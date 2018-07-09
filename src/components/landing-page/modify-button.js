@@ -1,7 +1,5 @@
 import React from 'react';
 
-import './modify-button.css';
-
 export default class ModifyButton extends React.Component {
     render() {
         return (

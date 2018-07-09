@@ -16,7 +16,7 @@ class FavoriteRemoveButton extends React.Component {
     render() {
         console.log(this.props);
         return (
-            <img src={this.props.favoriteItemDetail.favoriteDeleteButton} onClick={() => this.removeOneFavorite(this.props.favoriteItemDetail)} className={this.props.favoriteItemDetail.favoriteClass} alt="removeButton"></img>
+            <img src="http://www.glenviewhealthclub.com/wp-content/uploads/x-mark.png" onClick={() => this.removeOneFavorite(this.props.favoriteItemDetail)} className="favorite" alt="removeButton"></img>
         )
     }
 }
