@@ -48,7 +48,7 @@
     color: white;
     cursor: pointer;
     position: absolute;
-    left: 70px;
+    left: 75px;
     bottom: 9px;
   }
   
@@ -65,8 +65,33 @@
     }
   }
 
-  /* @media only screen and (min-width: 735px) {
+  @media only screen and (min-width: 625px) {
     .row {
-      width: 735px;
+      width: 600px;
     }
-  } */
+  }
+
+  @media only screen and (min-width: 808px) {
+    .row {
+      width: 790px;
+    }
+  }
+
+  @media only screen and (min-width: 1067px) {
+    .row {
+      width: 1100px;
+    }
+  }
+
+  @media only screen and (min-width: 1326px) {
+    .row {
+      width: 1300px;
+    }
+  }
+
+  @media only screen and (min-width: 1585px) {
+    .row {
+      width: 1720px;
+    }
+  }
+
