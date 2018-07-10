@@ -2,9 +2,10 @@ import React from 'react';
 
 export default class StoresProductDescription extends React.Component {
     render() {
+        console.log(this.props);
         const storeProductDetails = (
             <div className="store-box">
-                <p>{this.props.dealItem.price}</p>
+                <p>${this.props.dealItem.price}</p>
                 <a href={this.props.dealItem.dealLink}>{this.props.dealItem.dealName}</a>
                 <p>{this.props.dealItem.productDescription}</p>
             </div>

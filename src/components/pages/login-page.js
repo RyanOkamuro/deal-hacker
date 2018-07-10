@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {Link, Redirect} from 'react-router-dom';
 
 import LoginForm from './login-form';
+import './login-page.css';
 
 export function LoginPage(props) {
     // If we are logged in redirect straight to the main deal page
@@ -14,7 +15,7 @@ export function LoginPage(props) {
         <div className="login-page">
             <h2>Login</h2>
             <LoginForm />
-            <Link to="/registration">Register</Link>
+            <Link to="/registration" className="registration">Register</Link>
         </div>
     );
 }

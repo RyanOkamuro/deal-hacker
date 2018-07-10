@@ -4,6 +4,7 @@ import requiresLogin from './requires-login';
 import {getAllFavorites} from '../../actions/favoriteActions';
 import FavoriteProductImage from './favorites-image';
 import FavoriteProductDescription from './favorites-description';
+import {withRouter} from 'react-router-dom';
 
 import './stores-layout.css';
 
@@ -35,6 +36,6 @@ const mapStateToProps = state => {
     };
 };
 
-export default requiresLogin()(connect(mapStateToProps)(Favorites));
+export default withRouter(requiresLogin()(connect(mapStateToProps)(Favorites)));
 
 

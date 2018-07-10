@@ -110,7 +110,7 @@ export class EditDeal extends React.Component {
     }
 }
 
-EditDeal = reduxForm({
+export default reduxForm({
     form: 'edit-form',
     //Automatically focus on first incomplete field when the user submits incorrect value for a field
     onSubmitFail: (errors, dispatch) => {
@@ -120,8 +120,8 @@ EditDeal = reduxForm({
 }})(EditDeal);
 
 
-const mapStateToProps = state => ({
-    // dealList: state.deal.allDeals
-});
+// const mapStateToProps = state => ({
+//     // dealList: state.deal.allDeals
+// });
 
-export default connect(mapStateToProps)(EditDeal);
+// export default connect(mapStateToProps)(EditDeal);

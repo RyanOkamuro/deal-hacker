@@ -4,6 +4,7 @@ import StoresProductImage from './stores-image';
 import StoresProductDescription from './stores-description';
 import {getAllDeals} from '../../actions/dealActions';
 import {connect} from 'react-redux';
+import {withRouter} from 'react-router-dom';
 
 import './stores-layout.css';
 
@@ -41,4 +42,4 @@ const mapStateToProps = state => ({
     lists: state.deal.allDeals
 });
 
-export default connect(mapStateToProps)(Macys);
+export default withRouter(connect(mapStateToProps)(Macys));

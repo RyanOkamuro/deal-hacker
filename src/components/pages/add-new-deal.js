@@ -3,7 +3,7 @@ import {reduxForm, Field, SubmissionError, focus} from 'redux-form';
 import Input from './input';
 import {addDeal} from '../../actions/dealActions';
 import {required, nonEmpty} from '../../validators';
-import {connect} from 'react-redux';
+// import {Provider, connect} from 'react-redux';
 
 import "./add-new-deal.css";
 
@@ -114,7 +114,7 @@ export class AddNewDealForm extends React.Component {
     }
 }
 
-AddNewDealForm = reduxForm({
+export default reduxForm({
     form: 'new-deal',
     //Automatically focus on first incomplete field when the user submits incorrect value for a field
     onSubmitFail: (errors, dispatch) => {
@@ -123,8 +123,8 @@ AddNewDealForm = reduxForm({
     }
 }})(AddNewDealForm);
 
-const mapStateToProps = state => ({
-    // dealList: state.deal.allDeals
-});
+// const mapStateToProps = state => ({
+//     // dealList: state.deal.allDeals
+// });
 
-export default connect(mapStateToProps)(AddNewDealForm);
+// export default connect(mapStateToProps)(AddNewDealForm);

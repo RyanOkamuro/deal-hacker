@@ -3,6 +3,7 @@ import React from 'react';
 import DealItem from './deal-item';
 import {getAllDeals} from '../../actions/dealActions';
 import {connect} from 'react-redux';
+import {withRouter} from 'react-router-dom';
 
 export class DealBoard extends React.Component {
     componentDidMount() {
@@ -10,9 +11,7 @@ export class DealBoard extends React.Component {
     }
     render() { 
         return (
-            <div>
-                <DealItem saleItems={this.props.lists} />
-            </div>
+            <DealItem saleItems={this.props.lists} />
         );
     }
 }
@@ -25,4 +24,4 @@ const mapStateToProps = state => ({
     lists: state.deal.allDeals
 });
 
-export default connect(mapStateToProps)(DealBoard);
+export default withRouter(connect(mapStateToProps)(DealBoard));

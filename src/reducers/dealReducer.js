@@ -7,7 +7,6 @@ const initialState = {
 
 export const dealReducer = (state=initialState, action) => {
     if (action.type === actions.GET_DEALS) {
-        console.log(action);
         return Object.assign({}, state, {
         // Object.assign generates
         // a new state object by merging an object
@@ -19,7 +18,6 @@ export const dealReducer = (state=initialState, action) => {
         })
     }
     if (action.type === updateDealAction.GET_UPDATE_DEAL_SUCCESS) {
-        console.log(action);
         return Object.assign({}, state, {   
         allDeals: state.allDeals.map(item => {
             console.log(item);

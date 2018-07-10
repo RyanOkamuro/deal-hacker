@@ -11,9 +11,9 @@ import Sales from './components/sales';
 
 ReactDOM.render(
   <Provider store={store}>
-    <div>
+    {/* <div> */}
       <Sales />
-    </div>
+    {/* </div> */}
   </Provider>,
   document.getElementById('root')
 );

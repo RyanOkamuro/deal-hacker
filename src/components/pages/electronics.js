@@ -4,6 +4,7 @@ import StoresProductImage from './stores-image';
 import StoresProductDescription from './stores-description';
 import {getAllDeals} from '../../actions/dealActions';
 import {connect} from 'react-redux';
+import {withRouter} from 'react-router-dom';
 
 import './stores-layout.css';
 
@@ -12,7 +13,6 @@ export class Electronics extends React.Component {
         this.props.dispatch(getAllDeals());
     }
     render() {
-        console.log(this.props);
         let storeMatch= this.props.lists.filter(function(saleItem) {
             return saleItem.productCategory === "Electronics";
         });
@@ -40,4 +40,4 @@ const mapStateToProps = state => ({
     lists: state.deal.allDeals
 });
 
-export default connect(mapStateToProps)(Electronics);
+export default withRouter(connect(mapStateToProps)(Electronics));

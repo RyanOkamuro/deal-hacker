@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {Link, Redirect} from 'react-router-dom';
 
 import RegistrationForm from './registration-form';
+import './registration-page.css';
 
 export function RegistrationPage(props) {
     // If we are logged in (which happens automatically when registration
@@ -14,7 +15,7 @@ export function RegistrationPage(props) {
         <div className="registerAccount">
             <h2>Register Deal Hacker Account</h2>
             <RegistrationForm />
-            <Link to="/login">Login</Link>
+            <Link to="/login" className='login'>Login</Link>
         </div>
     );
 }
