@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import {clearAuth} from '../../actions/auth';
 import {clearAuthToken} from '../../local-storage';
 import Moment from 'react-moment';
+import {withRouter} from 'react-router-dom';
 
 export class ProductDescription extends React.Component {
     logOut() {
@@ -45,4 +46,4 @@ const mapStateToProps = state => ({
     loggedIn: state.auth.currentUser !== null
 });
 
-export default connect(mapStateToProps)(ProductDescription);
+export default withRouter(connect(mapStateToProps)(ProductDescription));

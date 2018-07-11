@@ -6,6 +6,7 @@ import ProductDescription from './product-description';
 import CommentsListing from './comments-listing';
 import {getAllDeals} from '../../actions/dealActions';
 import {connect} from 'react-redux';
+import {withRouter} from 'react-router-dom';
 
 import './detail-information.css'; 
 
@@ -61,4 +62,4 @@ const mapStateToProps = state => {
     }
 };
 
-export default connect(mapStateToProps)(DetailInformation);
+export default withRouter(connect(mapStateToProps)(DetailInformation));

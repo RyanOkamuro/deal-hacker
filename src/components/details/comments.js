@@ -6,6 +6,7 @@ import {addComment} from '../../actions/commentActions';
 import {connect} from 'react-redux';
 import {clearAuth} from '../../actions/auth';
 import {clearAuthToken} from '../../local-storage';
+import {withRouter} from 'react-router-dom';
 
 import './comments.css';
 
@@ -100,5 +101,5 @@ const mapStateToProps = state => ({
     loggedIn: state.auth.currentUser !== null
 });
 
-export default connect(mapStateToProps)(Comments);
+export default withRouter(connect(mapStateToProps)(Comments));
 

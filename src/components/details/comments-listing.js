@@ -2,6 +2,7 @@ import React from 'react';
 import {getAllComments} from '../../actions/commentActions';
 import SingleComment from './single-comment';
 import {connect} from 'react-redux';
+import {withRouter} from 'react-router-dom';
 
 import './comments-listing.css';
 
@@ -32,4 +33,4 @@ const mapStateToProps = state => ({
     commentList: state.comment.allComments
 });
 
-export default connect(mapStateToProps)(CommentsListing);
+export default withRouter(connect(mapStateToProps)(CommentsListing));
