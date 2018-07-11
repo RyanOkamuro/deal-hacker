@@ -6,7 +6,7 @@ export default class ProductImage extends React.Component {
     render() {
         const productPhoto = (
             <div className="box2">
-                {this.props.allSalesItems.dealName}
+                <p className="deal-item-name">{this.props.allSalesItems.dealName}</p>
                 <img src={this.props.allSalesItems.image} className="detailed-image" alt="sale item"></img>
             </div>
         );   

@@ -6,7 +6,6 @@ import ProductDescription from './product-description';
 import CommentsListing from './comments-listing';
 import {getAllDeals} from '../../actions/dealActions';
 import {connect} from 'react-redux';
-import {withRouter} from 'react-router-dom';
 
 import './detail-information.css'; 
 

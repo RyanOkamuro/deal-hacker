@@ -6,6 +6,7 @@ import LogOut from './logout';
 import {connect} from 'react-redux';
 import {clearAuth} from '../../actions/auth';
 import {clearAuthToken} from '../../local-storage';
+import {withRouter} from 'react-router-dom';
 
 import './top-nav.css';
 
@@ -75,4 +76,4 @@ const mapStateToProps = state => ({
     loggedIn: state.auth.currentUser !== null
 });
 
-export default connect(mapStateToProps)(TopNav);
+export default withRouter(connect(mapStateToProps)(TopNav));

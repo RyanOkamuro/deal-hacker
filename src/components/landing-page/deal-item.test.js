@@ -8,4 +8,3 @@ describe('<DealItem />', () => {
         shallow(<DealItem />);
     });
 });
-

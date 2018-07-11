@@ -2,12 +2,12 @@ import React from 'react';
 
 export default class StoresProductDescription extends React.Component {
     render() {
-        console.log(this.props);
         const storeProductDetails = (
             <div className="store-box">
-                <p>${this.props.dealItem.price}</p>
-                <a href={this.props.dealItem.dealLink}>{this.props.dealItem.dealName}</a>
-                <p>{this.props.dealItem.productDescription}</p>
+                <p className="deal-sale-price">${this.props.dealItem.price}
+                <a href={this.props.dealItem.dealLink} className="deal-link">Deal Link</a>
+                </p>
+                <p className="deal-description">{this.props.dealItem.productDescription}</p>
             </div>
         );   
         return (

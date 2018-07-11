@@ -4,7 +4,7 @@ import {getAllDeals} from '../../actions/dealActions';
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
 
-import './view-details.css';
+import './view-details.css'; 
 
 export default class ViewDetails extends React.Component {
     // componentDidMount() {

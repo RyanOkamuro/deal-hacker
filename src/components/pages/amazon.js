@@ -26,7 +26,7 @@ export class Amazon extends React.Component {
         ));
 
         return (
-            <div className="store-row-wrapper">
+            <div className="store-row-wrapper"> 
                 {dealItems}
             </div>
         );

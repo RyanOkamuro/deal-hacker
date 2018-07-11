@@ -25,9 +25,10 @@ export class ProductDescription extends React.Component {
         console.log(this.props.allSalesItems.price);
         const productDetails = (
             <div className="box2">
-                <p>${this.props.allSalesItems.price}</p>
-                <a href={this.props.allSalesItems.dealLink}>{this.props.allSalesItems.dealName}</a>
-                <p>{this.props.allSalesItems.productDescription}</p>
+                <p className="deal-sale-price">${this.props.allSalesItems.price}
+                <a href={this.props.allSalesItems.dealLink} className="deal-link">Deal Link</a>
+                </p>
+                <p >{this.props.allSalesItems.productDescription}</p>
                 {editButton}
                 <p><Moment format="MM-DD-YYYY HH:mm">{this.props.allSalesItems.createdAt}</Moment></p>
             </div>
