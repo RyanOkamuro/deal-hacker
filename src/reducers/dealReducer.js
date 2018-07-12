@@ -21,8 +21,9 @@ export const dealReducer = (state=initialState, action) => {
         return Object.assign({}, state, {   
         allDeals: state.allDeals.map(item => {
             console.log(item);
-            if (item.id === action.data._id){
-                return action.data;
+            console.log(action);
+            if (item.id === action.deals._id){
+                return action.deals;
             } else {
                 return item;
             }

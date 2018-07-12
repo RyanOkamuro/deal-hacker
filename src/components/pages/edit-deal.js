@@ -30,7 +30,6 @@ export class EditDeal extends React.Component {
     }
 
     render() {
-        console.log(this.props.history.location.id);
         const productID = this.props.history.location.id;
         let successMessage;
         if (this.props.submitSucceeded) {
