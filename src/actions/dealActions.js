@@ -81,12 +81,10 @@ export const addDeal = (values) => dispatch => {
                     message: res.statusText
                 });
             }
-            if (res.ok) {
-                return res.json().then(data => {
-                    dispatch({type: 'UPDATE_DEAL_SUCCESS', data})
-                })
-            }
-            return;
+            return res.json()
+        })
+        .then(deals => {
+            dispatch(addDeals(deals))
         })
 };
 /////////////////////////////////////////////////////////////////
@@ -97,8 +95,7 @@ export const editDeal = deals => ({
     deals
 });
 
-export const getEditedDeal = (values, productID) => dispatch => {
-    console.log(values, productID);
+export const editedDeal = (values, productID) => dispatch => {
     return fetch(`${API_BASE_URL}/deal/${productID}`, {
         method: 'PUT',
         body: JSON.stringify(values),
@@ -123,11 +120,9 @@ export const getEditedDeal = (values, productID) => dispatch => {
                     message: res.statusText
                 });
             }
-            if (res.ok) {
-                return res.json().then(data => {
-                    dispatch({type: GET_UPDATE_DEAL_SUCCESS, data})
-                })
-            }
-            return;
+            return res.json()
         })
-}
+        .then(deals => {
+            dispatch(getUpdateDeal(deals))
+        })
+    }

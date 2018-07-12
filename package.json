@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "es6-promise": "^4.2.4",
     "history": "^1.17.0",
     "jwt-decode": "^2.2.0",
     "moment": "^2.22.2",

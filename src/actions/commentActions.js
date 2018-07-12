@@ -89,12 +89,9 @@ export const addComment = (values, id, authToken) => (dispatch) => {
                     message: res.statusText
                 });
             }
-            if (res.ok) {
-                return res.json()
-                .then(comments => {
-                    dispatch({type: 'GET_UPDATED_COMMENTS_SUCCESS', comments})
-            })
-            }
-            return;
+            return res.json()
+        })
+        .then(comments => {
+            dispatch(getUpdateComments(comments))
         })
 }

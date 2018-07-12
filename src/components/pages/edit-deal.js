@@ -1,14 +1,14 @@
 import React from 'react';
 import {reduxForm, Field, SubmissionError, focus} from 'redux-form';
 import Input from './input';
-import {getEditedDeal} from '../../actions/dealActions';
+import {editedDeal} from '../../actions/dealActions';
 import {connect} from 'react-redux';
 // import {Redirect} from 'react-router-dom';
 
 import "./edit-deal.css";
 export class EditDeal extends React.Component {
     onSubmit(values, productID) {
-        this.props.dispatch(getEditedDeal(values, productID))
+        this.props.dispatch(editedDeal(values, productID))
             .then(() => console.log('Submitted with values', values))
             .catch(err => {
                 console.log(err);
