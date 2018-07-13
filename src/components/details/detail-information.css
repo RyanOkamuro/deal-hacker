@@ -16,6 +16,10 @@
   .box2 {
     position: relative;
   }
+
+  .box3 {
+    height: 200px;
+  }
   
   .row-wrapper {
     max-width: 1000px;
@@ -74,7 +78,51 @@
     text-decoration: none;
   }
 
-  
+  .deal-post-time {
+    position: absolute;
+    right: 16px;
+    bottom: 7px;
+  }
+
+  .removeFavoriteButton {
+    height: 20px;
+    width: 20px;
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    cursor: pointer;
+  }
+
+  .edit-button {
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    font-weight: bold;
+  }
+
+  /* Mobile */
+  @media only screen and (max-width: 639px) {
+    .row-wrapper {
+      margin-top: 50px
+    }
+    .col-8 {
+      padding-left: 0;
+    }
+    .deal-description {
+      padding-bottom: 30px;
+    }
+    .box2 {
+      height: auto;
+    }
+    .row3 {
+      float: left;
+      width: 100%;
+    }
+    .comment-username {
+      padding-bottom: 15px;
+    }
+  }
+
   /* Non-mobile, grid */
   @media only screen and (min-width: 640px) {
     .col-4 {

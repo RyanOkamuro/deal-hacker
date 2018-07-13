@@ -2,7 +2,7 @@
   .box {
     height: 340px;
     text-align: center;
-    padding: 30px 15px;
+    padding: 15px;
     margin-bottom: 25px;
     border-width: 1px;
     box-shadow: 1px 2px 2px 1px #888888;
@@ -56,10 +56,15 @@
   }
   
   /* Mobile defaults */
-  .col-2 {
-    width: 100%;
-  }
-  
+  @media only screen and (max-width: 639px) {
+    .col-2 {
+      width: 100%;
+    }
+
+    .box {
+      height: 300px;
+    }
+}
   
   /* Non-mobile, grid */
   @media only screen and (min-width: 640px) {

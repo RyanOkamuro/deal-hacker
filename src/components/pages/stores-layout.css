@@ -1,8 +1,20 @@
 * {
     box-sizing: border-box;
   }
-
+ 
   .store-box {
+    height: 250px;
+    padding: 15px;
+    border-width: 1px;
+    box-shadow: 1px 2px 2px 1px #888888;
+    border-color: #DCDCDC;
+    border-style: solid;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    
+  }
+
+  .store-box-2 {
     height: 250px;
     padding: 15px;
     border-width: 1px;
@@ -24,6 +36,12 @@
     padding-right: 20px;
   }
 
+  .store-image-list {
+    padding: 20px;
+    height: 200px;
+    width: 200px;
+  }
+
   .deal-sale-price, .deal-item-name {
     font-weight: bold;
     font-size: 20px;
@@ -40,5 +58,3 @@
     font-size: 16px;
     text-decoration: none;
   }
-
-  

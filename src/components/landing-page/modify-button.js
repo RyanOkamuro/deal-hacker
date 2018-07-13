@@ -5,7 +5,7 @@ export default class ModifyButton extends React.Component {
     render() {
         return (
             <div>
-                <Link to={"/details/detail-information/:product"}><button className="btn">Edit</button></Link>
+                <Link to={"/details/detail-information/:product"}><p className="edit-button">Edit</p></Link>
             </div>
         )
     }

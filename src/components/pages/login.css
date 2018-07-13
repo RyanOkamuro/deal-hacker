@@ -1,9 +1,19 @@
 
   h2 {
     text-align: center;
+    padding: 15px;
+    font-size: 20px;
+    font-weight: bold;
   }
   
+  .login-page {
+    text-align: center;
+  }
+
   .login-form {
+    border-top: 1px solid #DCDCDC;
+    border-bottom: 1px solid #DCDCDC;
+    text-align: left;
     width: 400px;
     padding: 40px;
     margin: 0 auto;

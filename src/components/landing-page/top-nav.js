@@ -53,6 +53,7 @@ export class TopNav extends React.Component {
         } 
         return (
             <nav> 
+                <div className="menu">Menu</div>
                 <ul className="navigation">
                     <li><Link to={"/"} className="home">Home</Link></li>
                     <li className="nav__menu-stores" onMouseLeave={this.handleLeave}><a onMouseEnter={this.handleHover}>Stores</a>

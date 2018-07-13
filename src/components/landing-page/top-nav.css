@@ -6,6 +6,10 @@
     z-index: 10;
   }
 
+  nav > .menu {
+    display: none;
+  }
+
   ul {
     list-style-type: none;
     margin: 0;
@@ -14,22 +18,27 @@
     background-color: #333;
   }
   
-  li {
+  nav > ul > li {
     float: left;
   }
-  
-  li a {
+
+  li a, .menu {
     display: block;
     color: white;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
+    cursor: pointer;
+  }
+
+  .menu {
+    text-align: left;
   }
 
   .log-out {
     color: white;
     text-align: center;
-    padding: 7px 12px;
+    padding: 7px 8px;
     text-decoration: none;
   }
 
@@ -38,3 +47,42 @@
   }
 
   
+  @media only screen and (max-width: 640px) {
+    .navigation {
+      display: none;
+    }
+    
+    nav {
+      overflow: hidden;
+      background-color: #333;
+    }
+
+    nav > .menu {
+      display: block;
+    }
+
+    li a, .menu, .log-out {
+      text-align: left;
+    }
+
+    nav > ul > li {
+      float: none;
+    }
+
+    .nav_stores_submenu, .nav_categories_submenu {
+      position: absolute;
+    }
+
+    .nav_stores_submenu > li, .nav_categories_submenu > li {
+      position: relative;
+      padding-left: 80px;
+    }
+
+    nav:hover ul {
+      display: block;
+    }
+
+    .box3 {
+      height: 250px;
+    }
+  }

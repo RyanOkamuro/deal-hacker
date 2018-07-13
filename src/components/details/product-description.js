@@ -19,19 +19,19 @@ export class ProductDescription extends React.Component {
         };
         if (this.props.loggedIn) {
             editButton = (
-                <Link to={editItem}><button className="btn">Edit</button></Link>
+                <Link to={editItem}><p className="edit-button">Edit</p></Link>
             )
         }
-
-        console.log(this.props.allSalesItems.price);
+        
+        console.log(this.props.allSalesItems.createdAt);
         const productDetails = (
             <div className="box2">
                 <p className="deal-sale-price">${this.props.allSalesItems.price}
                 <a href={this.props.allSalesItems.dealLink} className="deal-link">Deal Link</a>
                 </p>
-                <p >{this.props.allSalesItems.productDescription}</p>
+                <p className="deal-description">{this.props.allSalesItems.productDescription}</p>
                 {editButton}
-                <p><Moment format="MM-DD-YYYY HH:mm">{this.props.allSalesItems.createdAt}</Moment></p>
+                <p className="deal-post-time"><Moment format="MM-DD-YYYY HH:mm">{this.props.allSalesItems.createdAt}</Moment></p>
             </div>
         );   
         return (

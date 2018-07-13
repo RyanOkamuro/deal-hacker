@@ -6,7 +6,10 @@
   .favorite {
     height: 20px;
     width: 20px;
-    float: right;
+    position: relative;
+    left: 90px;
+    top: 0px;
+    cursor: pointer;
   }
 
   figcaption {

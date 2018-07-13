@@ -28,3 +28,12 @@
     font-weight: bold;
   }
 
+  .comment-date {
+    float: right;
+    font-weight: 1;
+  }
+
+  .user-comment {
+    padding-top: 7px;
+  }
+
