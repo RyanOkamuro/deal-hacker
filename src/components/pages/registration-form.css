@@ -1,11 +1,27 @@
 
+  h2 {
+    text-align: center;
+    padding: 15px;
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  .login {
+    text-decoration: none;
+  }
+  
+  .signup-page {
+    text-align: center;
+  }
+  
   .signup-form {
     border-top: 1px solid #DCDCDC;
     border-bottom: 1px solid #DCDCDC;
     text-align: left;
     width: 400px;
     padding: 40px;
-    margin: 0 auto;
+    margin: 5px auto;
+    display: block;
   }
 
   .signup-form input {

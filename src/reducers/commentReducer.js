@@ -18,13 +18,12 @@ export const commentReducer = (state=initialState, action) => {
         // allComents: { ...state.allComents, [action.id]: { ...state.allComents[action.id], actions.comments } }
         })
     }
-
     if (action.type === UpdateCommentsAction.GET_UPDATED_COMMENTS_SUCCESS) {
         return Object.assign({}, state, {   
             allComments: action.comments
         })
-
     }
     return state;
 }
+
 

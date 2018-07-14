@@ -5,6 +5,10 @@
     font-size: 20px;
     font-weight: bold;
   }
+
+  .registration {
+    text-decoration: none;
+  }
   
   .login-page {
     text-align: center;
@@ -16,13 +20,8 @@
     text-align: left;
     width: 400px;
     padding: 40px;
-    margin: 0 auto;
-  }
-
-  .login-form {
+    margin: 5px auto;
     display: block;
-    margin-bottom: 5px;
-    margin-top: 5px;
   }
 
   .login-form input {

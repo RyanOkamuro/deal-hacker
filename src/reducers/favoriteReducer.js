@@ -24,39 +24,11 @@ export const favoriteReducer = (state=initialState, action) => {
             item._id === action.deal.favorites._id;
         }))
         {
-          return state
+        return state
         }
         return Object.assign({}, state, [...state.dealItems, action.deal])
       }
 
-    // if (action.type === actions.ADD_FAVORITE) {
-    //     if (state.dealItems.find(item => {
-    //         item._id === action.deal.id)) 
-    //         return state
-    //     } else {
-    //     return Object.assign({}, state, {
-        // Object.assign generates
-        // a new state object by merging an object
-        // representing the new state of the lists
-        // to the existing state, and in turn, that resulting 
-        // object into an empty object, which ensures
-        // that we're not mutating the original state object
-        // ...state.dealsItems is the original state
-        // action.deal is the new state     
-        // dealItems: [...state.dealItems, action.deal]
-        // dealItems: state.dealItems.map(item => {
-        //     console.log(item);
-        //     console.log(action);
-        //     if (item._id === action.deal.id) {
-        //     // if (item._id === action.deals.favorites.id) {
-        //         return null;
-        //     }else {
-        //         return item;
-        //     }
-        // })
-    //     })
-    // }
-// }
 
     if (action.type === actions.REMOVE_FAVORITE) {
         console.log(action, state.dealItems);
