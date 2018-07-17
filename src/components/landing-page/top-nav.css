@@ -50,8 +50,9 @@
     }
     
     nav {
-      overflow: hidden;
+      /* overflow: hidden; */
       background-color: #333;
+      font-size: 14px;
     }
 
     nav > .menu {
@@ -60,6 +61,7 @@
 
     li a, .menu, .log-out {
       text-align: left;
+      padding: 5px 10px;
     }
 
     nav > ul > li {
@@ -67,7 +69,8 @@
     }
 
     .nav_stores_submenu, .nav_categories_submenu {
-      position: absolute;
+      width: 100%;
+      padding-left: 15px;
     }
 
     /* .nav_stores_submenu > li, .nav_categories_submenu > li { */
@@ -78,7 +81,7 @@
       /* font-size: 14px; */
     /* } */
 
-    nav:active ul {
+    nav:hover ul {
       display: block;
     }
 

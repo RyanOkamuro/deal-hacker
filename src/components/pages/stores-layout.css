@@ -8,6 +8,14 @@
     font-size: 20px;
     font-weight: bold;
   }
+
+  /* .row-store {
+    border-width: 1px;
+    border-color: #DCDCDC;
+    border-style: solid;
+    border-radius: 10px;
+    height: 200px;
+  } */
  
   .store-box {
     height: 250px;
@@ -43,10 +51,21 @@
     padding-right: 20px;
   }
 
+    /* Clearfix */
+    .store-row-wrapper::before,
+    .store-row-wrapper::after {
+      display: table;
+      content: '';
+    }
+    
+    .store-row-wrapper::after {
+      clear: both;
+    }
+
   .store-image-list {
     padding: 20px;
-    height: 200px;
-    width: 200px;
+    height: 180px;
+    width: 180px;
   }
 
   .deal-sale-price, .deal-item-name {

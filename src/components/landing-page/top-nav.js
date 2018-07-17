@@ -31,6 +31,10 @@ export class TopNav extends React.Component {
         this.setState({ showStoresMenu: false });
     };
 
+    toggleDropDown = () => {
+        this.setState({ showStoresMenu: !this.state.showStoresMenu});
+    }
+
     handleHover2 = () => {
         this.setState({ showCategoriesMenu: true });
     };
@@ -38,7 +42,13 @@ export class TopNav extends React.Component {
     handleLeave2 = () => {
         this.setState({ showCategoriesMenu: false });
     };
-    
+
+
+
+    toggleDropDown2 = () => {
+        this.setState({ showCategoriesMenu: !this.state.showCategoriesMenu});
+    }
+
     render() {
         let addDealLink;
         let favoriteLink;
@@ -59,10 +69,10 @@ export class TopNav extends React.Component {
                 <div className="menu">Menu</div>
                 <ul className="navigation">
                     <li><Link to={"/"} className="home">Home</Link></li>
-                    <li className="nav__menu-stores" onMouseLeave={this.handleLeave}><a onMouseEnter={this.handleHover}>Stores</a>
+                    <li className="nav__menu-stores" onMouseLeave={this.handleLeave}><a onClick={this.toggleDropDown} onMouseEnter={this.handleHover}>Stores</a>
                         {this.state.showStoresMenu && <StoresSubmenu />}
                     </li>
-                    <li className="nav__menu-categories" onMouseLeave={this.handleLeave2}><a onMouseEnter={this.handleHover2}>Categories</a>
+                    <li className="nav__menu-categories" onMouseLeave={this.handleLeave2}><a onClick={this.toggleDropDown2} onMouseEnter={this.handleHover2}>Categories</a>
                         {this.state.showCategoriesMenu && <CategoriesSubmenu />}
                     </li>
                     <li>{favoriteLink}</li>
