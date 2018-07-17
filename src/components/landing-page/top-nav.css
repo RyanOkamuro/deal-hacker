@@ -22,7 +22,7 @@
     float: left;
   }
 
-  li a, .menu {
+  li a, .log-out, .menu {
     display: block;
     color: white;
     text-align: center;
@@ -36,10 +36,7 @@
   }
 
   .log-out {
-    color: white;
-    text-align: center;
     padding: 7px 8px;
-    text-decoration: none;
   }
 
   li a:hover, .log-out:hover {
@@ -73,12 +70,15 @@
       position: absolute;
     }
 
-    .nav_stores_submenu > li, .nav_categories_submenu > li {
-      position: relative;
-      padding-left: 80px;
-    }
+    /* .nav_stores_submenu > li, .nav_categories_submenu > li { */
+      /* position: relative; */
+      /* padding-left: 80px; */
+      /* float: left; */
+      /* display: inline-block; */
+      /* font-size: 14px; */
+    /* } */
 
-    nav:hover ul {
+    nav:active ul {
       display: block;
     }
 

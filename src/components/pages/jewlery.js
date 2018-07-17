@@ -5,6 +5,7 @@ import StoresProductDescription from './stores-description';
 import {getAllDeals} from '../../actions/dealActions';
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
+import JewleryHeader from './jewlery-title';
 
 import './stores-layout.css';
 
@@ -26,8 +27,11 @@ export class Jewlery extends React.Component {
         ));
 
         return (
-            <div className="store-row-wrapper">
-                {dealItems}
+            <div>
+                <JewleryHeader />
+                <div className="store-row-wrapper">
+                    {dealItems}
+                </div>
             </div>
         );
     }

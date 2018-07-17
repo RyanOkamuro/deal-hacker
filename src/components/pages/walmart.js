@@ -5,6 +5,7 @@ import StoresProductDescription from './stores-description';
 import {getAllDeals} from '../../actions/dealActions';
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
+import WalmartHeader from './walmart-title';
 
 import './stores-layout.css';
 
@@ -26,8 +27,11 @@ export class Walmart extends React.Component {
         ));
 
         return (
-            <div className="store-row-wrapper">
-                {dealItems}
+            <div>
+                <WalmartHeader />
+                <div className="store-row-wrapper">
+                    {dealItems}
+                </div>
             </div>
         );
     }

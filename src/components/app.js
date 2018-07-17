@@ -19,7 +19,7 @@ import LoginPage from './pages/login-page';
 import RegistrationPage from './pages/registration-page';
 import Error from './landing-page/error';
 
-export default function Sales() {
+export default function App() {
   return (
     <Router>
       <div className="homePage">

@@ -5,6 +5,7 @@ import StoresProductDescription from './stores-description';
 import {getAllDeals} from '../../actions/dealActions';
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
+import BestBuyHeader from './bestbuy-title';
 
 import './stores-layout.css';
 
@@ -27,8 +28,11 @@ export class BestBuy extends React.Component {
         ));
 
         return (
-            <div className="store-row-wrapper">
-                {dealItems}
+            <div>
+                <BestBuyHeader />
+                <div className="store-row-wrapper">
+                    {dealItems}
+                </div>
             </div>
         );
     }

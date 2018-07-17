@@ -5,6 +5,7 @@ import StoresProductDescription from './stores-description';
 import {getAllDeals} from '../../actions/dealActions';
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
+import ElectronicsHeader from './electronics-title';
 
 import './stores-layout.css';
 
@@ -25,8 +26,11 @@ export class Electronics extends React.Component {
         ));
 
         return (
-            <div className="store-row-wrapper">
-                {dealItems}
+            <div>
+                <ElectronicsHeader />
+                <div className="store-row-wrapper">
+                    {dealItems}
+                </div>
             </div>
         );
     }

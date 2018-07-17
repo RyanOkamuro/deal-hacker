@@ -2,7 +2,6 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import StoresSubmenu from './stores';
 import CategoriesSubmenu from './categories';
-import LogOut from './logout';
 import {connect} from 'react-redux';
 import {clearAuth} from '../../actions/auth';
 import {clearAuthToken} from '../../local-storage';
@@ -43,12 +42,16 @@ export class TopNav extends React.Component {
     render() {
         let addDealLink;
         let favoriteLink;
+        let logOutLink;
         if (this.props.loggedIn) {
             addDealLink = (
                 <Link to={"/add-deal"} className="addDeal">Add Deal</Link>
             )
             favoriteLink = (
                 <Link to={"/favorites"} className="addDeal">Favorites</Link>
+            )
+            logOutLink = (
+                <div className='log-out' onClick={() => this.logOut()}>Log out</div>
             )
         } 
         return (
@@ -66,7 +69,7 @@ export class TopNav extends React.Component {
                     <li>{addDealLink}</li>
                     <li><Link to={"/registration"} className="registration">Sign up</Link></li>  
                     <li><Link to={"/login"} className="login">Login</Link></li>
-                    <li className="log-out"><LogOut /></li>  
+                    <li>{logOutLink}</li>  
                 </ul>
             </nav>
         );

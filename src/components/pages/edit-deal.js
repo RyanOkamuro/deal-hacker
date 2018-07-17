@@ -3,7 +3,7 @@ import {reduxForm, Field, SubmissionError, focus} from 'redux-form';
 import Input from './input';
 import {editedDeal} from '../../actions/dealActions';
 import {connect} from 'react-redux';
-// import {Redirect} from 'react-router-dom';
+import {Redirect} from 'react-router-dom';
 
 import "./edit-deal.css";
 export class EditDeal extends React.Component {
@@ -38,6 +38,7 @@ export class EditDeal extends React.Component {
                     Message submitted successfully
                 </div>
             );
+            return <Redirect to="/"/>
         }
 
         let errorMessage;

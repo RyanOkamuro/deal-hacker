@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {Link, Redirect} from 'react-router-dom';
+import {withRouter} from 'react-router-dom';
 
 import RegistrationForm from './registration-form';
 
@@ -23,4 +24,4 @@ const mapStateToProps = state => ({
     loggedIn: state.auth.currentUser !== null
 });
 
-export default connect(mapStateToProps)(RegistrationPage);
+export default withRouter(connect(mapStateToProps)(RegistrationPage));

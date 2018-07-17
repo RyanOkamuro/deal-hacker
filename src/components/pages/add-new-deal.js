@@ -3,6 +3,7 @@ import {reduxForm, Field, SubmissionError, focus} from 'redux-form';
 import Input from './input';
 import {addDeal} from '../../actions/dealActions';
 import {required, nonEmpty} from '../../validators';
+import {Redirect} from 'react-router-dom';
 // import {Provider, connect} from 'react-redux';
 
 import "./add-new-deal.css";
@@ -38,6 +39,7 @@ export class AddNewDealForm extends React.Component {
                     Message submitted successfully
                 </div>
             );
+            return <Redirect to="/"/>
         }
 
         let errorMessage;

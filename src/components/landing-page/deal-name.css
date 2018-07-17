@@ -24,11 +24,20 @@
   .deal-name {
     padding-top: 10px;
     border-top: 1px solid black;
+    font-size: 15px;
   }
 
   .deal-price {
     font-weight: bold;
   }
 
-
+  @media only screen and (max-width: 639px) {
+    img {
+      margin-top: 10px;
+    }
+    .favorite {
+      left: 0;
+      float: right;
+    }
+  }
 

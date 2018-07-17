@@ -5,6 +5,7 @@ import StoresProductDescription from './stores-description';
 import {getAllDeals} from '../../actions/dealActions';
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
+import AmazonHeader from './amazon-title';
 
 import './stores-layout.css';
 
@@ -13,11 +14,9 @@ export class Amazon extends React.Component {
         this.props.dispatch(getAllDeals());
     }
     render() {
-        console.log(this.props);
         let storeMatch= this.props.lists.filter(function(saleItem) {
             return saleItem.seller === "Amazon";
         });
-
         let dealItems= storeMatch.map((dealItem, index) => (
             <div className="row-store" key={index}>
                 <StoresProductImage dealItem={dealItem} />
@@ -26,8 +25,11 @@ export class Amazon extends React.Component {
         ));
 
         return (
-            <div className="store-row-wrapper"> 
-                {dealItems}
+            <div>
+                <AmazonHeader />
+                <div className="store-row-wrapper"> 
+                    {dealItems}
+                </div>
             </div>
         );
     }
