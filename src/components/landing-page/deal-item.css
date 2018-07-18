@@ -64,12 +64,16 @@
     .box {
       height: 320px;
     }
+    .row {
+      margin-top: 50px;
+    }
 }
   
   /* Non-mobile, grid */
   @media only screen and (min-width: 640px) {
     .col-2 {
       width: 250px;
+
     }
   }
 

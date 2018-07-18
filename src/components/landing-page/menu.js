@@ -17,7 +17,8 @@ export class Menu extends React.Component {
         super(props);
         this.state = {
             showStoresMenu: false,
-            showCategoriesMenu: false
+            showCategoriesMenu: false,
+            showMenu: false
         };
     }
 
@@ -44,6 +45,10 @@ export class Menu extends React.Component {
     toggleDropDown2 = () => {
         this.setState({ showCategoriesMenu: !this.state.showCategoriesMenu});
     }
+    toggleDropDown3 = () => {
+        this.setState({ showMenu: !this.state.showMenu});
+    }
+
     render() {
         let addDealLink;
         let favoriteLink;
@@ -59,8 +64,11 @@ export class Menu extends React.Component {
                 <div className='log-out' onClick={() => this.logOut()}>Log out</div>
             )
         }
+        console.log(this.state.showMenu);
         return (
-            <ul className="navigation">
+            <div>
+            <p onClick={this.toggleDropDown3} className="mobileMenu">Menu</p>
+            <ul className="navigation" style= {{display: this.state.showMenu ? 'block' : 'none'}}>
                 <li><Link to={'/'} className="home">Home</Link></li>
                 <li className="nav__menu-stores" onMouseLeave={this.handleLeave}><a onClick={this.toggleDropDown} onMouseEnter={this.handleHover}>Stores</a>
                     {this.state.showStoresMenu && <StoresSubmenu />}
@@ -74,6 +82,7 @@ export class Menu extends React.Component {
                 <li><Link to={'/login'} className="login">Login</Link></li>
                 <li>{logOutLink}</li>  
             </ul>
+            </div>
         );
     }
 }

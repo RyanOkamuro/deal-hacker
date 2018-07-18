@@ -15,7 +15,6 @@ export class BestBuy extends React.Component {
         this.props.dispatch(getAllDeals());
     }
     render() {
-        console.log(this.props);
         let storeMatch= this.props.lists.filter(function(saleItem) {
             return saleItem.seller === "Best Buy";
         });

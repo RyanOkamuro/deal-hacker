@@ -4,7 +4,6 @@ import Input from './input';
 import {addDeal} from '../../actions/dealActions';
 import {required, nonEmpty} from '../../validators';
 import {Redirect} from 'react-router-dom';
-// import {Provider, connect} from 'react-redux';
 
 import "./add-new-deal.css";
 
@@ -124,9 +123,3 @@ export default reduxForm({
         dispatch(focus('new-deal', Object.keys(errors)[0]))
     }
 }})(AddNewDealForm);
-
-// const mapStateToProps = state => ({
-//     // dealList: state.deal.allDeals
-// });
-
-// export default connect(mapStateToProps)(AddNewDealForm);

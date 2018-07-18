@@ -101,7 +101,7 @@
   }
 
   /* Mobile */
-  @media only screen and (max-width: 639px) {
+  @media only screen and (max-width: 719px) {
     .row-wrapper {
       margin-top: 50px
     }
@@ -110,6 +110,7 @@
     }
     .deal-description {
       padding-bottom: 30px;
+      font-size: 14px;
     }
     .box2 {
       height: auto;
@@ -124,7 +125,7 @@
   }
 
   /* Non-mobile, grid */
-  @media only screen and (min-width: 640px) {
+  @media only screen and (min-width: 720px) {
     .col-4 {
       width: 370px;
     }

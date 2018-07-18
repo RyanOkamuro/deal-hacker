@@ -3,18 +3,13 @@
     width: 100%;
     background: none;
     margin-top: 10px;
-    padding: 15px;
-    border-width: 1px;
-    box-shadow: 1px 2px 2px 1px #888888;
-    border-color: #DCDCDC;
-    border-style: solid;
-    border-radius: 10px;
     margin-bottom: 10px;
   }  
 
   .comment-list {
     background: none;
     border: solid #DCDCDC;
+    box-shadow: 1px 2px 2px 1px #888888;
     border-width: thin;
     padding: 10px 10px;
   }
