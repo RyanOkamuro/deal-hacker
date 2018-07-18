@@ -11,7 +11,7 @@
     margin-top: 5px;
   }
 
-  .edit-form input, .edit-form select .edit-form textarea {
+  .edit-form input, .edit-form select, .edit-form textarea {
     width: 100%;
     padding: 6px;
     border-radius: 3px;

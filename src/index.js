@@ -7,13 +7,11 @@ import registerServiceWorker from './registerServiceWorker';
 import './reset.css';
 import './index.css';
 
-import Sales from './components/sales';
+import App from './components/app';
 
 ReactDOM.render(
   <Provider store={store}>
-    <div>
-      <Sales />
-    </div>
+      <App />
   </Provider>,
   document.getElementById('root')
 );

@@ -2,6 +2,33 @@
   .comment-area {
     width: 100%;
     background: none;
-    border: solid grey;
     margin-top: 10px;
+    margin-bottom: 10px;
   }  
+
+  .comment-list {
+    background: none;
+    border: solid #DCDCDC;
+    box-shadow: 1px 2px 2px 1px #888888;
+    border-width: thin;
+    padding: 10px 10px;
+  }
+  
+  .single-comment {
+    margin-bottom: 10px;
+  }
+
+  .comment-username {
+    line-height: 30px;
+    font-weight: bold;
+  }
+
+  .comment-date {
+    float: right;
+    font-weight: 1;
+  }
+
+  .user-comment {
+    padding-top: 7px;
+  }
+

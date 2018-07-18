@@ -2,12 +2,21 @@ import React from 'react';
 
 import StoresProductImage from './stores-image';
 import StoresProductDescription from './stores-description';
+import {getAllDeals} from '../../actions/dealActions';
+import {connect} from 'react-redux';
+import {withRouter} from 'react-router-dom';
+import MacysHeader from './macys-title';
 
 import './stores-layout.css';
 
-export default class Macys extends React.Component {
+
+export class Macys extends React.Component {
+    componentDidMount() {
+        this.props.dispatch(getAllDeals());
+    }
     render() {
-        let storeMatch= this.props.saleItems.filter(function(saleItem) {
+        console.log(this.props);
+        let storeMatch= this.props.lists.filter(function(saleItem) {
             return saleItem.seller === "Macys";
         });
 
@@ -19,9 +28,22 @@ export default class Macys extends React.Component {
         ));
 
         return (
-            <div className="store-row-wrapper">
-                {dealItems}
+            <div> 
+                <MacysHeader />
+                <div className="store-row-wrapper">
+                    {dealItems}
+                </div>
             </div>
         );
     }
 }
+
+Macys.defaultProps = {
+    title: 'Macys'
+};
+
+const mapStateToProps = state => ({
+    lists: state.deal.allDeals
+});
+
+export default withRouter(connect(mapStateToProps)(Macys));

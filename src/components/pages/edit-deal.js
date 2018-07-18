@@ -1,41 +1,17 @@
 import React from 'react';
 import {reduxForm, Field, SubmissionError, focus} from 'redux-form';
 import Input from './input';
-import {required, nonEmpty} from '../../validators';
+import {editedDeal} from '../../actions/dealActions';
+import {connect} from 'react-redux';
+import {Redirect} from 'react-router-dom';
 
 import "./edit-deal.css";
-        
 export class EditDeal extends React.Component {
-    onSubmit(values) {
-        return fetch('/api/messages', {
-//NEED TO UPDATE ORIGINAL METHOD: POST
-            method: 'PUT',
-            body: JSON.stringify(values),
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        })
-            .then(res => {
-                if (!res.ok) {
-                    if (
-                        res.headers.has('content-type') &&
-                        res.headers
-                            .get('content-type')
-                            .startsWith('application/json')
-                    ) {
-                        //Detailed JSON error response
-                        return res.json().then(err => Promise.reject(err));
-                    }
-                    // Less informative error returned by express
-                    return Promise.reject({
-                        code: res.status,
-                        message: res.statusText
-                    });
-                }
-                return;
-            })
+    onSubmit(values, productID) {
+        this.props.dispatch(editedDeal(values, productID))
             .then(() => console.log('Submitted with values', values))
             .catch(err => {
+                console.log(err);
                 const {reason, message, location} = err;
                 if (reason === 'ValidationError') {
                     // Convert ValidationErrors into SubmissionErrors for Redux Form
@@ -54,6 +30,7 @@ export class EditDeal extends React.Component {
     }
 
     render() {
+        const productID = this.props.history.location.id;
         let successMessage;
         if (this.props.submitSucceeded) {
             successMessage = (
@@ -61,6 +38,7 @@ export class EditDeal extends React.Component {
                     Message submitted successfully
                 </div>
             );
+            return <Redirect to="/"/>
         }
 
         let errorMessage;
@@ -73,19 +51,19 @@ export class EditDeal extends React.Component {
         return (
             <form className="edit-form"
                 onSubmit={this.props.handleSubmit(values =>
-                    this.onSubmit(values)
+                    this.onSubmit(values, productID)
                 )}>
                 <Field          
                     name="dealName"  
                     type="text" 
                     component={Input}
                     label="Item Name"
-                    validate={[required, nonEmpty]} 
                 />
                 <label>Product Category</label>
                 <Field          
                     name="productCategory"  
                     component="select">
+                    <option></option>
                     <option value="Electronics">Electronics</option>
                     <option value="Home Needs">Home Needs</option>
                     <option value="Jewlery">Jewlery</option>
@@ -95,21 +73,18 @@ export class EditDeal extends React.Component {
                     type="text" 
                     component={Input}
                     label="Price"
-                    validate={[required, nonEmpty]} 
                 />
                 <Field          
                     name="image"  
                     type="text" 
                     component={Input}
                     label="Image URL"
-                    validate={[required, nonEmpty]} 
                 />
                 <Field          
                     name="seller"  
                     type="text" 
                     component={Input}
                     label="Seller"
-                    validate={[required, nonEmpty]} 
                 />
                 <Field          
                     name="productDescription"  
@@ -117,14 +92,12 @@ export class EditDeal extends React.Component {
                     rows="15" 
                     component={Input}
                     label="Product Description"
-                    validate={[required, nonEmpty]} 
                 />
                 <Field          
                     name="dealLink"  
                     type="text" 
                     component={Input}
                     label="Deal Link"
-                    validate={[required, nonEmpty]} 
                 />
                 <button 
                     type="submit"
@@ -140,6 +113,15 @@ export class EditDeal extends React.Component {
 export default reduxForm({
     form: 'edit-form',
     //Automatically focus on first incomplete field when the user submits incorrect value for a field
-    onSubmitFail: (errors, dispatch) =>
-        dispatch(focus('contact', Object.keys(errors)[0]))
-})(EditDeal);
+    onSubmitFail: (errors, dispatch) => {
+    if(errors !== undefined) {
+        dispatch(focus('edit-form', Object.keys(errors)[0]))
+    }
+}})(EditDeal);
+
+
+// const mapStateToProps = state => ({
+//     // dealList: state.deal.allDeals
+// });
+
+// export default connect(mapStateToProps)(EditDeal);

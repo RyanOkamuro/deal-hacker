@@ -1,0 +1,95 @@
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10;
+  }
+
+  nav > div > .menu {
+    display: none;
+  }
+
+  nav > div > .mobileMenu {
+    display: none;
+  }
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+  }
+  
+  nav > div > ul > li {
+    float: left;
+  }
+
+  li a, .log-out, .menu {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .menu {
+    text-align: left;
+  }
+
+  li a:hover, .log-out:hover {
+    background-color: #111;
+  }
+
+  
+  @media only screen and (max-width: 720px) {
+    .navigation {
+      display: none;
+    }
+    
+    nav {
+      background-color: #333;
+      font-size: 15px;
+      padding-top: 5px;
+      padding-bottom: 5px;
+    }
+
+    nav > div > .menu {
+      display: block;
+    }
+
+    nav > div > .mobileMenu {
+      display: block;
+      color: white;
+    }
+
+    li a, .menu, .log-out {
+      text-align: left;
+      padding: 5px 10px;
+    }
+
+    nav > div > ul > li {
+      float: none;
+    }
+
+    .nav_stores_submenu, .nav_categories_submenu {
+      width: 100%;
+      padding-left: 15px;
+    }
+
+    /* nav:hover ul {
+      display: block;
+    } */
+
+    .box3 {
+      height: 250px;
+    }
+  }
+
+  @media only screen and (min-width: 720px) {
+    .navigation {
+      display: block !important;
+    }
+  }

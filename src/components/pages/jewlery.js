@@ -2,12 +2,20 @@ import React from 'react';
 
 import StoresProductImage from './stores-image';
 import StoresProductDescription from './stores-description';
+import {getAllDeals} from '../../actions/dealActions';
+import {connect} from 'react-redux';
+import {withRouter} from 'react-router-dom';
+import JewleryHeader from './jewlery-title';
 
 import './stores-layout.css';
 
-export default class Jewlery extends React.Component {
+export class Jewlery extends React.Component {
+    componentDidMount() {
+        this.props.dispatch(getAllDeals());
+    }
     render() {
-        let storeMatch= this.props.saleItems.filter(function(saleItem) {
+        console.log(this.props);
+        let storeMatch= this.props.lists.filter(function(saleItem) {
             return saleItem.productCategory === "Jewlery";
         });
 
@@ -19,9 +27,22 @@ export default class Jewlery extends React.Component {
         ));
 
         return (
-            <div className="store-row-wrapper">
-                {dealItems}
+            <div>
+                <JewleryHeader />
+                <div className="store-row-wrapper">
+                    {dealItems}
+                </div>
             </div>
         );
     }
 }
+
+Jewlery.defaultProps = {
+    title: 'Jewlery'
+};
+
+const mapStateToProps = state => ({
+    lists: state.deal.allDeals
+});
+
+export default withRouter(connect(mapStateToProps)(Jewlery));

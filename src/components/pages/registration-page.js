@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {Link, Redirect} from 'react-router-dom';
+import {withRouter} from 'react-router-dom';
 
 import RegistrationForm from './registration-form';
 
@@ -11,10 +12,10 @@ export function RegistrationPage(props) {
         return <Redirect to="/" />;
     }
     return (
-        <div className="registerAccount">
+        <div className="signup-page">
             <h2>Register Deal Hacker Account</h2>
             <RegistrationForm />
-            <Link to="/login">Login</Link>
+            <Link to="/login" className='login'>Login</Link>
         </div>
     );
 }
@@ -23,4 +24,4 @@ const mapStateToProps = state => ({
     loggedIn: state.auth.currentUser !== null
 });
 
-export default connect(mapStateToProps)(RegistrationPage);
+export default withRouter(connect(mapStateToProps)(RegistrationPage));

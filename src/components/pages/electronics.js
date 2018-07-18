@@ -2,12 +2,19 @@ import React from 'react';
 
 import StoresProductImage from './stores-image';
 import StoresProductDescription from './stores-description';
+import {getAllDeals} from '../../actions/dealActions';
+import {connect} from 'react-redux';
+import {withRouter} from 'react-router-dom';
+import ElectronicsHeader from './electronics-title';
 
 import './stores-layout.css';
 
-export default class Electronics extends React.Component {
+export class Electronics extends React.Component {
+    componentDidMount() {
+        this.props.dispatch(getAllDeals());
+    }
     render() {
-        let storeMatch= this.props.saleItems.filter(function(saleItem) {
+        let storeMatch= this.props.lists.filter(function(saleItem) {
             return saleItem.productCategory === "Electronics";
         });
 
@@ -19,9 +26,22 @@ export default class Electronics extends React.Component {
         ));
 
         return (
-            <div className="store-row-wrapper">
-                {dealItems}
+            <div>
+                <ElectronicsHeader />
+                <div className="store-row-wrapper">
+                    {dealItems}
+                </div>
             </div>
         );
     }
 }
+
+Electronics.defaultProps = {
+    title: 'Electronics'
+};
+
+const mapStateToProps = state => ({
+    lists: state.deal.allDeals
+});
+
+export default withRouter(connect(mapStateToProps)(Electronics));

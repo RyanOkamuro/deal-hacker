@@ -1,44 +1,16 @@
 import React from 'react';
 import {reduxForm, Field, SubmissionError, focus} from 'redux-form';
 import Input from './input';
-// import {addNewDeal} from '../../actions/addDeal';
+import {addDeal} from '../../actions/dealActions';
 import {required, nonEmpty} from '../../validators';
-import {API_BASE_URL} from '../../config';
+import {Redirect} from 'react-router-dom';
 
 import "./add-new-deal.css";
 
 export class AddNewDealForm extends React.Component {
     onSubmit(values) {
         console.log(values);
-        // return this.props
-        //     .dispatch(addNewDeal(values))
-        //     .then(res => {
-        return fetch(`${API_BASE_URL}/deal`, {
-            method: 'POST',
-            body: JSON.stringify(values),
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        })
-            .then(res => {
-                if (!res.ok) {
-                    if (
-                        res.headers.has('content-type') &&
-                        res.headers
-                            .get('content-type')
-                            .startsWith('application/json')
-                    ) {
-                        //Detailed JSON error response
-                        return res.json().then(err => Promise.reject(err));
-                    }
-                    // Less informative error returned by express
-                    return Promise.reject({
-                        code: res.status,
-                        message: res.statusText
-                    });
-                }
-                return;
-            })
+        this.props.dispatch(addDeal(values))
             .then(() => console.log('Submitted with values', values))
             .catch(err => {
                 const {reason, message, location} = err;
@@ -66,6 +38,7 @@ export class AddNewDealForm extends React.Component {
                     Message submitted successfully
                 </div>
             );
+            return <Redirect to="/"/>
         }
 
         let errorMessage;
@@ -145,6 +118,8 @@ export class AddNewDealForm extends React.Component {
 export default reduxForm({
     form: 'new-deal',
     //Automatically focus on first incomplete field when the user submits incorrect value for a field
-    onSubmitFail: (errors, dispatch) =>
+    onSubmitFail: (errors, dispatch) => {
+    if(errors !== undefined) {
         dispatch(focus('new-deal', Object.keys(errors)[0]))
-})(AddNewDealForm);
+    }
+}})(AddNewDealForm);

@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {Link, Redirect} from 'react-router-dom';
+import {withRouter} from 'react-router-dom';
 
 import LoginForm from './login-form';
 
@@ -14,7 +15,7 @@ export function LoginPage(props) {
         <div className="login-page">
             <h2>Login</h2>
             <LoginForm />
-            <Link to="/registration">Register</Link>
+            <Link to="/registration" className="registration">Register</Link>
         </div>
     );
 }
@@ -23,4 +24,4 @@ const mapStateToProps = state => ({
     loggedIn: state.auth.currentUser !== null
 });
 
-export default connect(mapStateToProps)(LoginPage);
+export default withRouter(connect(mapStateToProps)(LoginPage));

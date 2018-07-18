@@ -1,38 +1,24 @@
 import React from 'react';
 import {reduxForm, Field, SubmissionError, focus} from 'redux-form';
 import Input from '../pages/input';
-import {required, nonEmpty} from '../../validators';
+import store from '../../store';
+import {addComment} from '../../actions/commentActions';
+import {connect} from 'react-redux';
+import {clearAuth} from '../../actions/auth';
+import {clearAuthToken} from '../../local-storage';
+import {withRouter} from 'react-router-dom';
 
 import './comments.css';
 
 export class Comments extends React.Component {
+    logOut() {
+        this.props.dispatch(clearAuth());
+        clearAuthToken();
+    }
     onSubmit(values) {
-        return fetch('/api/messages', {
-            method: 'POST',
-            body: JSON.stringify(values),
-            headers: {
-                'Content-Type': 'application/json'
-            }
-        })
-            .then(res => {
-                if (!res.ok) {
-                    if (
-                        res.headers.has('content-type') &&
-                        res.headers
-                            .get('content-type')
-                            .startsWith('application/json')
-                    ) {
-                        //Detailed JSON error response
-                        return res.json().then(err => Promise.reject(err));
-                    }
-                    // Less informative error returned by express
-                    return Promise.reject({
-                        code: res.status,
-                        message: res.statusText
-                    });
-                }
-                return;
-            })
+        const id = this.props.allSalesItems.id
+        const authToken = store.getState().auth.authToken;
+        this.props.dispatch(addComment(values, id, authToken))
             .then(() => console.log('Submitted with values', values))
             .catch(err => {
                 const {reason, message, location} = err;
@@ -68,20 +54,21 @@ export class Comments extends React.Component {
                 <div className="message message-error">{this.props.error}</div>
             );
         }
-
-        const userDealComments = (
+        
+        let userDealComments;
+        if (this.props.loggedIn) {
+            userDealComments = (
             <div className="box3">
                 <form className="user-comments-form"
                     onSubmit={this.props.handleSubmit(values =>
                         this.onSubmit(values)
                     )}>
                     <Field          
-                        name="user-comment-thread" 
+                        name="userComment" 
                         element="textarea"
                         rows="15" 
                         component={Input}
                         label="Leave a comment"
-                        validate={[required, nonEmpty]} 
                     />
                     <button 
                         type="submit"
@@ -92,6 +79,7 @@ export class Comments extends React.Component {
                 </form>
             </div>
         );
+        }
         return (
             <div className="col-12">
                 {userDealComments}
@@ -100,9 +88,18 @@ export class Comments extends React.Component {
     }
 }
 
-export default reduxForm({
+Comments = reduxForm({
     form: 'user-comments-form',
     //Automatically focus on first incomplete field when the user submits incorrect value for a field
-    onSubmitFail: (errors, dispatch) =>
-        dispatch(focus('contact', Object.keys(errors)[0]))
-})(Comments);
+    onSubmitFail: (errors, dispatch) => {
+    if(errors !== undefined) {
+        dispatch(focus('user-comments-form', Object.keys(errors)[0]))
+    }
+}})(Comments);
+
+const mapStateToProps = state => ({
+    loggedIn: state.auth.currentUser !== null
+});
+
+export default withRouter(connect(mapStateToProps)(Comments));
+

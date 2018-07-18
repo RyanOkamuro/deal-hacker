@@ -1,14 +1,27 @@
 
-  .login-form {
-    width: 400px;
-    padding: 40px;
-    margin: 0 auto;
+  h2 {
+    text-align: center;
+    padding: 15px;
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  .registration {
+    text-decoration: none;
+  }
+  
+  .login-page {
+    text-align: center;
   }
 
   .login-form {
+    border-top: 1px solid #DCDCDC;
+    border-bottom: 1px solid #DCDCDC;
+    text-align: left;
+    width: 400px;
+    padding: 40px;
+    margin: 5px auto;
     display: block;
-    margin-bottom: 5px;
-    margin-top: 5px;
   }
 
   .login-form input {
@@ -23,6 +36,12 @@
     padding: 6px;
     border-radius: 3px;
     margin-bottom: 3px;
+  }
+
+  @media only screen and (max-width: 639px) {
+    .login-form {
+      width: 320px;
+    }
   }
 
   

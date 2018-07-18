@@ -1,19 +1,36 @@
 import React from 'react';
+import {getAllComments} from '../../actions/commentActions';
+import SingleComment from './single-comment';
+import {connect} from 'react-redux';
+import {withRouter} from 'react-router-dom';
 
 import './comments-listing.css';
 
-export default class CommentsListing extends React.Component {
+export class CommentsListing extends React.Component {
+    componentDidMount() {
+        const id = this.props.allSalesItems.id
+        this.props.dispatch(getAllComments(id));
+    }
     render() {
-        const userDealCommentsListing = (
-            <li className="comment-list">
-                "hi"
-            </li>
-        );
-        return (
-            <ul className="comment-area">
-                {userDealCommentsListing}
+        const userComments = this.props.commentList.filter(item => item._id === this.props.allSalesItems.id).map((comment, index) => (
+            <ul className="comment-list" key={index}>
+                <SingleComment comment={comment} />
             </ul>
-            
+        ))
+        return (
+            <div className="comment-area">
+                {userComments}
+            </div> 
         )
     }
 }
+
+CommentsListing.defaultProps = {
+    title: 'CommentsListing'
+};
+
+const mapStateToProps = state => ({
+    commentList: state.comment.allComments
+});
+
+export default withRouter(connect(mapStateToProps)(CommentsListing));
