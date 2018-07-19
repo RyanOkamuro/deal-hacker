@@ -1,5 +1,6 @@
 import React from 'react';
 
+import WebFont from 'webfontloader';
 import Header from './landing-page/header';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import DealBoard from './landing-page/deal-board';
@@ -18,6 +19,12 @@ import EditDeal from './pages/edit-deal';
 import LoginPage from './pages/login-page';
 import RegistrationPage from './pages/registration-page';
 import Error from './landing-page/error';
+
+WebFont.load({
+  google: {
+    families: ['Titillium Web:300,400,700', 'sans-serif']
+  }
+});
 
 export default function App() {
   return (

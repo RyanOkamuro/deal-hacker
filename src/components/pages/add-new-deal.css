@@ -30,4 +30,8 @@
     margin-bottom: 3px;
   }
 
+  .form-error {
+    color: #ff0000;
+  }
+
   

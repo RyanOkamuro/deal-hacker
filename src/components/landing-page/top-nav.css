@@ -63,6 +63,8 @@
     nav > div > .mobileMenu {
       display: block;
       color: white;
+      cursor: pointer;
+      padding: 5px 10px;
     }
 
     li a, .menu, .log-out {
@@ -78,10 +80,6 @@
       width: 100%;
       padding-left: 15px;
     }
-
-    /* nav:hover ul {
-      display: block;
-    } */
 
     .box3 {
       height: 250px;

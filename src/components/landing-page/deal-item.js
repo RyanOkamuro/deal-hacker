@@ -1,5 +1,6 @@
 import React from 'react';
 
+import Subheader from './subheader';
 import DealName from './deal-name';
 import ViewDetails from './view-details';
  
@@ -16,8 +17,11 @@ export default class DealItem extends React.Component {
             </div>
         ));
         return (
-            <div className="row">
-                {saleItems}
+            <div>
+                <Subheader />
+                <div className="row">
+                    {saleItems}
+                </div>
             </div>
         )
     }

@@ -1,4 +1,5 @@
 import React from 'react';
+import TestAccount from './test-account';
 import {connect} from 'react-redux';
 import {Link, Redirect} from 'react-router-dom';
 import {withRouter} from 'react-router-dom';
@@ -13,9 +14,10 @@ export function LoginPage(props) {
 
     return (
         <div className="login-page">
-            <h2>Login</h2>
+            <h3>Login</h3>
             <LoginForm />
             <Link to="/registration" className="registration">Register</Link>
+            <TestAccount />
         </div>
     );
 }

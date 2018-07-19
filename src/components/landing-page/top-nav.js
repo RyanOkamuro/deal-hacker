@@ -28,9 +28,6 @@ export class TopNav extends React.Component {
     render() {
         return (
             <nav> 
-                {/* <div onMouseLeave={this.handleLeave} className="menu" onClick={this.toggleDropDown} onMouseEnter={this.handleHover}>Menu */}
-                    {/* {this.state.showMainMenu && <Menu /> } */}
-                {/* </div> */}
                 <Menu />
             </nav>
         );
