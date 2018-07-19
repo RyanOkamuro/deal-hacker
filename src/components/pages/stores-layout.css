@@ -98,6 +98,14 @@
       height: 240px;
       width: 240px;
     }
+    .row2 {
+      margin-bottom: 0;
+      border-width: 1px;
+      box-shadow: 1px 2px 2px 1px #888888;
+      border-color: #DCDCDC;
+      border-style: solid;
+      border-radius: 10px;
+    }
   }
 
   @media only screen and (max-width: 375px) {

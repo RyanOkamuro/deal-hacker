@@ -100,6 +100,18 @@
     font-weight: bold;
   }
 
+  /* Clearfix */
+  .row2::before,
+  .row2::after {
+    display: table;
+    content: '';
+  }
+  
+  .row2::after {
+    clear: both;
+  }
+
+
   /* Mobile */
   @media only screen and (max-width: 719px) {
     .row-wrapper {
@@ -109,11 +121,14 @@
       padding-left: 0;
     }
     .deal-description {
-      padding-bottom: 30px;
+      padding-bottom: 40px;
       font-size: 14px;
     }
     .box2 {
       height: auto;
+      -webkit-box-shadow: none;
+      border-width: 0;
+      box-shadow: none;
     }
     .row3 {
       float: left;
