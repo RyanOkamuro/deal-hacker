@@ -64,7 +64,6 @@ export class Menu extends React.Component {
                 <div className='log-out' onClick={() => this.logOut()}>Log out</div>
             )
         }
-        console.log(this.state.showMenu);
         return (
             <div>
             <p onClick={this.toggleDropDown3} className="mobileMenu">Menu</p>

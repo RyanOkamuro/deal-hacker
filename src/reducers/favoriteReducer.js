@@ -21,7 +21,7 @@ export const favoriteReducer = (state=initialState, action) => {
 
     if (action.type === actions.ADD_FAVORITE) {
         if (state.dealItems.find(item =>  {
-            item._id === action.deal.favorites._id;
+            return item._id === action.deal.favorites._id;
         }))
         {
         return state
@@ -31,7 +31,7 @@ export const favoriteReducer = (state=initialState, action) => {
 
 
     if (action.type === actions.REMOVE_FAVORITE) {
-        console.log(action, state.dealItems);
+        // console.log(action, state.dealItems);
         return Object.assign({}, state, {
         // Object.assign generates
         // a new state object by merging an object

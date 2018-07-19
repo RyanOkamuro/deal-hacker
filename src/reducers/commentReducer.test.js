@@ -1,8 +1,8 @@
-import {GET_COMMENTS, getComments, getAllComments, GET_UPDATED_COMMENTS_SUCCESS, getUpdateComments, getAllUpdateComments, ADD_COMMENTS, addComments, addComment} from '../actions/commentActions';
+import {getComments, getUpdateComments} from '../actions/commentActions';
 import {commentReducer} from './commentReducer';
 
 describe('Get Comments', () => {
-    it.only('Should get all the comments', () => {
+    it('Should get all the comments', () => {
         let state = {
             allComments: []
         };
@@ -18,7 +18,7 @@ describe('Get Comments', () => {
         };
         const updateComment = {id: '12345', comment: 'New comment'};
         state = commentReducer(state, getUpdateComments(updateComment));
-        let updatedComment = state.find(comment => comment.id === updateComment.id);
+        let updatedComment = state.allComments;
         expect(updatedComment).toEqual(updateComment);
     });
 })
