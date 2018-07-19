@@ -23,7 +23,6 @@ export class ProductDescription extends React.Component {
             )
         }
         
-        console.log(this.props.allSalesItems.createdAt);
         const productDetails = (
             <div className="box2">
                 <p className="deal-sale-price">${this.props.allSalesItems.price}

@@ -1,5 +1,5 @@
 import React from 'react';
-import {reduxForm, Field, SubmissionError, focus} from 'redux-form';
+import {reduxForm, Field, SubmissionError, reset, focus} from 'redux-form';
 import Input from '../pages/input';
 import store from '../../store';
 import {addComment} from '../../actions/commentActions';
@@ -39,39 +39,23 @@ export class Comments extends React.Component {
     }
     
     render() {
-        let successMessage;
-        if (this.props.submitSucceeded) {
-            successMessage = (
-                <div className="message message-success">
-                    Message submitted successfully
-                </div>
-            );
-        }
-
-        let errorMessage;
-        if (this.props.error) {
-            errorMessage = (
-                <div className="message message-error">{this.props.error}</div>
-            );
-        }
-        
         let userDealComments;
         if (this.props.loggedIn) {
             userDealComments = (
-            <div className="box3">
-                <form className="user-comments-form"
+            <div className='box3'>
+                <form className='user-comments-form'
                     onSubmit={this.props.handleSubmit(values =>
                         this.onSubmit(values)
                     )}>
                     <Field          
-                        name="userComment" 
-                        element="textarea"
-                        rows="15" 
+                        name='userComment' 
+                        element='textarea'
+                        rows='15' 
                         component={Input}
-                        label="Leave a comment"
+                        label='Leave a comment'
                     />
                     <button 
-                        type="submit"
+                        type='submit'
                         //Here we disable the button if it is pristine (i.e. if the user hasn't entered anything into the field) or it is submitting.
                         disabled={this.props.pristine || this.props.submitting}>
                         Submit
@@ -81,15 +65,19 @@ export class Comments extends React.Component {
         );
         }
         return (
-            <div className="col-12">
+            <div className='col-12'>
                 {userDealComments}
             </div>
         )
     }
 }
 
+const afterSubmit = (result, dispatch) =>
+  dispatch(reset('user-comments-form'));
+
 Comments = reduxForm({
     form: 'user-comments-form',
+    onSubmitSuccess: afterSubmit,
     //Automatically focus on first incomplete field when the user submits incorrect value for a field
     onSubmitFail: (errors, dispatch) => {
     if(errors !== undefined) {

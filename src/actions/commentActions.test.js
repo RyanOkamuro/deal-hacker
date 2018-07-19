@@ -14,7 +14,7 @@ describe('getComments', () => {
 
 describe('getAllComments', () => {
     it('Should dispatch getComments', () => {
-        const comments = ["Great product", "Great"];
+        const comments = ['Great product', 'Great'];
         global.fetch = jest.fn().mockImplementation(() => {
             return Promise.resolve({ok: true, json(){
                 return comments;
@@ -22,9 +22,9 @@ describe('getAllComments', () => {
         })
         const dispatch = jest.fn();
         const getState = jest.fn().mockImplementation(() => {
-            return {auth: {authToken: "1242141"}};
+            return {auth: {authToken: '1242141'}};
         })
-        const id = "15290816";
+        const id = '15290816';
         return getAllComments(id)(dispatch, getState)
         .then(() => {
             expect(fetch).toHaveBeenCalledWith(`${API_BASE_URL}/deal/${id}`, {
@@ -50,7 +50,7 @@ describe('getUpdateComments', () => {
 
 describe('getAllUpdateComments', () => {
     it('Should dispatch getUpdateComments', () => {
-        const comments = ["Great product", "Great"];
+        const comments = ['Great product', 'Great'];
         global.fetch = jest.fn().mockImplementation(() => {
             return Promise.resolve({ok: true, json(){
                 return comments;
@@ -58,9 +58,9 @@ describe('getAllUpdateComments', () => {
         })
         const dispatch = jest.fn();
         const getState = jest.fn().mockImplementation(() => {
-            return {auth: {authToken: "1242141"}};
+            return {auth: {authToken: '1242141'}};
         })
-        const id = "15290816";
+        const id = '15290816';
         return getAllUpdateComments(id)(dispatch, getState)
         .then(() => {
             expect(fetch).toHaveBeenCalledWith(`${API_BASE_URL}/deal/${id}`, {
@@ -86,15 +86,15 @@ describe('addComments', () => {
 
 describe('addComment', () => {
     it('Should dispatch addComments', () => {
-        const comments = ["Best investment I have made", "Great price"];
+        const comments = ['Best investment I have made', 'Great price'];
         global.fetch = jest.fn().mockImplementation(() => {
             return Promise.resolve({ok: true, json(){
                 return comments;
             }})
         })
         const dispatch = jest.fn();
-        const authToken = "1242141";
-        const id = "15290816";
+        const authToken = '1242141';
+        const id = '15290816';
         return addComment(comments, id, authToken)(dispatch)
         .then(() => {
             expect(fetch).toHaveBeenCalledWith(`${API_BASE_URL}/comments/${id}`, {

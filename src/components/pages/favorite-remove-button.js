@@ -1,7 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
-
 import {removeOneFavorite} from '../../actions/favoriteActions';
 
 class FavoriteRemoveButton extends React.Component {
@@ -15,7 +14,7 @@ class FavoriteRemoveButton extends React.Component {
     }
     render() {
         return (
-            <img src="http://www.glenviewhealthclub.com/wp-content/uploads/x-mark.png" onClick={() => this.removeOneFavorite(this.props.favoriteItemDetail)} className="removeFavoriteButton" alt="removeButton"></img>
+            <img src='http://www.glenviewhealthclub.com/wp-content/uploads/x-mark.png' onClick={() => this.removeOneFavorite(this.props.favoriteItemDetail)} className='removeFavoriteButton' alt='removeButton'></img>
         )
     }
 }

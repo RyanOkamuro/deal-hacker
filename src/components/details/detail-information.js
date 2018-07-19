@@ -17,13 +17,13 @@ export class DetailInformation extends React.Component {
     render() {
         if (this.props.location.allSalesItems) {
         return (
-            <div className="row-wrapper">
-                <div className="row2">
+            <div className='row-wrapper'>
+                <div className='row2'>
                     <ProductImage allSalesItems= {this.props.location.allSalesItems} />
                     <ProductDescription allSalesItems= {this.props.location.allSalesItems} />
                 </div>
                 
-                <div className="row3">
+                <div className='row3'>
                     <Comments allSalesItems= {this.props.location.allSalesItems} />
                     <CommentsListing allSalesItems= {this.props.location.allSalesItems} />
                 </div>
@@ -33,28 +33,24 @@ export class DetailInformation extends React.Component {
         }else {
             const selectedProduct = this.props.allSalesItems.find(item=> item.id === this.props.match.params.product)
             if(selectedProduct) {
-        return (
-            <div className="row-wrapper">
-                <div className="row2">
-                    <ProductImage allSalesItems= {selectedProduct} />
-                    <ProductDescription allSalesItems= {selectedProduct} />
-                </div>
-                <div className="row3">
-                    <Comments allSalesItems= {selectedProduct} />
-                    <CommentsListing allSalesItems= {selectedProduct} />
-                </div>
-            </div>
-        )
-        }else {
-            return(null);
-        }
+                return (
+                    <div className='row-wrapper'>
+                        <div className='row2'>
+                            <ProductImage allSalesItems= {selectedProduct} />
+                            <ProductDescription allSalesItems= {selectedProduct} />
+                        </div>
+                        <div className='row3'>
+                            <Comments allSalesItems= {selectedProduct} />
+                            <CommentsListing allSalesItems= {selectedProduct} />
+                        </div>
+                    </div>
+                )
+            }else {
+                return(null);
+            }
         }
     }
 }
-
-// DetailInformation.defaultProps = {
-//     title: 'DetailInformation'
-// };
 
 const mapStateToProps = state => {
     return {

@@ -14,13 +14,13 @@ class Favorites extends React.Component {
     }
     render() {
         const favoriteItemDetails = this.props.favorite.map((favoriteItemDetail, index) => (
-            <div className="row-store" key={index}>
+            <div className='row-store' key={index}>
                 <FavoriteProductImage favoriteItemDetail={favoriteItemDetail} />
                 <FavoriteProductDescription favoriteItemDetail={favoriteItemDetail} />
             </div>
         ));
         return (
-            <div className="store-row-wrapper">
+            <div className='store-row-wrapper'>
                 {favoriteItemDetails}
             </div>
         );
@@ -37,5 +37,3 @@ const mapStateToProps = state => {
 };
 
 export default withRouter(requiresLogin()(connect(mapStateToProps)(Favorites)));
-
-

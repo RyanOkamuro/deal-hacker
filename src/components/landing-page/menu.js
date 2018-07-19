@@ -1,4 +1,5 @@
 import React from 'react';
+
 import StoresSubmenu from './stores';
 import CategoriesSubmenu from './categories';
 import {Link} from 'react-router-dom';
@@ -55,10 +56,10 @@ export class Menu extends React.Component {
         let logOutLink;
         if (this.props.loggedIn) {
             addDealLink = (
-                <Link to={"/add-deal"} className="addDeal">Add Deal</Link>
+                <Link to={'/add-deal'} className='addDeal'>Add Deal</Link>
             )
             favoriteLink = (
-                <Link to={"/favorites"} className="addDeal">Favorites</Link>
+                <Link to={'/favorites'} className='addDeal'>Favorites</Link>
             )
             logOutLink = (
                 <div className='log-out' onClick={() => this.logOut()}>Log out</div>
@@ -66,21 +67,21 @@ export class Menu extends React.Component {
         }
         return (
             <div>
-            <p onClick={this.toggleDropDown3} className="mobileMenu">Menu</p>
-            <ul className="navigation" style= {{display: this.state.showMenu ? 'block' : 'none'}}>
-                <li><Link to={'/'} className="home">Home</Link></li>
-                <li className="nav__menu-stores" onMouseLeave={this.handleLeave}><a onClick={this.toggleDropDown} onMouseEnter={this.handleHover}>Stores</a>
-                    {this.state.showStoresMenu && <StoresSubmenu />}
-                </li>
-                <li className="nav__menu-categories" onMouseLeave={this.handleLeave2}><a onClick={this.toggleDropDown2} onMouseEnter={this.handleHover2}>Categories</a>
-                    {this.state.showCategoriesMenu && <CategoriesSubmenu />}
-                </li>
-                <li>{favoriteLink}</li>
-                <li>{addDealLink}</li>
-                <li><Link to={'/registration'} className="registration">Sign up</Link></li>  
-                <li><Link to={'/login'} className="login">Login</Link></li>
-                <li>{logOutLink}</li>  
-            </ul>
+                <p onClick={this.toggleDropDown3} className='mobileMenu'>Menu</p>
+                <ul className='navigation' style= {{display: this.state.showMenu ? 'block' : 'none'}}>
+                    <li><Link to={'/'} className='home'>Home</Link></li>
+                    <li className='nav__menu-stores' onMouseLeave={this.handleLeave}><a onClick={this.toggleDropDown} onMouseEnter={this.handleHover}>Stores</a>
+                        {this.state.showStoresMenu && <StoresSubmenu />}
+                    </li>
+                    <li className='nav__menu-categories' onMouseLeave={this.handleLeave2}><a onClick={this.toggleDropDown2} onMouseEnter={this.handleHover2}>Categories</a>
+                        {this.state.showCategoriesMenu && <CategoriesSubmenu />}
+                    </li>
+                    <li>{favoriteLink}</li>
+                    <li>{addDealLink}</li>
+                    <li><Link to={'/registration'} className='registration'>Sign up</Link></li>  
+                    <li><Link to={'/login'} className='login'>Login</Link></li>
+                    <li>{logOutLink}</li>  
+                </ul>
             </div>
         );
     }

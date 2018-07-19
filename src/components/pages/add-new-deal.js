@@ -1,15 +1,15 @@
 import React from 'react';
+
 import {reduxForm, Field, SubmissionError, focus} from 'redux-form';
 import Input from './input';
 import {addDeal} from '../../actions/dealActions';
 import {required, nonEmpty} from '../../validators';
 import {Redirect} from 'react-router-dom';
 
-import "./add-new-deal.css";
+import './add-new-deal.css';
 
 export class AddNewDealForm extends React.Component {
     onSubmit(values) {
-        console.log(values);
         this.props.dispatch(addDeal(values))
             .then(() => console.log('Submitted with values', values))
             .catch(err => {
@@ -34,78 +34,80 @@ export class AddNewDealForm extends React.Component {
         let successMessage;
         if (this.props.submitSucceeded) {
             successMessage = (
-                <div className="message message-success">
+                <div className='message message-success'>
                     Message submitted successfully
                 </div>
             );
-            return <Redirect to="/"/>
+            return <Redirect to='/'/>
         }
 
         let errorMessage;
         if (this.props.error) {
             errorMessage = (
-                <div className="message message-error">{this.props.error}</div>
+                <div className='message message-error'>{this.props.error}</div>
             );
         }
 
         return (
-            <form className="new-deal-form"
+            <form className='new-deal-form'
                 onSubmit={this.props.handleSubmit(values =>
                     this.onSubmit(values)
                 )}>
+                {successMessage}
+                {errorMessage}
                 <Field          
-                    name="dealName"  
-                    type="text" 
+                    name='dealName'  
+                    type='text' 
                     component={Input}
-                    label="Item Name"
+                    label='Item Name'
                     validate={[required, nonEmpty]} 
                 />
                 <label>Product Category</label>
                 <Field          
-                    name="productCategory"  
-                    component="select">
+                    name='productCategory'  
+                    component='select'>
                     <option></option>
-                    <option value="Electronics">Electronics</option>
-                    <option value="Home Needs">Home Needs</option>
-                    <option value="Jewlery">Jewlery</option>
+                    <option value='Electronics'>Electronics</option>
+                    <option value='Home Needs'>Home Needs</option>
+                    <option value='Jewlery'>Jewlery</option>
                 </ Field>
                 <Field          
-                    name="price"  
-                    type="text" 
+                    name='price'  
+                    type='text' 
                     component={Input}
-                    label="Price"
+                    label='Price'
                     validate={[required, nonEmpty]} 
                 />
                 <Field          
-                    name="image"  
-                    type="text" 
+                    name='image'  
+                    type='text' 
                     component={Input}
-                    label="Image URL"
+                    label='Image URL'
                     validate={[required, nonEmpty]} 
                 />
                 <Field          
-                    name="seller"  
-                    type="text" 
+                    name='seller'  
+                    type='text'
                     component={Input}
-                    label="Seller"
+                    label='Seller'
                     validate={[required, nonEmpty]} 
                 />
                 <Field          
-                    name="productDescription"  
-                    element="textarea"
+                    name='productDescription' 
+                    element='textarea'
                     component={Input}
-                    label="Product Description"
+                    label='Product Description'
                     validate={[required, nonEmpty]} 
                 />
                 <Field          
-                    name="dealLink"  
-                    type="text"
+                    name='dealLink'  
+                    type='text'
                     component={Input}
-                    label="Deal URL"
+                    label='Deal URL'
                     validate={[required, nonEmpty]} 
                 />
                 <button 
-                    type="submit"
+                    type='submit'
                     //Here we disable the button if it is pristine (i.e. if the user hasn't entered anything into the field) or it is submitting.
                     disabled={this.props.pristine || this.props.submitting}>
                     Submit

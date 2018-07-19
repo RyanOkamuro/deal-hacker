@@ -15,19 +15,17 @@ export const dealReducer = (state=initialState, action) => {
         // object into an empty object, which ensures
         // that we're not mutating the original state object  
         allDeals: action.deals.dealItem
-        })
+        });
     }
     if (action.type === updateDealAction.GET_UPDATE_DEAL_SUCCESS) {
         return Object.assign({}, state, {   
-        allDeals: state.allDeals.map(item => {
-            console.log(item);
-            // console.log(action);
-            if (item.id === action.deals._id){
-                return action.deals;
-            } else {
-                return item;
-            }
-        })
+            allDeals: state.allDeals.map(item => {
+                if (item.id === action.deals._id){
+                    return action.deals;
+                } else {
+                    return item;
+                }
+            })
         })
     }
     return state;

@@ -1,11 +1,10 @@
-
-.store-box-image {
-    height: 250px;
-    padding: 35px;
-    border-width: 1px;
-    box-shadow: 1px 2px 2px 1px #888888;
-    border-color: #DCDCDC;
-    border-style: solid;
-    border-radius: 10px;
-    position: relative;
-}
+    .store-box-image {
+        height: 250px;
+        padding: 35px;
+        border-width: 1px;
+        box-shadow: 1px 2px 2px 1px #888888;
+        border-color: #DCDCDC;
+        border-style: solid;
+        border-radius: 10px;
+        position: relative;
+    }

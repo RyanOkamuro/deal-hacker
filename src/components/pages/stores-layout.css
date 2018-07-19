@@ -65,6 +65,7 @@
     font-size: 16px;
     text-decoration: none;
   }
+
   /* Clearfix */
   .row-store::before,
   .row-store::after {
@@ -81,6 +82,7 @@
       margin-top: 70px;
       font-size: 40px;
     }
+
     .row-store {
       margin-bottom: 15px;
       border-width: 1px;
@@ -89,15 +91,18 @@
       border-style: solid;
       border-radius: 10px;
     }
+
     .store-box-2 {
       -webkit-box-shadow: none;
       border-width: 0;
       box-shadow: none;
     }
+
     .store-image-list {
       height: 240px;
       width: 240px;
     }
+
     .row2 {
       margin-bottom: 0;
       border-width: 1px;
@@ -116,12 +121,14 @@
       margin-top: 35px;
     }
   }
+
   @media only screen and (max-width: 350px) {
     .store-image-list {
       height: 140px;
       width: 140px;
       padding: 0;
     }
+    
     .store-box-2 {
       margin-top: 0;
       margin-bottom: 0;

@@ -1,4 +1,5 @@
 import React from 'react';
+
 import {connect} from 'react-redux';
 import {clearAuth} from '../../actions/auth';
 import {clearAuthToken} from '../../local-storage';
@@ -24,7 +25,7 @@ class FavoriteStar extends React.Component {
         let favoriteStarImage;
         if (this.props.loggedIn) {
             favoriteStarImage = (
-                <img src="https://i.stack.imgur.com/LQk8v.png" onClick={() => this.addNewFavorite(this.props.favoriteItem.id)} className="favorite" alt="favorite"></img>
+                <img src='https://i.stack.imgur.com/LQk8v.png' onClick={() => this.addNewFavorite(this.props.favoriteItem.id)} className='favorite' alt='favorite'></img>
             )
         } 
         return (

@@ -1,4 +1,5 @@
 import React from 'react';
+
 import {connect} from 'react-redux';
 import {clearAuth} from '../../actions/auth';
 import {clearAuthToken} from '../../local-storage';
@@ -18,7 +19,7 @@ export class LogOut extends React.Component {
             );
         }
         return (
-            <div className="log-out">
+            <div className='log-out'>
                 {logOutLink}
             </div>
         );

@@ -12,7 +12,7 @@ describe('getDeals', () => {
 
 describe('getAllDeals', () => {
     it('Should dispatch getDeals', () => {
-        const deals = ["Dell XPS", "Fire Stick"];
+        const deals = ['Dell XPS', 'Fire Stick'];
         global.fetch = jest.fn().mockImplementation(() => {
             return Promise.resolve({ok: true, json(){
                 return deals;
@@ -43,7 +43,7 @@ describe('getUpdateDeal', () => {
 
 describe('getAllUpdateDeals', () => {
     it('Should dispatch getUpdateDeal', () => {
-        const deals = ["Dell XPS", "Fire Stick"];
+        const deals = ['Dell XPS', 'Fire Stick'];
         global.fetch = jest.fn().mockImplementation(() => {
             return Promise.resolve({ok: true, json(){
                 return deals;
@@ -74,7 +74,7 @@ describe('addDeals', () => {
 
 describe('addDeal', () => {
     it('Should dispatch addDeals', () => {
-        const deals = ["Apple Watch 3", "Fire Stick"];
+        const deals = ['Apple Watch 3', 'Fire Stick'];
         global.fetch = jest.fn().mockImplementation(() => {
             return Promise.resolve({ok: true, json(){
                 return deals;
@@ -106,14 +106,14 @@ describe('editDeal', () => {
 
 describe('editedDeal', () => {
     it('Should dispatch editDeal', () => {
-        const deals = ["Apple Watch 3", "Fire Stick"];
+        const deals = ['Apple Watch 3', 'Fire Stick'];
         global.fetch = jest.fn().mockImplementation(() => {
             return Promise.resolve({ok: true, json(){
                 return deals;
             }})
         })
         const dispatch = jest.fn();
-        const productId = "15290816";
+        const productId = '15290816';
         return editedDeal(deals, productId)(dispatch)
         .then(() => {
             expect(fetch).toHaveBeenCalledWith(`${API_BASE_URL}/deal/${productId}`, {

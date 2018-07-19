@@ -13,12 +13,12 @@ export class CommentsListing extends React.Component {
     }
     render() {
         const userComments = this.props.commentList.filter(item => item._id === this.props.allSalesItems.id).map((comment, index) => (
-            <ul className="comment-list" key={index}>
+            <ul className='comment-list' key={index}>
                 <SingleComment comment={comment} />
             </ul>
         ))
         return (
-            <div className="comment-area">
+            <div className='comment-area'>
                 {userComments}
             </div> 
         )

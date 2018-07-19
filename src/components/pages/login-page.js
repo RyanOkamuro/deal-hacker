@@ -1,22 +1,21 @@
 import React from 'react';
 import TestAccount from './test-account';
+import LoginForm from './login-form';
 import {connect} from 'react-redux';
 import {Link, Redirect} from 'react-router-dom';
 import {withRouter} from 'react-router-dom';
 
-import LoginForm from './login-form';
-
 export function LoginPage(props) {
     // If we are logged in redirect straight to the main deal page
     if (props.loggedIn) {
-        return <Redirect to="/" />;
+        return <Redirect to='/' />;
     }
 
     return (
-        <div className="login-page">
+        <div className='login-page'>
             <h3>Login</h3>
             <LoginForm />
-            <Link to="/registration" className="registration">Register</Link>
+            <Link to='/registration' className='registration'>Register</Link>
             <TestAccount />
         </div>
     );

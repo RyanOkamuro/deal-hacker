@@ -12,7 +12,7 @@ describe('getFavorite', () => {
 
 describe('getAllFavorites', () => {
     it('Should dispatch getFavorite', () => {
-        const deals = ["Dell XPS", "Fire Stick"];
+        const deals = ['Dell XPS', 'Fire Stick'];
         global.fetch = jest.fn().mockImplementation(() => {
             return Promise.resolve({ok: true, json(){
                 return deals;
@@ -20,7 +20,7 @@ describe('getAllFavorites', () => {
         })
         const dispatch = jest.fn();
         const getState = jest.fn().mockImplementation(() => {
-            return {auth: {authToken: "1242141"}};
+            return {auth: {authToken: '1242141'}};
         })
         return getAllFavorites()(dispatch, getState)
         .then(() => {
@@ -47,7 +47,7 @@ describe('addFavorite', () => {
 
 describe('addNewFavorite', () => {
     it('Should dispatch addFavorite', () => {
-        const deal = ["Dell XPS", "Fire Stick"];
+        const deal = ['Dell XPS', 'Fire Stick'];
         global.fetch = jest.fn().mockImplementation(() => {
             return Promise.resolve({ok: true, json(){
                 return deal;
@@ -55,7 +55,7 @@ describe('addNewFavorite', () => {
         })
         const dispatch = jest.fn();
         const getState = jest.fn().mockImplementation(() => {
-            return {auth: {authToken: "1242141"}};
+            return {auth: {authToken: '1242141'}};
         })
         return addNewFavorite()(dispatch, getState)
         .then(() => {
@@ -84,7 +84,7 @@ describe('removeFavorite', () => {
 
 describe('removeOneFavorite', () => {
     it('Should dispatch addFavorite', () => {
-        const dealId = ["125121661", "125121662"];
+        const dealId = ['125121661', '125121662'];
         global.fetch = jest.fn().mockImplementation(() => {
             return Promise.resolve({ok: true, json(){
                 return dealId;
@@ -92,7 +92,7 @@ describe('removeOneFavorite', () => {
         })
         const dispatch = jest.fn();
         const getState = jest.fn().mockImplementation(() => {
-            return {auth: {authToken: "1242141"}};
+            return {auth: {authToken: '1242141'}};
         })
         return removeOneFavorite(dealId)(dispatch, getState)
         .then(() => {

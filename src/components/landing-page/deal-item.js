@@ -9,8 +9,8 @@ import './deal-item.css';
 export default class DealItem extends React.Component {
     render() {
         const saleItems = this.props.saleItems.map((saleItem, index) => (
-            <div className="col-2" key={index}>
-                <div className="box">
+            <div className='col-2' key={index}>
+                <div className='box'>
                     <DealName saleItem={saleItem} />
                     <ViewDetails saleItem={saleItem} />
                 </div>
@@ -19,7 +19,7 @@ export default class DealItem extends React.Component {
         return (
             <div>
                 <Subheader />
-                <div className="row">
+                <div className='row'>
                     {saleItems}
                 </div>
             </div>
