@@ -2,13 +2,6 @@ language: node_js
 node_js: node
 cache:
   directories:
-  - node_modules
+    - node_modules
 env:
-- CI=true
-deploy:
-  provider: heroku
-  api_key:
-    secure: QDwnsXLW7yyvVVr0thgYta+j9Jh8bWe97qGg276vZgmcktCEPGlYmhX4UwBy/0DGoADV8WyCNyy9FO/DqkqaAPTitgD8fuwr5MbyZQLJYyxuV2hGH+/j3lgQbypNmHbMf4PiWm+3qIU2ww+CikZ9JCESvj+tLoPDuJwQOs9Dr42IelyUmlSmvC2IJIOHVWBJ16MhDLxQP1alu+z0CR9CSXcj+mWhXNYGz/HH07t6j//7HbBN3ziSXHiMnuObpLHvZ5KDIpwIF2JrYWsDD7MoSQpmj7tpAfumwBAr4JBZdQP11Mt822V9aXnnjzGe/sR355aaQ3ws90ZZGUXJh2MJBbOhC5lo0r6FWK2l2U+YrA4Ng6wsuQclgU3YhjyDh3dD9M8u8T0AGMqU3YwjUJCzrKKZjnPwTpKhP1Tx0LAcv60RWpP+DfxAMIsHyfZU8T5oOa4+Hp0F9rytMs8GbZXFI19mEcSR+2RCYzz2VfofnCyFIwvU/3KbjwZaO0VViEmtesK7DjBQeNxlrHmnmkTxqkO0x5/oFO+zOaFHbE0feZ/iA9rlKkFK8gv+QuNAV/8E+wwnVsEwYkyZ+cBEsdgsYMDX55/hNEMzDBKTa1CKNkE0fPd93tJTqC+ZZvONkctnMJEhDhFwJQKRKfluYhInVYPFbUziws74uLmflV7OErc=
-  app: deal-hacker
-  on:
-    repo: RyanOkamuro/deal-hacker
+  - CI=true
