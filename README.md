@@ -24,11 +24,13 @@ Frontend: <br />
 -Javascript <br />
 -HTML <br />
 -CSS
+(https://github.com/RyanOkamuro/deal-hacker)
 
 Backend: <br />
 -Node.js & Express.js <br />
 -MongoDB & Mongoose <br />
 -Passport, Morgan, bcrypt.js
+(https://github.com/RyanOkamuro/deal-hacker-api)
 
 Testing: <br />
 -Enzyme <br />
