@@ -1,20 +1,16 @@
- language: node_js
- node_js: "8"
- cache:
-   directories:
-     - node_modules
- script:
-   - npm test
- env:
-   - CI=true
-
- before_deploy:
-   - npm install netlify-cli -g
-   - npm run build
-
- deploy:
-   provider: script
-   script: netlify deploy -s $NETLIFY_SITE_ID -t $NETLIFY_ACCESS_TOKEN -p ./build
-   skip_cleanup: true
-   on:
-     branch: master
+language: node_js
+node_js: '8'
+cache:
+  directories:
+  - node_modules
+script:
+- npm test
+env:
+- CI=true
+deploy:
+  provider: heroku
+  api_key:
+    secure: tcZm0H3C+Rpt7/LOECHo06Dof8C0vBr3bZ3lXQrJ6gZm8/N9+v0WXO0qUp+4p4bc2FRrlJ2N9uu0RTC79cnPDoNg+xjDpruSAja3eQFw4Bf4gESnWitlzPKGM+NtGArgqbAac5bY73oSo+EVR0Bu1nB4Trb5N7VtylarPLdT5US6M4apelgxiiwosw7XhdwD/Zw6U6+f3/isiOpGPhlhKwMp4RbG6mCdjBpw9kDQa+sf6RLrd7u7K5hJXkMxP0c8XwhjnTzqZzVoxVwgpfHwLI6hNeCtlpnt/PlT+knSLCzjRu18Jnvu27ft3NJWiZuvwQOEfrhpNxro7qWV+2P+VKU4esNT7PYSHiiY9JP6vQ/RdX0vijNGy0xXlLGAoMwNGqKSlqhvQ1tWy2fG69OVciezUTYbLeE52ePSoFFxj1EsB991Zqp42aqQtTKrLlZTiOKwU+0HjDIN+cr9Hv6QGjRHkw/0ei+XqaBqhFoCjaiFQuJ3c3rk6H+BWjMFG9TQc3lvW9QqfoP43hbimX09gTL07gS37MrvxH38oyWgGopSYA1A1MwNMp68745hcmsszexugFvlgZRkm66tPieUJg3QKvRu2iJZpclwUUWhTafi/PGlSe3yeU00yJRKMEZJXLpnaEKjloDecR287f6obykTI5UvxZFv07DSSNPfM48=
+  app: deal-hacker
+  on:
+    repo: RyanOkamuro/deal-hacker
