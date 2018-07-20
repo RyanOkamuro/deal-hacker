@@ -23,13 +23,13 @@ Frontend: <br />
 -Redux <br />
 -Javascript <br />
 -HTML <br />
--CSS
+-CSS <br />
 (https://github.com/RyanOkamuro/deal-hacker)
 
 Backend: <br />
 -Node.js & Express.js <br />
 -MongoDB & Mongoose <br />
--Passport, Morgan, bcrypt.js
+-Passport, Morgan, bcrypt.js <br />
 (https://github.com/RyanOkamuro/deal-hacker-api)
 
 Testing: <br />
