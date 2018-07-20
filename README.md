@@ -11,11 +11,9 @@ Screenshots
 
 ![Deal Details Page](https://raw.githubusercontent.com/RyanOkamuro/deal-hacker/master/images/Deal_Hacker_Details_Page.JPG)
 
-![Store Listing Page](https://raw.githubusercontent.com/RyanOkamuro/deal-hacker/master/images/Deal_Hacker_Store_Listing)
+![Store Listing Page](https://raw.githubusercontent.com/RyanOkamuro/deal-hacker/master/images/Deal_Hacker_Store_Listing.JPG)
 
-![Favorites Page](https://raw.githubusercontent.com/RyanOkamuro/deal-hacker/master/images/Deal_Hacker_Favorites_Listing)
-
-![Add New Deal Page](https://raw.githubusercontent.com/RyanOkamuro/deal-hacker/master/images/Deal_Hacker_Add_Deal_Form)
+![Favorites Page](https://raw.githubusercontent.com/RyanOkamuro/deal-hacker/master/images/Deal_Hacker_Favorites_Listing.JPG)
 
 
 Built With
