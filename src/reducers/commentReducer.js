@@ -15,7 +15,6 @@ export const commentReducer = (state=initialState, action) => {
         // object into an empty object, which ensures
         // that we're not mutating the original state object
         allComments: action.comments.comments
-        // allComents: { ...state.allComents, [action.id]: { ...state.allComents[action.id], actions.comments } }
         })
     }
     if (action.type === UpdateCommentsAction.GET_UPDATED_COMMENTS_SUCCESS) {
