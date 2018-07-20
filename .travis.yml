@@ -2,10 +2,5 @@ language: node_js
 node_js: node
 script:
 - npm test
-deploy:
-  provider: heroku
-  api_key:
-    secure: LsL8ngpe8UstcwvTkq4SoU2B/JPWdR7AJwSqMxLMTVpqOmRKBRtrEC0mH1bhUqiH4ln5MBaQyRJbh90OiVYYfY2U/H+JoZN/O9Av8iGEx6rxgwRoGPsfSK0zxLAdSLbWxGWqzZx6eSia5MPOANBcGM4A44JZ5aH1Q4LQyvZdH8i0pNcdB03WIh6Xg6g7FcsuwW4ppOz+louPvkqCQo8wpRgAQnSjCk6DLTEk+0qtX1utc25oY5WXIqVnjJOhl1jxGmkiuA6Zbyj2U+yOg0BbMChVLpll2Vu+Gy2OtesNwowTzpppVHDQBUT15SnSsAe2Y1pf5bmdPyevSQjqnkAQwa3Dz3b7Y6Lc88yStb33152yinc2pS83Mnnz1M9Bgtdy3PVZFN9N0Lio1nxsnP3dKpj0PBBI95j4qEuDp0WcOwFEK4R/BntlnKVF5WV3gwnot3og4Un3c8X3MwL5WG1jHYOgCMJiqe8lXGfyecMr3X4ELyW7s1AExCf03jG5EW8YvGJnDW32jcLgALjNm9eD8Yw5z8FzPgYyRbdHiA2FHEfnhAU26I/ci82KyTpBUu9xbOY0muiFDQyEat08lJT4q8WJCvxIunfCDSQ3qucWAZ1HEZVyU6CVjlKjHBQm4+oyiW05cHGcssaspijboUUbAEJj8emx0Nlu1Mmi9KA2rC8=
-  app: deal-hacker
-  on:
-    repo: RyanOkamuro/deal-hacker
+env:
+- CI=true
