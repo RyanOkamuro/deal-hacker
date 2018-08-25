@@ -3,7 +3,7 @@ import React from 'react';
 import WebFont from 'webfontloader';
 import Header from './landing-page/header';
 import {connect} from 'react-redux';
-import {BrowserRouter as Router, Route, Switch, withRouter} from 'react-router-dom';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import {refreshAuthToken} from '../actions/auth';
 import DealBoard from './landing-page/deal-board';
 import DetailInformation from './details/detail-information';

@@ -12,7 +12,7 @@ export class CommentsListing extends React.Component {
         this.props.dispatch(getAllComments(id));
     }
     render() {
-        const userComments = this.props.commentList.filter(item => item._id === this.props.allSalesItems.id).map((comment, index) => (
+        const userComments = this.props.commentList.filter(item => item.deal_id === this.props.allSalesItems.id).map((comment, index) => (
             <ul className='comment-list' key={index}>
                 <SingleComment comment={comment} />
             </ul>
