@@ -126,3 +126,30 @@ export const editedDeal = (values, productID) => dispatch => {
             dispatch(getUpdateDeal(deals))
         })
     }
+
+/////////////////////////////////////////////////////////////////
+
+export const REMOVE_DEAL = 'REMOVE_DEAL';
+export const removeDeal = dealId => ({
+    type: REMOVE_DEAL,
+    dealId
+});
+
+export const removeOneDeal = (dealId) => (dispatch, getState) => {
+    const authToken = getState().auth.authToken;
+    return fetch(`${API_BASE_URL}/deal/${dealId}`, {
+        method: 'DELETE',
+        headers: {
+            'content-type': 'application/json',
+            'Authorization': `Bearer ${authToken}`
+        },
+    })
+    .then(res => {
+		if(!res.ok) {
+			return Promise.reject(res.statusText);
+		}
+	})
+	.then(() => {
+		dispatch(removeDeal(dealId));
+	});
+};

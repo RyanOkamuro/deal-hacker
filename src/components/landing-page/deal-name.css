@@ -7,6 +7,16 @@
     height: 20px;
     width: 20px;
     position: relative;
+    right: 90px;
+    top: -25px;
+    cursor: pointer;
+  }
+
+  .removeDealButton {
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    position: relative;
     left: 90px;
     top: 0px;
     cursor: pointer;
@@ -32,12 +42,14 @@
   }
 
   @media only screen and (max-width: 639px) {
-    img {
-      margin-top: 10px;
-    }
-    .favorite {
-      left: 0;
+    .removeDealButton {
       float: right;
+      left: 0;
+    }  
+    .favorite {
+      top: 0;
+      float: left;
+      right: 0;
     }
   }
 
