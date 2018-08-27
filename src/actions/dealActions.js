@@ -56,12 +56,13 @@ export const addDeals = deals => ({
     deals
 });
 
-export const addDeal = (values) => dispatch => {
+export const addDeal = (values, authToken) => dispatch => {
     return fetch(`${API_BASE_URL}/deal`, {
         method: 'POST',
         body: JSON.stringify(values),
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${authToken}`
         }
     })
         .then(res => {

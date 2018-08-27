@@ -5,7 +5,7 @@ import {clearAuthToken} from '../../local-storage';
 import {withRouter} from 'react-router-dom';
 import {removeOneDeal} from '../../actions/dealActions';
 
-// let userId;
+let loggedInUserId;
 
 class DealRemoveButton extends React.Component {
     logOut() {
@@ -22,15 +22,14 @@ class DealRemoveButton extends React.Component {
         this.props.dispatch(removeOneDeal(dealId));
     }
     render() {
-        // console.log(this.props.dealItem)
-        // let userComment = this.props.comment;
-        // let userCommentId = userComment['user']
-        // let dealRemoveButtonImage;
-        // if (this.props.loggedIn && userCommentId === userId) {
-            let dealRemoveButtonImage = (
+        let userDeal = this.props.dealItem;
+        let userId = userDeal['user'];
+        let dealRemoveButtonImage;
+        if (this.props.loggedIn && userId === loggedInUserId) {
+            dealRemoveButtonImage = (
                 <img src='http://www.glenviewhealthclub.com/wp-content/uploads/x-mark.png' onClick={() => this.removeOneDeal(this.props.dealItem.id)} className='removeDealButton' alt='removeButton'></img>
             )
-        // }    
+        }    
         return (
             <div>
                 {dealRemoveButtonImage}
@@ -44,10 +43,10 @@ DealRemoveButton.defaultProps = {
 };
 
 const mapStateToProps = state => {
-    // let user = state.auth.currentUser
-    // if(user !== null) {
-    //     userId = user['id']
-    // }
+    let user = state.auth.currentUser;
+    if(user !== null) {
+        loggedInUserId = user['id']
+    }
 return {
     deal: state.deal,
     loggedIn: state.auth.currentUser !== null
