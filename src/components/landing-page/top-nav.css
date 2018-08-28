@@ -50,14 +50,36 @@
     }
     
     nav {
-      background-color: #333;
+      height: 100%;
       font-size: 15px;
-      padding-top: 5px;
       padding-bottom: 5px;
+    }
+
+    nav ul {
+      overflow: visible;
+    }
+
+    nav .hitbox {
+      height: 100vh;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 8;
+    }
+
+    nav li {
+      background-color: #333;
+    }
+
+    nav .hitoverlay {
+      position: relative;
+      z-index: 9;
     }
 
     nav > div > .menu {
       display: block;
+  
     }
 
     nav > div > .mobileMenu {
@@ -65,6 +87,7 @@
       color: white;
       cursor: pointer;
       padding: 5px 10px;
+      background-color: #333;
     }
 
     li a, .menu, .log-out {
