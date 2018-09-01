@@ -81,13 +81,15 @@ describe('addDeal', () => {
             }})
         })
         const dispatch = jest.fn();
-        return addDeal(deals)(dispatch)
+        const authToken = '1242141';
+        return addDeal(deals, authToken)(dispatch)
         .then(() => {
             expect(fetch).toHaveBeenCalledWith(`${API_BASE_URL}/deal`, {
                 method: 'POST',
                 body: JSON.stringify(deals),
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    Authorization: `Bearer 1242141`
                 }
             })
             expect(dispatch).toHaveBeenCalledWith(addDeals(deals))
