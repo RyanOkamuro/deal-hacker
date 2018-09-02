@@ -8,3 +8,37 @@
         border-radius: 10px;
         position: relative;
     }
+
+    .confirmation-mssg {
+        font-size: 20px;
+        margin-bottom: 15px;
+        font-weight: bold;
+    }
+
+    .button-container {
+        display: block;
+        margin-top: 15px;
+        text-align: center;
+    }
+
+    .confirmation-yes {
+        background-color: #3373c7;
+        border-radius: 2px;
+        width: 80px;
+        height: 25px;
+        border: #3373c7;
+        color: white;
+        cursor: pointer;
+        margin-right: 5px;
+    }
+
+    .confirmation-no {
+        background-color: #3373c7;
+        border-radius: 2px;
+        width: 80px;
+        height: 25px;
+        border: #3373c7;
+        color: white;
+        cursor: pointer;
+        margin-left: 5px;
+    }

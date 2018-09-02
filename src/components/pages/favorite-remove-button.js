@@ -13,20 +13,23 @@ class FavoriteRemoveButton extends React.Component {
 
     submit = () => {
         confirmAlert({
-          title: 'Confirm to submit',
-          message: 'Are you sure to remove this favorite?',
-          buttons: [
-            {
-              label: 'Yes',
-              onClick: () => this.removeOneFavorite(this.props.favoriteItemDetail)
-            },
-            {
-              label: 'No'
+            customUI: ({ onClose }) => {
+              return (
+                <div className='custom-ui'>
+                  <p className='confirmation-mssg'>Do you want to remove this favorite?</p>
+                  <div className='button-container'>
+                    <button className='confirmation-yes' onClick={() => {
+                        this.removeOneFavorite(this.props.favoriteItemDetail)
+                        onClose()
+                    }}>Yes</button>
+                    <button className='confirmation-no' onClick={onClose}>No</button>
+                  </div>
+                </div>
+              )
             }
-          ]
-        })
+          })
       };
-   
+
     removeOneFavorite(dealId) {
         this.props.dispatch(removeOneFavorite(dealId._id));
     }
