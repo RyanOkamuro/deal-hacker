@@ -4,6 +4,8 @@ import {clearAuth} from '../../actions/auth';
 import {clearAuthToken} from '../../local-storage';
 import {withRouter} from 'react-router-dom';
 import {removeOneComment} from '../../actions/commentActions';
+import { confirmAlert } from 'react-confirm-alert';
+import 'react-confirm-alert/src/react-confirm-alert.css'
 
 let userId;
 
@@ -17,6 +19,25 @@ class CommentRemoveButton extends React.Component {
         super(props);
         this.removeOneComment=this.removeOneComment.bind(this)
     }
+
+    submit = () => {
+        confirmAlert({
+            customUI: ({ onClose }) => {
+              return (
+                <div className='custom-ui'>
+                  <p className='confirmation-mssg'>Do you want to remove this comment?</p>
+                  <div className='button-container'>
+                    <button className='confirmation-yes' onClick={() => {
+                        this.removeOneComment(this.props.comment, this.props.comment.deal_id)
+                        onClose()
+                    }}>Yes</button>
+                    <button className='confirmation-no' onClick={onClose}>No</button>
+                  </div>
+                </div>
+              )
+            }
+          })
+      };
    
     removeOneComment(comment, dealId) {
         this.props.dispatch(removeOneComment(comment._id, dealId));
@@ -27,7 +48,7 @@ class CommentRemoveButton extends React.Component {
         let commentRemoveButtonImage;
         if (this.props.loggedIn && userCommentId === userId) {
             commentRemoveButtonImage = (
-                <img src='http://www.glenviewhealthclub.com/wp-content/uploads/x-mark.png' onClick={() => this.removeOneComment(this.props.comment, this.props.comment.deal_id)} className='removeCommentButton' alt='removeButton'></img>
+                <img src='http://www.glenviewhealthclub.com/wp-content/uploads/x-mark.png' onClick={() => this.submit()} className='removeCommentButton' alt='removeButton'></img>
             )
         }    
         return (
