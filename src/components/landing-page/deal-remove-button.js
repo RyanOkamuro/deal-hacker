@@ -4,6 +4,8 @@ import {clearAuth} from '../../actions/auth';
 import {clearAuthToken} from '../../local-storage';
 import {withRouter} from 'react-router-dom';
 import {removeOneDeal} from '../../actions/dealActions';
+import { confirmAlert } from 'react-confirm-alert';
+import 'react-confirm-alert/src/react-confirm-alert.css'
 
 let loggedInUserId;
 
@@ -17,6 +19,25 @@ class DealRemoveButton extends React.Component {
         super(props);
         this.removeOneDeal=this.removeOneDeal.bind(this)
     }
+
+    submit = () => {
+        confirmAlert({
+            customUI: ({ onClose }) => {
+              return (
+                <div className='custom-ui'>
+                  <p className='confirmation-mssg'>Do you want to remove this deal?</p>
+                  <div className='button-container'>
+                    <button className='confirmation-yes' onClick={() => {
+                        this.removeOneDeal(this.props.dealItem.id)
+                        onClose()
+                    }}>Yes</button>
+                    <button className='confirmation-no' onClick={onClose}>No</button>
+                  </div>
+                </div>
+              )
+            }
+          })
+      };
    
     removeOneDeal(dealId) {
         this.props.dispatch(removeOneDeal(dealId));
@@ -27,7 +48,7 @@ class DealRemoveButton extends React.Component {
         let dealRemoveButtonImage;
         if (this.props.loggedIn && userId === loggedInUserId) {
             dealRemoveButtonImage = (
-                <img src='http://www.glenviewhealthclub.com/wp-content/uploads/x-mark.png' onClick={() => this.removeOneDeal(this.props.dealItem.id)} className='removeDealButton' alt='removeButton'></img>
+                <img src='http://www.glenviewhealthclub.com/wp-content/uploads/x-mark.png' onClick={() => this.submit()} className='removeDealButton' alt='removeButton'></img>
             )
         }    
         return (
