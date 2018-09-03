@@ -52,7 +52,7 @@ class DealRemoveButton extends React.Component {
             )
         }    
         return (
-            <div>
+            <div className='fav-delete'>
                 {dealRemoveButtonImage}
             </div>
         )
