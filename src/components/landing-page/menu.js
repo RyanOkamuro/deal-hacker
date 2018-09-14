@@ -7,8 +7,9 @@ import {clearAuth} from '../../actions/auth';
 import {clearAuthToken} from '../../local-storage';
 import {withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
+import { slide as Menu } from 'react-burger-menu'
 
-export class Menu extends React.Component {
+export class MainMenu extends React.Component {
     logOut() {
         this.props.dispatch(clearAuth());
         clearAuthToken();
@@ -23,32 +24,32 @@ export class Menu extends React.Component {
         };
     }
 
-    handleHover = () => {
-        this.setState({ showStoresMenu: true });
-    };
+    // handleHover = () => {
+    //     this.setState({ showStoresMenu: true });
+    // };
 
-    handleLeave = () => {
-        this.setState({ showStoresMenu: false });
-    };
+    // handleLeave = () => {
+    //     this.setState({ showStoresMenu: false });
+    // };
 
     toggleDropDown = () => {
         this.setState({ showStoresMenu: !this.state.showStoresMenu});
     }
 
-    handleHover2 = () => {
-        this.setState({ showCategoriesMenu: true });
-    };
+    // handleHover2 = () => {
+    //     this.setState({ showCategoriesMenu: true });
+    // };
 
-    handleLeave2 = () => {
-        this.setState({ showCategoriesMenu: false });
-    };
+    // handleLeave2 = () => {
+    //     this.setState({ showCategoriesMenu: false });
+    // };
 
     toggleDropDown2 = () => {
         this.setState({ showCategoriesMenu: !this.state.showCategoriesMenu});
     }
-    toggleDropDown3 = () => {
-        this.setState({ showMenu: !this.state.showMenu});
-    }
+    // toggleDropDown3 = () => {
+    //     this.setState({ showMenu: !this.state.showMenu});
+    // }
 
     render() {
         let addDealLink;
@@ -66,14 +67,14 @@ export class Menu extends React.Component {
             )
         }
         return (
-            <div>
-                <p onClick={this.toggleDropDown3} className='mobileMenu hitoverlay'>Menu</p>
-                <ul className='navigation hitoverlay' style= {{display: this.state.showMenu ? 'block' : 'none'}}>
+            <Menu>
+                
+                <ul className='navigation hitoverlay' style= {{display: this.state.showMenu}}>
                     <li><Link to={'/'} className='home'>Home</Link></li>
-                    <li className='nav__menu-stores' onMouseLeave={this.handleLeave}><a onClick={this.toggleDropDown} onMouseEnter={this.handleHover}>Stores</a>
+                    <li className='nav__menu-stores'><a onClick={this.toggleDropDown}>Stores</a>
                         {this.state.showStoresMenu && <StoresSubmenu />}
                     </li>
-                    <li className='nav__menu-categories' onMouseLeave={this.handleLeave2}><a onClick={this.toggleDropDown2} onMouseEnter={this.handleHover2}>Categories</a>
+                    <li className='nav__menu-categories'><a onClick={this.toggleDropDown2}>Categories</a>
                         {this.state.showCategoriesMenu && <CategoriesSubmenu />}
                     </li>
                     <li>{favoriteLink}</li>
@@ -82,9 +83,9 @@ export class Menu extends React.Component {
                     <li><Link to={'/login'} className='login'>Login</Link></li>
                     <li>{logOutLink}</li>  
                 </ul>
-                <div className ='hitbox' onClick={this.toggleDropDown3}>
-                </div>
-            </div>
+                {/* <div className ='hitbox' onClick={this.toggleDropDown3}>
+                </div> */}
+            </Menu>
         );
     }
 }
@@ -93,4 +94,4 @@ const mapStateToProps = state => ({
     loggedIn: state.auth.currentUser !== null
 });
 
-export default withRouter(connect(mapStateToProps)(Menu));
+export default withRouter(connect(mapStateToProps)(MainMenu));

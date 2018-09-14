@@ -1,5 +1,5 @@
 import React from 'react';
-import Menu from './menu';
+import MainMenu from './menu';
 import {connect} from 'react-redux';
 import {withRouter} from 'react-router-dom';
 
@@ -24,11 +24,10 @@ export class TopNav extends React.Component {
     toggleDropDown = () => {
         this.setState({showMainMenu: !this.state.showMainMenu});
     }
-
     render() {
         return (
             <nav> 
-                <Menu />
+                <MainMenu />
             </nav>
         );
     }
