@@ -2,6 +2,7 @@ import React from 'react';
 
 import {reduxForm, Field, SubmissionError, focus} from 'redux-form';
 import Input from './input';
+import store from '../../store';
 import {addDeal} from '../../actions/dealActions';
 import {required, nonEmpty} from '../../validators';
 import {Redirect} from 'react-router-dom';
@@ -10,7 +11,8 @@ import './add-new-deal.css';
 
 export class AddNewDealForm extends React.Component {
     onSubmit(values) {
-        this.props.dispatch(addDeal(values))
+        const authToken = store.getState().auth.authToken;
+        this.props.dispatch(addDeal(values, authToken))
             .then(() => console.log('Submitted with values', values))
             .catch(err => {
                 const {reason, message, location} = err;

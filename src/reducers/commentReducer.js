@@ -17,9 +17,27 @@ export const commentReducer = (state=initialState, action) => {
         allComments: action.comments.comments
         })
     }
+
     if (action.type === UpdateCommentsAction.GET_UPDATED_COMMENTS_SUCCESS) {
         return Object.assign({}, state, {   
             allComments: action.comments
+        })
+    }
+
+    if (action.type === actions.REMOVE_COMMENT) {
+        return Object.assign({}, state, {
+        // Object.assign generates
+        // a new state object by merging an object
+        // representing the new state of the lists
+        // to the existing state, and in turn, that resulting 
+        // object into an empty object, which ensures
+        // that we're not mutating the original state object
+        allComments: state.allComments.filter(allComments => {
+            if (allComments._id === action.id) {
+                return false
+            }
+            return true
+        }) 
         })
     }
     return state;

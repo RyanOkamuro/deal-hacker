@@ -94,4 +94,31 @@ export const addComment = (values, id, authToken) => (dispatch) => {
         .then(comments => {
             dispatch(getUpdateComments(comments))
         })
-}
+};
+/////////////////////////////////////////////////////////////////
+
+
+export const REMOVE_COMMENT = 'REMOVE_COMMENT';
+export const removeComment = id => ({
+    type: REMOVE_COMMENT,
+    id
+});
+
+export const removeOneComment = (id, dealId) => (dispatch, getState) => {
+    const authToken = getState().auth.authToken;
+    return fetch(`${API_BASE_URL}/comments/${id}/${dealId}`, {
+        method: 'DELETE',
+        headers: {
+            'content-type': 'application/json',
+            'Authorization': `Bearer ${authToken}`
+        },
+    })
+    .then(res => {
+		if(!res.ok) {
+			return Promise.reject(res.statusText);
+		}
+	})
+	.then(() => {
+		dispatch(removeComment(id));
+	});
+};

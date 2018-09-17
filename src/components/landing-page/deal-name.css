@@ -6,9 +6,14 @@
   .favorite {
     height: 20px;
     width: 20px;
-    position: relative;
-    left: 90px;
-    top: 0px;
+    cursor: pointer;
+    float: left;
+  }
+
+  .removeDealButton {
+    float: right;
+    height: 20px;
+    width: 20px;
     cursor: pointer;
   }
 
@@ -29,15 +34,5 @@
 
   .deal-price {
     font-weight: bold;
-  }
-
-  @media only screen and (max-width: 639px) {
-    img {
-      margin-top: 10px;
-    }
-    .favorite {
-      left: 0;
-      float: right;
-    }
   }
 

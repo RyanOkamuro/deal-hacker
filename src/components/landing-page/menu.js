@@ -67,8 +67,8 @@ export class Menu extends React.Component {
         }
         return (
             <div>
-                <p onClick={this.toggleDropDown3} className='mobileMenu'>Menu</p>
-                <ul className='navigation' style= {{display: this.state.showMenu ? 'block' : 'none'}}>
+                <p onClick={this.toggleDropDown3} className='mobileMenu hitoverlay'>Menu</p>
+                <ul className='navigation hitoverlay' style= {{display: this.state.showMenu ? 'block' : 'none'}}>
                     <li><Link to={'/'} className='home'>Home</Link></li>
                     <li className='nav__menu-stores' onMouseLeave={this.handleLeave}><a onClick={this.toggleDropDown} onMouseEnter={this.handleHover}>Stores</a>
                         {this.state.showStoresMenu && <StoresSubmenu />}
@@ -82,6 +82,7 @@ export class Menu extends React.Component {
                     <li><Link to={'/login'} className='login'>Login</Link></li>
                     <li>{logOutLink}</li>  
                 </ul>
+                {this.state.showMenu && <div className ='hitbox' onClick={this.toggleDropDown3}></div>} 
             </div>
         );
     }

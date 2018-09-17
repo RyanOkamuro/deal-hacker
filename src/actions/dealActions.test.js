@@ -1,4 +1,4 @@
-import {GET_DEALS, getDeals, getAllDeals, GET_UPDATE_DEAL_SUCCESS, getUpdateDeal, getAllUpdateDeals, ADD_DEALS, addDeals, addDeal, EDIT_DEALS, editDeal, editedDeal} from './dealActions';
+import {GET_DEALS, getDeals, getAllDeals, GET_UPDATE_DEAL_SUCCESS, getUpdateDeal, getAllUpdateDeals, ADD_DEALS, addDeals, addDeal, EDIT_DEALS, editDeal, editedDeal, REMOVE_DEAL, removeDeal, removeOneDeal} from './dealActions';
 import {API_BASE_URL} from '../config';
 
 describe('getDeals', () => {
@@ -81,13 +81,15 @@ describe('addDeal', () => {
             }})
         })
         const dispatch = jest.fn();
-        return addDeal(deals)(dispatch)
+        const authToken = '1242141';
+        return addDeal(deals, authToken)(dispatch)
         .then(() => {
             expect(fetch).toHaveBeenCalledWith(`${API_BASE_URL}/deal`, {
                 method: 'POST',
                 body: JSON.stringify(deals),
                 headers: {
-                    'Content-Type': 'application/json'
+                    'Content-Type': 'application/json',
+                    Authorization: `Bearer 1242141`
                 }
             })
             expect(dispatch).toHaveBeenCalledWith(addDeals(deals))
@@ -124,6 +126,41 @@ describe('editedDeal', () => {
                 }
             })
             expect(dispatch).toHaveBeenCalledWith(getUpdateDeal(deals))
+        })
+    });
+});
+
+describe('removeDeal', () => {
+    it('Should return the action', () => {
+        const dealId = '125121661';
+        const action = removeDeal(dealId);
+        expect(action.type).toEqual(REMOVE_DEAL);
+        expect(action.dealId).toEqual(dealId);
+    });
+});
+
+describe('removeOneDeal', () => {
+    it('Should dispatch removeDeal', () => {
+        const dealId = ['125121661', '125121662'];
+        global.fetch = jest.fn().mockImplementation(() => {
+            return Promise.resolve({ok: true, json(){
+                return dealId;
+            }})
+        })
+        const dispatch = jest.fn();
+        const getState = jest.fn().mockImplementation(() => {
+            return {auth: {authToken: '1242141'}};
+        })
+        return removeOneDeal(dealId)(dispatch, getState)
+        .then(() => {
+            expect(fetch).toHaveBeenCalledWith(`${API_BASE_URL}/deal/${dealId}`, {
+                method: 'DELETE',
+                headers: {
+                    'content-type': 'application/json',
+                    Authorization: `Bearer 1242141`
+                },
+            })
+            expect(dispatch).toHaveBeenCalledWith(removeDeal(dealId))
         })
     });
 });

@@ -4,6 +4,8 @@ import {connect} from 'react-redux';
 import {clearAuth} from '../../actions/auth';
 import {clearAuthToken} from '../../local-storage';
 import {withRouter} from 'react-router-dom';
+import { confirmAlert } from 'react-confirm-alert';
+import 'react-confirm-alert/src/react-confirm-alert.css'
 
 import {addNewFavorite} from '../../actions/favoriteActions';
 
@@ -17,6 +19,24 @@ class FavoriteStar extends React.Component {
         super(props);
         this.addNewFavorite=this.addNewFavorite.bind(this)
     }
+
+    submit = () => {
+        confirmAlert({
+            customUI: ({ onClose }) => {
+              return (
+                <div className='custom-ui'>
+                  <p className='confirmation-mssg'>Added to favorites</p>
+                  <div className='button-container'>
+                    <button className='confirmation-yes' onClick={() => {
+                        this.addNewFavorite(this.props.favoriteItem.id)
+                        onClose()
+                    }}>Okay</button>
+                  </div>
+                </div>
+              )
+            }
+          })
+      };
    
     addNewFavorite(deal) {
         this.props.dispatch(addNewFavorite(deal));
@@ -25,11 +45,11 @@ class FavoriteStar extends React.Component {
         let favoriteStarImage;
         if (this.props.loggedIn) {
             favoriteStarImage = (
-                <img src='https://i.stack.imgur.com/LQk8v.png' onClick={() => this.addNewFavorite(this.props.favoriteItem.id)} className='favorite' alt='favorite'></img>
+                <img src='https://i.stack.imgur.com/LQk8v.png' onClick={() => this.submit()} className='favorite' alt='favorite'></img>
             )
         } 
         return (
-            <div>
+            <div className='fav-delete'>
                 {favoriteStarImage}
             </div>
         )

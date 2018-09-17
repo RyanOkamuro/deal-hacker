@@ -56,12 +56,13 @@ export const addDeals = deals => ({
     deals
 });
 
-export const addDeal = (values) => dispatch => {
+export const addDeal = (values, authToken) => dispatch => {
     return fetch(`${API_BASE_URL}/deal`, {
         method: 'POST',
         body: JSON.stringify(values),
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${authToken}`
         }
     })
         .then(res => {
@@ -126,3 +127,30 @@ export const editedDeal = (values, productID) => dispatch => {
             dispatch(getUpdateDeal(deals))
         })
     }
+
+/////////////////////////////////////////////////////////////////
+
+export const REMOVE_DEAL = 'REMOVE_DEAL';
+export const removeDeal = dealId => ({
+    type: REMOVE_DEAL,
+    dealId
+});
+
+export const removeOneDeal = (dealId) => (dispatch, getState) => {
+    const authToken = getState().auth.authToken;
+    return fetch(`${API_BASE_URL}/deal/${dealId}`, {
+        method: 'DELETE',
+        headers: {
+            'content-type': 'application/json',
+            'Authorization': `Bearer ${authToken}`
+        },
+    })
+    .then(res => {
+		if(!res.ok) {
+			return Promise.reject(res.statusText);
+		}
+	})
+	.then(() => {
+		dispatch(removeDeal(dealId));
+	});
+};
