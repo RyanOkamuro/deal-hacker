@@ -82,8 +82,7 @@ export class Menu extends React.Component {
                     <li><Link to={'/login'} className='login'>Login</Link></li>
                     <li>{logOutLink}</li>  
                 </ul>
-                <div className ='hitbox' onClick={this.toggleDropDown3}>
-                </div>
+                {this.state.showMenu && <div className ='hitbox' onClick={this.toggleDropDown3}></div>} 
             </div>
         );
     }
