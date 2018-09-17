@@ -24,25 +24,25 @@ export class MainMenu extends React.Component {
         };
     }
 
-    // handleHover = () => {
-    //     this.setState({ showStoresMenu: true });
-    // };
+    handleHover = () => {
+        this.setState({ showStoresMenu: true });
+    };
 
-    // handleLeave = () => {
-    //     this.setState({ showStoresMenu: false });
-    // };
+    handleLeave = () => {
+        this.setState({ showStoresMenu: false });
+    };
 
     toggleDropDown = () => {
         this.setState({ showStoresMenu: !this.state.showStoresMenu});
     }
 
-    // handleHover2 = () => {
-    //     this.setState({ showCategoriesMenu: true });
-    // };
+    handleHover2 = () => {
+        this.setState({ showCategoriesMenu: true });
+    };
 
-    // handleLeave2 = () => {
-    //     this.setState({ showCategoriesMenu: false });
-    // };
+    handleLeave2 = () => {
+        this.setState({ showCategoriesMenu: false });
+    };
 
     toggleDropDown2 = () => {
         this.setState({ showCategoriesMenu: !this.state.showCategoriesMenu});
@@ -68,13 +68,12 @@ export class MainMenu extends React.Component {
         }
         return (
             <Menu>
-                
                 <ul className='navigation hitoverlay' style= {{display: this.state.showMenu}}>
                     <li><Link to={'/'} className='home'>Home</Link></li>
-                    <li className='nav__menu-stores'><a onClick={this.toggleDropDown}>Stores</a>
+                    <li className='nav__menu-stores' onMouseLeave={this.handleLeave}><a onClick={this.toggleDropDown} onMouseEnter={this.handleHover}>Stores</a>
                         {this.state.showStoresMenu && <StoresSubmenu />}
                     </li>
-                    <li className='nav__menu-categories'><a onClick={this.toggleDropDown2}>Categories</a>
+                    <li className='nav__menu-categories' onMouseLeave={this.handleLeave2}><a onClick={this.toggleDropDown2} onMouseEnter={this.handleHover2}>Categories</a>
                         {this.state.showCategoriesMenu && <CategoriesSubmenu />}
                     </li>
                     <li>{favoriteLink}</li>
@@ -83,8 +82,6 @@ export class MainMenu extends React.Component {
                     <li><Link to={'/login'} className='login'>Login</Link></li>
                     <li>{logOutLink}</li>  
                 </ul>
-                {/* <div className ='hitbox' onClick={this.toggleDropDown3}>
-                </div> */}
             </Menu>
         );
     }

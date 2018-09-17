@@ -2,12 +2,14 @@
     box-sizing: border-box;
   }
 
-   .nav_stores_submenu {
+  .nav_stores_submenu {
     display: block;
     position: absolute;
+    text-align: left;
   }
 
   .nav_stores_submenu-item {
     display: block;
     position: relative;
+    text-align: left;
   }

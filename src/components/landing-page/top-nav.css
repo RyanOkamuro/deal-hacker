@@ -1,157 +1,9 @@
-  /* Position and sizing of burger button */
-.bm-burger-button {
-  position: fixed;
-  width: 36px;
-  height: 30px;
-  left: 36px;
-  top: 36px;
-}
- 
-/* Color/shape of burger icon bars */
-.bm-burger-bars {
-  background: #373a47;
-}
- 
-/* Position and sizing of clickable cross button */
-.bm-cross-button {
-  height: 24px;
-  width: 24px;
-}
- 
-/* Color/shape of close button cross */
-.bm-cross {
-  background: #080808;
-}
- 
-/* General sidebar styles */
-.bm-menu {
-  background: #F5F5F5;
-  padding: 2.5em 1.5em 0;
-  font-size: 1.15em;
-}
- 
-/* Morph shape necessary with bubble or elastic */
-.bm-morph-shape {
-  fill: #F5F5F5;
-}
- 
-/* Wrapper for item list */
-.bm-item-list {
-  color: #686868;
-  padding: 0.8em;
-}
-
-.bm-item-list a, .log-out {
-  margin-left: 15px;
-  font-weight: 700;
-}
- 
-/* Individual item */
-.bm-item {
-  display: block;
-}
-
-.bm-menu a, .log-out {
-  color: black
-}
- 
-/* Styling of overlay */
-.bm-overlay {
-  background: rgba(0, 0, 0, 0.3);
-}
-
-.log-out, .nav__menu-stores, .nav__menu-categories {
-  cursor: pointer;
-}
-
-    /* .navigation {
-      display: none;
-    } */
-    
-    nav {
-      height: 100%;
-      font-size: 15px;
-      padding-bottom: 5px;
-    }
-
-    nav ul {
-      overflow: visible;
-    }
-
-    /* nav .hitbox {
-      height: 100vh;
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 8;
-    } */
-
-    nav li {
-      background-color: #F5F5F5;
-      padding-bottom: 5px;
-    }
-
-    li a {
-      text-decoration: none;
-    }
-
-    nav .hitoverlay {
-      position: relative;
-      z-index: 9;
-    }
-
-    
-    nav .hitbox {
-      height: 100vh;
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 8;
-    }
-
-    nav > div > .menu {
-      display: block;
-  
-    }
-
-    nav > div > .mobileMenu {
-      display: block;
-      color: white;
-      cursor: pointer;
-      padding: 5px 10px;
-      background-color: #F5F5F5;
-    }
-
-    nav > div > ul > li {
-      float: none;
-    }
-
-    .nav_stores_submenu, .nav_categories_submenu {
-      width: 100%;
-      padding-left: 15px;
-    }
-
-    .box3 {
-      height: 250px;
-    }
-  
-
-  /* nav {
+  nav {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     z-index: 10;
-  }
-
-  nav > div > .menu {
-    display: none;
-  }
-
-  nav > div > .mobileMenu {
-    display: none;
   }
 
   ul {
@@ -161,12 +13,12 @@
     overflow: hidden;
     background-color: #333;
   }
-  
-  nav > div > ul > li {
+
+  nav > ul > li {
     float: left;
   }
 
-  li a, .log-out, .menu {
+  li a, .log-out {
     display: block;
     color: white;
     text-align: center;
@@ -175,82 +27,123 @@
     cursor: pointer;
   }
 
-  .menu {
-    text-align: left;
-  }
-
   li a:hover, .log-out:hover {
     background-color: #111;
   }
 
-  
   @media only screen and (max-width: 720px) {
-    .navigation {
-      display: none;
-    }
-    
-    nav {
-      height: 100%;
-      font-size: 15px;
-      padding-bottom: 5px;
-    }
 
-    nav ul {
-      overflow: visible;
-    }
-
-    nav .hitbox {
-      height: 100vh;
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      z-index: 8;
-    }
-
-    nav li {
-      background-color: #333;
-    }
-
-    nav .hitoverlay {
-      position: relative;
-      z-index: 9;
-    }
-
-    nav > div > .menu {
-      display: block;
+  /* Position and sizing of burger button */
+  .bm-burger-button {
+    position: fixed;
+    width: 36px;
+    height: 30px;
+    left: 36px;
+    top: 36px;
+  }
   
-    }
-
-    nav > div > .mobileMenu {
-      display: block;
-      color: white;
-      cursor: pointer;
-      padding: 5px 10px;
-      background-color: #333;
-    }
-
-    li a, .menu, .log-out {
-      text-align: left;
-      padding: 5px 10px;
-    }
-
-    nav > div > ul > li {
-      float: none;
-    }
-
-    .nav_stores_submenu, .nav_categories_submenu {
-      width: 100%;
-      padding-left: 15px;
-    }
-
-    .box3 {
-      height: 250px;
-    }
+  /* Color/shape of burger icon bars */
+  .bm-burger-bars {
+    background: #373a47;
+  }
+  
+  /* Position and sizing of clickable cross button */
+  .bm-cross-button {
+    height: 24px;
+    width: 24px;
+  }
+  
+  /* Color/shape of close button cross */
+  .bm-cross {
+    background: #080808;
+  }
+  
+  /* General sidebar styles */
+  .bm-menu {
+    background: #F5F5F5;
+    padding: 2.5em 1.5em 0;
+    font-size: 1.15em;
+  }
+  
+  /* Morph shape necessary with bubble or elastic */
+  .bm-morph-shape {
+    fill: #F5F5F5;
+  }
+  
+  /* Wrapper for item list */
+  .bm-item-list {
+    color: #686868;
+    padding: 0.8em;
   }
 
-  @media only screen and (min-width: 720px) {
-    .navigation {
-      display: block !important;
-    }
-  } */
+  .bm-item-list a, .log-out {
+    margin-left: 15px;
+    font-weight: 700;
+  }
+  
+  /* Individual item */
+  .bm-item {
+    display: block;
+  }
+
+  .bm-menu a, .log-out {
+    color: black
+  }
+  
+  /* Styling of overlay */
+  .bm-overlay {
+    background: rgba(0, 0, 0, 0.3);
+  }
+
+  .log-out, .nav__menu-stores, .nav__menu-categories {
+    cursor: pointer;
+  }
+
+  nav {
+    position: static;
+    height: 100%;
+    font-size: 15px;
+    padding-bottom: 5px;
+    display: block;
+  }
+
+  nav ul {
+    overflow: visible;
+    background-color: #F5F5F5;
+  }
+
+  nav li {
+    background-color: #F5F5F5;
+    padding-bottom: 5px;
+  }
+
+  li a {
+    text-decoration: none;
+  }
+
+  .log-out {
+    padding: 14px 16px;
+    text-align: none;
+  }
+
+  nav > ul > li {
+    float: none;
+  }
+
+  nav .hitoverlay {
+    position: relative;
+    z-index: 9;
+  }
+
+  .nav_stores_submenu, .nav_categories_submenu {
+    width: 100%;
+    padding-left: 15px;
+    height: 100%;
+    margin-left: 15px;
+  }
+
+  li a:hover, .log-out:hover {
+    background-color: #e6e6e6;
+  }
+  }
+  
