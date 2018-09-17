@@ -83,7 +83,7 @@ describe('removeFavorite', () => {
 });
 
 describe('removeOneFavorite', () => {
-    it('Should dispatch addFavorite', () => {
+    it('Should dispatch removeFavorite', () => {
         const dealId = ['125121661', '125121662'];
         global.fetch = jest.fn().mockImplementation(() => {
             return Promise.resolve({ok: true, json(){
