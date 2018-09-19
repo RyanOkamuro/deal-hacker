@@ -8,6 +8,7 @@ import './deal-item.css';
 
 export default class DealItem extends React.Component {
     render() {
+        let saleItemsOrdered = this.props.saleItems.sort((a, b) => b.createdAt.localeCompare(a.createdAt));
         const saleItems = this.props.saleItems.map((saleItem, index) => (
             <div className='col-2' key={index}>
                 <div className='box'>
