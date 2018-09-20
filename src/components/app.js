@@ -63,7 +63,7 @@ export class App extends React.Component {
       <Router>
         <div className='homePage'>
           <Header />
-            <main>
+            <main role='main'>
               <Switch>
                 <Route exact path='/' component={DealBoard} /> 
                 <Route path='/details/detail-information/:product' name='detail-information' component={DetailInformation} />

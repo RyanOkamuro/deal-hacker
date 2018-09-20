@@ -27,7 +27,7 @@ class FavoriteStar extends React.Component {
                 <div className='custom-ui'>
                   <p className='confirmation-mssg'>Added to favorites</p>
                   <div className='button-container'>
-                    <button className='confirmation-yes' onClick={() => {
+                    <button role='button' className='confirmation-yes' onClick={() => {
                         this.addNewFavorite(this.props.favoriteItem.id)
                         onClose()
                     }}>Okay</button>

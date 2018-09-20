@@ -23,6 +23,7 @@ export class RegistrationForm extends React.Component {
     render() {
         return (
             <form
+                role='form' 
                 className='signup-form'
                 onSubmit={this.props.handleSubmit(values =>
                     this.onSubmit(values)
@@ -63,6 +64,7 @@ export class RegistrationForm extends React.Component {
                     validate={[required, nonEmpty, matchesPassword]}
                 />
                 <button
+                    role='button'
                     type='submit'
                     disabled={this.props.pristine || this.props.submitting}>
                     Register

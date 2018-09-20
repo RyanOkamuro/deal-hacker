@@ -48,7 +48,7 @@ export class EditDeal extends React.Component {
         }
 
         return (
-            <form className='edit-form'
+            <form role='form' className='edit-form'
                 onSubmit={this.props.handleSubmit(values =>
                     this.onSubmit(values, productID)
                 )}>
@@ -101,6 +101,7 @@ export class EditDeal extends React.Component {
                     label='Deal Link'
                 />
                 <button 
+                    role='button'
                     type='submit'
                     //Here we disable the button if it is pristine (i.e. if the user hasn't entered anything into the field) or it is submitting.
                     disabled={this.props.pristine || this.props.submitting}>

@@ -43,7 +43,7 @@ export class Comments extends React.Component {
         if (this.props.loggedIn) {
             userDealComments = (
             <div className='box3'>
-                <form className='user-comments-form'
+                <form role='form' className='user-comments-form'
                     onSubmit={this.props.handleSubmit(values =>
                         this.onSubmit(values)
                     )}>
@@ -54,7 +54,8 @@ export class Comments extends React.Component {
                         component={Input}
                         label='Leave a comment'
                     />
-                    <button 
+                    <button
+                        role='button' 
                         type='submit'
                         //Here we disable the button if it is pristine (i.e. if the user hasn't entered anything into the field) or it is submitting.
                         disabled={this.props.pristine || this.props.submitting}>

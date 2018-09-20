@@ -6,7 +6,7 @@ import './header.css';
 export default class Header extends React.Component {
     render() {
         return (
-        <header>
+        <header role='banner'>
             <TopNav />
             <h1>Deal Hacker</h1>
         </header>

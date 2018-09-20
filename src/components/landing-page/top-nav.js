@@ -27,7 +27,7 @@ export class TopNav extends React.Component {
 
     render() {
         return (
-            <nav> 
+            <nav role='navigation'> 
                 <Menu />
             </nav>
         );

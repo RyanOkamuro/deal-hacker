@@ -27,11 +27,11 @@ class CommentRemoveButton extends React.Component {
                 <div className='custom-ui'>
                   <p className='confirmation-mssg'>Do you want to remove this comment?</p>
                   <div className='button-container'>
-                    <button className='confirmation-yes' onClick={() => {
+                    <button role='button' className='confirmation-yes' onClick={() => {
                         this.removeOneComment(this.props.comment, this.props.comment.deal_id)
                         onClose()
                     }}>Yes</button>
-                    <button className='confirmation-no' onClick={onClose}>No</button>
+                    <button role='button' className='confirmation-no' onClick={onClose}>No</button>
                   </div>
                 </div>
               )
