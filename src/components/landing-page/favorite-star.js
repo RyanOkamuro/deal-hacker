@@ -42,7 +42,7 @@ class FavoriteStar extends React.Component {
         this.props.dispatch(addNewFavorite(deal));
     }
     render() {
-        let favoriteStarImage;
+        let favoriteStarImage = null;
         if (this.props.loggedIn) {
             favoriteStarImage = (
                 <img src='https://i.stack.imgur.com/LQk8v.png' onClick={() => this.submit()} className='favorite' alt='favorite'></img>

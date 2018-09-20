@@ -19,7 +19,7 @@ export class Menu extends React.Component {
         this.state = {
             showStoresMenu: false,
             showCategoriesMenu: false,
-            showMenu: false
+            showMenu: false, 
         };
     }
 
@@ -54,6 +54,12 @@ export class Menu extends React.Component {
         let addDealLink;
         let favoriteLink;
         let logOutLink;
+        let logInLink =  (
+            <Link to={'/login'} className='login' style= {{display: this.props.loggedIn ? 'none' : 'block'}}>Login</Link>
+        )
+        let signUpLink =  (
+            <Link to={'/registration'} className='registration' style= {{display: this.props.loggedIn ? 'none' : 'block'}}>Sign up</Link>
+        )
         if (this.props.loggedIn) {
             addDealLink = (
                 <Link to={'/add-deal'} className='addDeal'>Add Deal</Link>
@@ -62,7 +68,7 @@ export class Menu extends React.Component {
                 <Link to={'/favorites'} className='addDeal'>Favorites</Link>
             )
             logOutLink = (
-                <div className='log-out' onClick={() => this.logOut()}>Log out</div>
+                <div className='log-out' onClick={() => this.logOut()}>Log Out</div>
             )
         }
         return (
@@ -78,8 +84,8 @@ export class Menu extends React.Component {
                     </li>
                     <li>{favoriteLink}</li>
                     <li>{addDealLink}</li>
-                    <li><Link to={'/registration'} className='registration'>Sign up</Link></li>  
-                    <li><Link to={'/login'} className='login'>Login</Link></li>
+                    <li>{signUpLink}</li>
+                    <li>{logInLink}</li>  
                     <li>{logOutLink}</li>  
                 </ul>
                 {this.state.showMenu && <div className ='hitbox' onClick={this.toggleDropDown3}></div>} 
