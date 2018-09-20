@@ -49,9 +49,8 @@ class FavoriteStar extends React.Component {
             )
         } 
         return (
-            <div className='fav-delete'>
-                {favoriteStarImage}
-            </div>
+            favoriteStarImage
+
         )
     }
 }

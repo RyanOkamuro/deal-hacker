@@ -45,16 +45,14 @@ class DealRemoveButton extends React.Component {
     render() {
         let userDeal = this.props.dealItem;
         let userId = userDeal['user'];
-        let dealRemoveButtonImage;
+        let dealRemoveButtonImage = null;
         if (this.props.loggedIn && userId === loggedInUserId) {
             dealRemoveButtonImage = (
                 <img src='http://www.glenviewhealthclub.com/wp-content/uploads/x-mark.png' onClick={() => this.submit()} className='removeDealButton' alt='removeButton'></img>
             )
         }    
         return (
-            <div className='fav-delete'>
-                {dealRemoveButtonImage}
-            </div>
+           dealRemoveButtonImage
         )
     }
 }

@@ -9,8 +9,10 @@ export default class DealName extends React.Component {
         return (
             <div>
                 <figure>
-                    <DealRemoveButton dealItem= {this.props.saleItem} />
-                    <FavoriteStar favoriteItem= {this.props.saleItem} />
+                    <div className='fav-delete'>
+                        <FavoriteStar favoriteItem= {this.props.saleItem} />
+                        <DealRemoveButton dealItem= {this.props.saleItem} />
+                    </div>
                     <img src={this.props.saleItem.image} id= {this.props.saleItem.id} className='deal-item-image' alt='sale item'></img>
                     <figcaption className='store-name'>{this.props.saleItem.seller}</figcaption>
                     <figcaption className='deal-name'>{this.props.saleItem.dealName}</figcaption>
