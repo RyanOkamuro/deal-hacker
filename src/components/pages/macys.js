@@ -15,7 +15,7 @@ export class Macys extends React.Component {
     }
     render() {
         let storeMatch= this.props.lists.filter(function(saleItem) {
-            return saleItem.seller === 'Macys';
+            return saleItem.seller === `Macy's`;
         });
 
         let dealItems= storeMatch.map((dealItem, index) => (

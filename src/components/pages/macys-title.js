@@ -4,7 +4,7 @@ export default class MacysHeader extends React.Component {
     render() {
         return (
             <h6>
-                Macys Deals
+                Macy's Deals
             </h6>
         );
     }

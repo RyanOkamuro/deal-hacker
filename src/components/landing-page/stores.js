@@ -17,7 +17,7 @@ export default class StoresSubmenu extends React.Component {
                     <Link to={'/dell'} className='dell-page'>Dell</Link>
                 </li>
                 <li className='nav_stores_submenu-item'>
-                    <Link to={'/macys'} className='macys-page'>Macys</Link>
+                    <Link to={'/macys'} className='macys-page'>Macy's</Link>
                 </li>
                 <li className='nav_stores_submenu-item'>
                     <Link to={'/walmart'} className='walmart-page'>Walmart</Link>
