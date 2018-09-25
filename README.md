@@ -49,7 +49,7 @@ Usage
 
 Demo
 --------
-https://nameless-reef-48795.herokuapp.com/
+https://deal-hacker.herokuapp.com/
 
 
 Author
